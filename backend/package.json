@@ -22,7 +22,8 @@
   "type": "commonjs",
   "dependencies": {
     "@prisma/adapter-pg": "^7.3.0",
-    "pg": "^8.18.0"
+    "pg": "^8.18.0",
+    "router": "^2.2.0"
   },
   "overrides": {
     "lodash": "^4.17.21",

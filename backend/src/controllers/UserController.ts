@@ -1,7 +1,6 @@
 import { Request, Response } from "express";
 import { prisma } from "../config/prisma";
 import {Prisma} from "../generated/prisma/client";
-import { error } from "node:console";
 
 export class UserController{
     //ato de cadastro
