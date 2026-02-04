@@ -26,13 +26,17 @@ model User{
   gender Gender?
   phoneNumber String?
   dateBirth DateTime?
-  preferences Boolean[] @default([true, false, false, true, false, false])
   totalOrders Int @default(0)
   totalRating Float @default(0)
   totalWishlist Int @default(0)
-  //prisma tava reclamando pq esse campo da wl tem q ser opcional, mas so na hr de fazer o controller garantir q a wl
-  //seja criada junta que ta show(eu acho)
 
+  emailNotification Boolean @default(true)
+  smsNotification Boolean @default(false)
+  marketingEmail Boolean //na tela de cadastro o usuario decide se quer ou nao receber esses emails
+  orderUpdate Boolean @default(true)
+  newArrival Boolean @default(false)
+  saleAlert Boolean @default(false)
+  
   wishList WishList?
   //cart Cart?
 }

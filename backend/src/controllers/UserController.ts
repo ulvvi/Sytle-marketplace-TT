@@ -6,11 +6,12 @@ export class UserController{
     //ato de cadastro
     public static async SignUp(req: Request, res: Response){
         try {
-            const {firstName, lastName, email} = req.body;
+            const {firstName, lastName, email, marketingEmail} = req.body;
             const createData: Prisma.UserCreateInput = {
                 firstName: firstName,
                 lastName: lastName,
                 email: email,
+                marketingEmail: marketingEmail,
                 wishList: {create:{}}
                 //Cart: {create:{}}
             }
@@ -50,8 +51,10 @@ export class UserController{
 
     public static async updateUser(req: Request, res: Response){
         try {
-            const {firstName, lastName, email, gender, phoneNumber, dateBirth, preferences, 
-                totalOrders, totalRating, totalWishlist} = req.body;
+            const {firstName, lastName, email, gender, phoneNumber, dateBirth, 
+                totalOrders, totalRating, totalWishlist, emailNotification, 
+                smsNotification, marketingEmail, orderUpdate, newArrival, 
+                saleAlert} = req.body;
             const {id} = req.params;
             
             const updateData: Prisma.UserUpdateInput = {
@@ -61,10 +64,15 @@ export class UserController{
                 gender: gender,
                 phoneNumber: phoneNumber, 
                 dateBirth: new Date(dateBirth),
-                preferences: preferences,
                 totalOrders: totalOrders,
                 totalRating: totalRating,
-                totalWishlist: totalWishlist
+                totalWishlist: totalWishlist,
+                emailNotification: emailNotification,
+                smsNotification: smsNotification,
+                marketingEmail: marketingEmail,
+                orderUpdate: orderUpdate,
+                newArrival: newArrival,
+                saleAlert: saleAlert
             }
             const updatedUser = await prisma.user.update({
                 where:{
