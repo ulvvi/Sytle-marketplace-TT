@@ -13,6 +13,7 @@ export class UserController{
                 lastName: lastName,
                 email: email,
                 wishList: {create:{}}
+                //Cart: {create:{}}
             }
             const createdUser = await prisma.user.create({
                 data: createData
