@@ -46,3 +46,33 @@ model WishList{
 
   //product WishListProduct[]
 }
+
+
+model Product {
+  id Int @id @default(autoincrement())
+  rating Float 
+  price Float
+  numOfReviews Int
+  isOutOfStock Boolean // Isso não deveria ser um campo para a Variant? as variantes que tem stock, logo, se ele acaba, deveria informar ess falta relacionada a própria variante. 
+
+  variant Variant[]
+  review Review[]
+}
+
+model Variant {
+  id Int @id @default(autoincrement())
+  color String @unique // @unique pois não pode existir duas ou mais variantes da mesma cor
+  size String
+  stock Int
+
+  productId Int @unique
+  product Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+}
+
+model Review {
+  id Int @id @default(autoincrement())
+  rating Float
+
+  productId Int @unique
+  product Product @relation(fields: [productId], references: [id])
+}
