@@ -1,7 +1,7 @@
 import { ButtonIntegration } from "./ButtonIntegration"
 import { InputText } from "./InputText"
 import { Link } from "react-router"
-
+import { Button } from "./Button"
 
 export function EntranceBox() {
     return (
@@ -71,6 +71,8 @@ export function EntranceBox() {
                         <Link className="absolute right-0 top-0 text-[12px] text-[14px]" to="/forgot-password">Forgot Password?</Link>
                         </div>
 
+                            <Button texto="Sign In" link="/dashboard" color="default"/>
+                        
 
                     </div>
                 </div>
