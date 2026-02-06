@@ -16,6 +16,7 @@ export class productController {
         stock,
         productId,
       } = request.body;
+
       const createdProduct = {
         name: name,
         rating: rating,
