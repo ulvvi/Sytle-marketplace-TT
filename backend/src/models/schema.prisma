@@ -119,6 +119,7 @@ model OrderVariant{
 
 model Product {
   id Int @id @default(autoincrement())
+  name String // Esquecemos de colocar o nome
   rating Float 
   price Float
   numOfReviews Int
