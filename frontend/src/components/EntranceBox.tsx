@@ -67,15 +67,15 @@ export function EntranceBox() {
                         <InputText icone="./src/assets/icons/emailIcon.svg" texto="Email Address" isPassword={false}/>
                         <div className="relative flex items-end w-full">
                             <InputText icone="./src/assets/icons/passwordIcon.svg" texto="Password" isPassword={true}/>    
-                        <Link className="absolute right-0 top-0 text-[12px] text-[14px]" to="/forgot-password">Forgot Password?</Link>
+                        <Link className="absolute right-0 top-0 text-[12px] text-[14px] hover:underline text-primary" to="/forgot-password">Forgot Password?</Link>
                         </div>
 
                         <Button texto="Sign In" link="/dashboard" color="default"/>
-                        <span className="text-[14px] text-tertiary">Don't have an account? <Link to="/register" className="font-semibold text-primary">Sign Up</Link></span>
+                        <span className="text-[14px] text-tertiary">Don't have an account? <Link to="/register" className="font-semibold text-primary hover:underline">Sign Up</Link></span>
 
                     </div>
                 </div>
-                    <span className="text-tertiary text-center text-[14px]">By signing in, you agree to our <Link to="/terms" className="text-primary">Terms of Service</Link> and <Link to="/privacy" className="text-primary mr-[3.8px]">Privacy Policy</Link></span>
+                    <span className="text-tertiary text-center text-[14px]">By signing in, you agree to our <Link to="/terms" className="text-primary hover:underline">Terms of Service</Link> and <Link to="/privacy" className="text-primary mr-[3.8px] hover:underline">Privacy Policy</Link></span>
                 
                 
                 
