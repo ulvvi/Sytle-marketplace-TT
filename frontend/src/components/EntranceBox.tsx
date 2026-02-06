@@ -14,8 +14,7 @@ export function EntranceBox() {
                                 
                             
                             <div className="flex">
-                                <span className="text-black font-bold;
-]">
+                                <span className="text-black font-bold text-[1.5rem]">
                                     STYLE
                                 </span>
                             </div>
@@ -27,7 +26,7 @@ export function EntranceBox() {
 
                 </div>
 
-                <div className="w-full flex flex-col items-center justify-start border">
+                <div className="w-full flex flex-col items-center justify-start shadow-[0_8px_10px_-6px_rgba(0,0,0,0.1),0_20px_25px_-5px_rgba(0,0,0,0.1)] rounded-[12px]">
                     <div className="w-full flex flex-col items-start justify-start p-[24px]">
                         <div className="w-full flex flex-col items-center ">
                             <h1 className="text-[1.5rem] h-[32px]">
@@ -71,13 +70,19 @@ export function EntranceBox() {
                         <Link className="absolute right-0 top-0 text-[12px] text-[14px]" to="/forgot-password">Forgot Password?</Link>
                         </div>
 
-                            <Button texto="Sign In" link="/dashboard" color="default"/>
-                        
+                        <Button texto="Sign In" link="/dashboard" color="default"/>
+                        <span className="text-[14px] text-tertiary">Don't have an account? <Link to="/register" className="font-semibold text-primary">Sign Up</Link></span>
 
                     </div>
                 </div>
-
+                    <span className="text-tertiary text-center text-[14px]">By signing in, you agree to our <Link to="/terms" className="text-primary">Terms of Service</Link> and <Link to="/privacy" className="text-primary mr-[3.8px]">Privacy Policy</Link></span>
+                
+                
+                
+                
             </div>
+
+
 
         </>
     )
