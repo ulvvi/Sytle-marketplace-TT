@@ -13,7 +13,7 @@ export class variantController {
           color: color,
           size: size,
           stock: stock,
-          productId: { connect: { id: productId } }, // Conectar explicitamente ao ID do produto
+          product: { connect: { id: parseInt(productId as string) } }, // Conectar explicitamente ao ID do produto
         },
       });
 

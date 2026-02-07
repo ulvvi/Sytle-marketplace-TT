@@ -11,7 +11,7 @@ export class reviewController {
       const createdReview = await prisma.review.create({
         data: {
           rating,
-          product: { connect: { id: productId } },
+          product: { connect: { id: parseInt(productId as string) } },
         },
       });
 
