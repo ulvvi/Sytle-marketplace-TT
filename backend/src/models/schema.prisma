@@ -150,6 +150,6 @@ model Review {
   id Int @id @default(autoincrement()) // Não está presente na modelagem, porém acho necesário (sem id, só seria possível fazer um createReview e readAllReview de um produto específico)
   rating Float
 
-  productId Int @unique
+  productId Int // Não pode ser unique, pois se não aceitaria somente uma review por produto
   product Product @relation(fields: [productId], references: [id])
 }

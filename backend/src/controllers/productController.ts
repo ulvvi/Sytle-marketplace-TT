@@ -45,9 +45,7 @@ export class productController {
 
   public static async readAllProduct(request: Request, response: Response) {
     try {
-      const foundAllProduct = await prisma.product.findMany({
-        include: { variant: true },
-      });
+      const foundAllProduct = await prisma.product.findMany();
 
       response.status(200).json(foundAllProduct);
     } catch (error: any) {
@@ -63,6 +61,7 @@ export class productController {
         where: {
           id: parseInt(id as string),
         },
+        include: { variant: true, review: true },
       });
 
       response.status(200).json(foundProduct);

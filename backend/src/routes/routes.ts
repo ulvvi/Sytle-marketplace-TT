@@ -14,14 +14,14 @@ router.delete("/product/:id", productController.deleteProduct);
 
 // Rota da variante
 router.post("/variant/:productId", variantController.createVariant);
-router.get("/variants/:productId", variantController.readAllVariant);
+router.get("/variants/:productId", variantController.readAllVariant); // Retorna todas as variantes de um produto
 router.get("/variant/:id", variantController.readVariant);
 router.put("/variant/:id", variantController.updateVariant);
 router.delete("/variant/:id", variantController.deleteVariant);
 
 // Rota da variante
 router.post("/review/:productId", reviewController.createReview);
-router.get("/reviews/:productId", reviewController.readAllReview);
+router.get("/reviews/:productId", reviewController.readAllReview); // Retorna todos os reviews de um produto
 router.get("/review/:id", reviewController.readReview);
 router.put("/review/:id", reviewController.updateReview);
 router.delete("/review/:id", reviewController.deleteReview);
