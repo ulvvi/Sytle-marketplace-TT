@@ -14,7 +14,6 @@ export class productController {
         color,
         size,
         stock,
-        productId,
       } = request.body;
 
       const createdProduct = {
@@ -25,17 +24,18 @@ export class productController {
         isOutOfStock: isOutOfStock,
         // Quando se cria um produto, automaticamente, uma variante é criada.
         variant: {
+          // Isso já cria a variante vinculado com o ID do produto recém-criado
           create: {
             color: color,
             size: size,
             stock: stock,
-            productId: { connect: { id: productId } },
           },
         },
       };
 
       await prisma.product.create({
         data: createdProduct,
+        include: { variant: true }, // verificar a variante já ligada ao produto
       });
       response.status(201).json(createdProduct);
     } catch (error: any) {
@@ -45,7 +45,9 @@ export class productController {
 
   public static async readAllProduct(request: Request, response: Response) {
     try {
-      const foundAllProduct = await prisma.product.findMany();
+      const foundAllProduct = await prisma.product.findMany({
+        include: { variant: true },
+      });
 
       response.status(200).json(foundAllProduct);
     } catch (error: any) {

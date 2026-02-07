@@ -132,7 +132,8 @@ model Product {
 
 model Variant {
   id Int @id @default(autoincrement())
-  color String @unique // @unique pois não pode existir duas ou mais variantes da mesma cor
+  color String // @unique pois não pode existir duas ou mais variantes da mesma cor
+  
   size String
   stock Int
 
@@ -141,6 +142,8 @@ model Variant {
 
   carts CartVariant[]
   orderVariants OrderVariant[]
+
+  @@unique([productId, color]) // Permite que produtos diferentes tenham a mesma cor, porém produtos iguais não
 }
 
 model Review {
