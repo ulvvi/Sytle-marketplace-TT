@@ -3,7 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import { BrowserRouter } from 'react-router-dom'
-import { EntranceBox } from './components/EntranceBox'
+import { EntranceBoxExtended } from './components/EntranceBoxExtended'
 import { SignUp } from './pages/signUp'
 
 function App() {
