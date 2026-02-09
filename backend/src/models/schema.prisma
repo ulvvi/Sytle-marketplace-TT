@@ -28,15 +28,19 @@ enum OrderStatus {
 model User{
   id Int @id @default(autoincrement())
   firstName String
-  lastName String
-  email String @unique
+  lastName String?
+  email String? @unique
+
+  salt String
+  hash String
+  
   gender Gender?
   phoneNumber String?
   dateBirth DateTime?
-  preferences Boolean[] @default([true, false, false, true, false, false])
-  totalOrders Int @default(0)
-  totalRating Float @default(0)
-  totalWishlist Int @default(0)
+  preferences Boolean? 
+  totalOrders Int? @default(0)
+  totalRating Float? @default(0)
+  totalWishlist Int? @default(0)
 
   wishList Wishlist?
   cart Cart?
@@ -135,7 +139,7 @@ model Variant {
   color String // @unique pois não pode existir duas ou mais variantes da mesma cor
   
   size String
-  stock Int
+  stock Int @default(0)
 
   productId Int //productId Não pode ser unique pq se não ele so aceita apenas uma variante
   product Product @relation(fields: [productId], references: [id], onDelete: Cascade)
@@ -143,7 +147,8 @@ model Variant {
   carts CartVariant[]
   orderVariants OrderVariant[]
 
-  @@unique([productId, color]) // Permite que produtos diferentes tenham a mesma cor, porém produtos iguais não
+  @@unique([productId, color, size]) // Permite que produtos diferentes tenham a mesma cor, porém produtos iguais não
+  // Cada tamanho tem sua quantidade, é possível ter (Produto 1, Preto, P, 5 peças) e (Produto 1, Preto, M, 10 peças)
 }
 
 model Review {

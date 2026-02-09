@@ -73,12 +73,13 @@ export class productController {
   public static async updateProduct(request: Request, response: Response) {
     try {
       const { id } = request.params;
-      const { rating, price, numOfReviews, isOutOfStock } = request.body;
+      const { name, rating, price, numOfReviews, isOutOfStock } = request.body;
 
       const updatedProduct = await prisma.product.update({
         where: { id: parseInt(id as string) },
         data: {
-          rating: rating, // Não acho que é necessário realizar o update do nome de um produto
+          name: name,
+          rating: rating, 
           price: price,
           numOfReviews: numOfReviews,
           isOutOfStock: isOutOfStock,
