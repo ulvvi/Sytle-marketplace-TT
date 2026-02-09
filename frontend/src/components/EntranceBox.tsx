@@ -64,9 +64,9 @@ export function EntranceBox() {
                             </div>
                             
                         </div>
-                        <InputText icone="./src/assets/icons/emailIcon.svg" texto="Email Address" isPassword={false}/>
+                        <InputText icone="./src/assets/icons/emailIcon.svg" texto="Enter your email" isPassword={false} label="Email Address"/>
                         <div className="relative flex items-end w-full">
-                            <InputText icone="./src/assets/icons/passwordIcon.svg" texto="Password" isPassword={true}/>    
+                            <InputText icone="./src/assets/icons/passwordIcon.svg" texto="Enter your password" isPassword={true} label="Password"/>    
                         <Link className="absolute right-0 top-0 text-[12px] text-[14px] hover:underline text-primary" to="/forgot-password">Forgot Password?</Link>
                         </div>
 
