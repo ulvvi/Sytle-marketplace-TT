@@ -15,12 +15,12 @@ export function ProductCard({title="product", ratingAvg=0, ratingQuantity=0, cur
     const badgeColor: string = productBadge==="Sale" ? "bg-[#EF4343]" : "bg-primary";
     return (
         <>
-            <article className="w-89.5 h-122.5 border-0 rounded-xl shadow-lg relative">
-                <div className={`flex items-center absolute ${badgeColor} py-0.75 px-2.75 rounded-[100rem] h-5.5 top-3 left-3`}>
+            <article className="w-89.5 h-122.5 border-0 rounded-xl shadow-lg hover:shadow-xl relative">
+                <div className={`flex items-center absolute ${badgeColor} py-0.75 px-2.75 rounded-[100rem] h-5.5 top-3 left-3 z-1`}>
                     <span className="text-secondary font-semibold text-[0.75rem]">{productBadge}</span>
                 </div>
                 <div className="h-89.5 rounded-t-xl overflow-hidden">
-                    <img className="w-full h-full" src={imgSrc} alt={imgAlt}></img>
+                    <img className="w-full h-full hover:scale-105" src={imgSrc} alt={imgAlt}></img>
                 </div>
                 <div className="h-33 bg-secondary rounded-b-xl flex flex-col gap-2 p-4">
                     <h3 className="text-primary text-[1.125rem] font-semibold">{title}</h3>
