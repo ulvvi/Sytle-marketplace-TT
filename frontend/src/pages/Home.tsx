@@ -12,6 +12,7 @@ export function Home() {
                 <Header />
                 <Hero />
                 <InfoBar />
+                <CategorySection />
             </div>  
         </>
     )
