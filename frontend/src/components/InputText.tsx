@@ -5,14 +5,16 @@ interface InputTextProps {
     icone?: ReactNode;
     texto?: string;
     isPassword?: boolean;
-    label?: string;     
+    label?: string;
+    inputClassName?: string;
 }
 
 export function InputText({
     icone,
     texto = "Enter your text",
     isPassword = false,
-    label = "Field Name"
+    label,
+    inputClassName
 }: InputTextProps) {
 
     const [isClicked, setIsClicked] = useState(false);
@@ -28,11 +30,11 @@ export function InputText({
 
     return (
         <div className="w-full gap-[12px] flex flex-col items-start justify-center">
-            <label className="text-[14px] text-primary font-medium block">
+            <label className={`text-[14px] text-primary font-medium ${label === undefined ? "hidden" : "block"}`}>
                 {label}
             </label>
                 
-            <div className="flex items-center justify-evenly border-(--border-primary) rounded-[10px] border-[1px] border-solid w-full h-[40px] gap-[13px] px-[12px]">
+            <div className={`flex items-center justify-evenly border-(--border-primary) rounded-[10px] border-[1px] border-solid w-full h-[40px] gap-[13px] px-[12px] ${inputClassName}`}>
                 {renderIcone()}
 
                 <input 
@@ -49,7 +51,7 @@ export function InputText({
                         <img
                             src={isClicked ? "src/assets/icons/showPassTrue.svg" : "src/assets/icons/showPassFalse.svg"} 
                             alt="Toggle Password"
-                            className="w-[24px] h-[24px] hover:bg-[#6b728017]"
+                            className="w-[24px] h-[24px]"
                         />
                     </button>
                 )}
