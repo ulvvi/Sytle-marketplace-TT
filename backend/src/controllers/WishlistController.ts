@@ -12,11 +12,9 @@ export class Wishlist{
                 where:{
                     userId: parseInt(id as string)
                 },
-                /*
                 include:{
                     product:true
                 }
-                */
             })
             res.status(200).json(wishlist);
         } catch (error:any) {
@@ -43,8 +41,7 @@ export class Wishlist{
         }
     }
     //funcao separada pra add itens(podia ter feito no update mas na minha cabeça fica mais organizado assim. posso juntar dps se for o caso)
-    //n tenho certeza se ta certo pq n consegui testar por n ter as models necessarias nessa branch
-    /*
+    //so n consegui testar ela por n ter a controller de criacao de produto
     public static async addToWishlist(req:Request, res: Response){
         try {
             const {id} = req.params;
@@ -70,5 +67,4 @@ export class Wishlist{
         }
 
     }
-    */
 }
