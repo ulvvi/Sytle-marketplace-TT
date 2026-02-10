@@ -1,5 +1,6 @@
 import * as fs from "node:fs";
 import * as path from "node:path";
+import { Request, Response, NextFunction } from "express";
 
 import passport from 'passport';
 import { Strategy } from 'passport-jwt';
@@ -32,5 +33,28 @@ passport.use(new Strategy(
         });
     }
 ));
+
+export async function ensureOwner(req: Request, res: Response, next: NextFunction){
+    try {
+        const {id} = req.params;
+
+        const targetId = parseInt(id as string);
+        //to pegando as infos do token em req.token_user pq foi definido ali na linha 58 pra salvar o objeto do token nessa propriedade
+        const {id:tokenId} = (req as any).token_user;
+        /*
+        console.log(tokenId)
+        console.log(targetId)
+        */
+
+        if(!targetId || targetId != tokenId){
+            return res.status(401).json({message:"Token não autorizado"})
+        }
+        next();
+        
+    } catch (error:any) {
+        res.status(500).json({message: error.message})
+    }
+    
+}
 
 export const authenticateJWT = passport.authenticate('jwt', { session: false, assignProperty: 'token_user' });
