@@ -30,15 +30,23 @@ model User{
   firstName String
   lastName String
   email String @unique
+  hash String
+  salt String
   gender Gender?
   phoneNumber String?
   dateBirth DateTime?
-  preferences Boolean[] @default([true, false, false, true, false, false])
   totalOrders Int @default(0)
   totalRating Float @default(0)
   totalWishlist Int @default(0)
 
-  wishList Wishlist?
+  emailNotification Boolean @default(true)
+  smsNotification Boolean @default(false)
+  marketingEmail Boolean //na tela de cadastro o usuario decide se quer ou nao receber esses emails
+  orderUpdate Boolean @default(true)
+  newArrival Boolean @default(false)
+  saleAlert Boolean @default(false)
+
+  wishlist Wishlist?
   cart Cart?
   orders Order[]
 }
