@@ -7,6 +7,7 @@ interface InputTextProps {
     isPassword?: boolean;
     label?: string;
     inputClassName?: string;
+    textClassName?: string;
 }
 
 export function InputText({
@@ -14,7 +15,8 @@ export function InputText({
     texto = "Enter your text",
     isPassword = false,
     label,
-    inputClassName
+    inputClassName,
+    textClassName
 }: InputTextProps) {
 
     const [isClicked, setIsClicked] = useState(false);
@@ -39,7 +41,7 @@ export function InputText({
 
                 <input 
                     type={inputType} 
-                    className="w-full border-none outline-none text-[16px] text-[#6B7280]" 
+                    className={`w-full border-none outline-none text-[16px] text-[#6B7280] ${textClassName}`} 
                     placeholder={texto} 
                 />
                 {isPassword && (
