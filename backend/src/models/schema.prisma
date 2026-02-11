@@ -30,15 +30,23 @@ model User{
   firstName String
   lastName String
   email String @unique
+  hash String
+  salt String
   gender Gender?
   phoneNumber String?
   dateBirth DateTime?
-  preferences Boolean[] @default([true, false, false, true, false, false])
   totalOrders Int @default(0)
   totalRating Float @default(0)
   totalWishlist Int @default(0)
 
-  wishList Wishlist?
+  emailNotification Boolean @default(true)
+  smsNotification Boolean @default(false)
+  marketingEmail Boolean //na tela de cadastro o usuario decide se quer ou nao receber esses emails
+  orderUpdate Boolean @default(true)
+  newArrival Boolean @default(false)
+  saleAlert Boolean @default(false)
+
+  wishlist Wishlist?
   cart Cart?
   orders Order[]
 }
@@ -119,6 +127,7 @@ model OrderVariant{
 
 model Product {
   id Int @id @default(autoincrement())
+  name String // Esquecemos de colocar o nome
   rating Float 
   price Float
   numOfReviews Int
@@ -131,21 +140,25 @@ model Product {
 
 model Variant {
   id Int @id @default(autoincrement())
-  color String @unique // @unique pois não pode existir duas ou mais variantes da mesma cor
+  color String // @unique pois não pode existir duas ou mais variantes da mesma cor
+  
   size String
-  stock Int
+  stock Int @default(0)
 
   productId Int //productId Não pode ser unique pq se não ele so aceita apenas uma variante
   product Product @relation(fields: [productId], references: [id], onDelete: Cascade)
 
   carts CartVariant[]
   orderVariants OrderVariant[]
+
+  @@unique([productId, color, size]) // Permite que produtos diferentes tenham a mesma cor, porém produtos iguais não
+  // Cada tamanho tem sua quantidade, é possível ter (Produto 1, Preto, P, 5 peças) e (Produto 1, Preto, M, 10 peças)
 }
 
 model Review {
-  id Int @id @default(autoincrement())
+  id Int @id @default(autoincrement()) // Não está presente na modelagem, porém acho necesário (sem id, só seria possível fazer um createReview e readAllReview de um produto específico)
   rating Float
 
-  productId Int @unique
+  productId Int // Não pode ser unique, pois se não aceitaria somente uma review por produto
   product Product @relation(fields: [productId], references: [id])
 }

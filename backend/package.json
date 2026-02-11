@@ -14,7 +14,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npx ts-node-dev --transpile-only --no-notify src/server.ts"
+    "start": "npx ts-node-dev --transpile-only --no-notify src/server.ts",
+    "keys": "npx ts-node src/config/generateKeyPairs.ts"
   },
   "keywords": [],
   "author": "",
@@ -22,7 +23,13 @@
   "type": "commonjs",
   "dependencies": {
     "@prisma/adapter-pg": "^7.3.0",
-    "pg": "^8.18.0"
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/passport-jwt": "^4.0.1",
+    "jsonwebtoken": "^9.0.3",
+    "passport": "^0.7.0",
+    "passport-jwt": "^4.0.1",
+    "pg": "^8.18.0",
+    "router": "^2.2.0"
   },
   "overrides": {
     "lodash": "^4.17.21",

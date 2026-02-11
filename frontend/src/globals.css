@@ -5,7 +5,9 @@
     --color-primary: #030711;
     --color-secondary: #FFFFFF;
     --color-tertiary: #6B7280;
+    --color-placeholder: #EAEAEA;
     --border-primary: #E5E7EB;
+
 }
 
 @layer base {
