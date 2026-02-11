@@ -59,7 +59,7 @@ export function EntranceBox() {
                                 <hr className="w-full border-t border-gray-300" />
                             </div>
 
-                            <div className="pr-[8px] pl-[8px] z-10 bg-white items-center justify-center flex">
+                            <div className="z-0 pr-[8px] pl-[8px] z-10 bg-white items-center justify-center flex">
                                 <span className="text-tertiary text-[12px] ">OR CONTINUE WITH EMAIL</span>
                             </div>
                             
