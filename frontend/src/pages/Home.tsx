@@ -8,7 +8,7 @@ import { Link } from "react-router"
 export function Home() {
     return (
         <>
-            <div className="flex flex-col mg-0">
+            <div className="flex flex-col w-full m-0 overflow-x-hidden">
                 <Header />
                 <Hero />
                 <InfoBar />
