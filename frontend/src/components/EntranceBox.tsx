@@ -29,7 +29,7 @@ export function EntranceBox() {
                 <div className="w-full flex flex-col items-center justify-start shadow-[0_8px_10px_-6px_rgba(0,0,0,0.1),0_20px_25px_-5px_rgba(0,0,0,0.1)] rounded-[12px]">
                     <div className="w-full flex flex-col items-start justify-start p-[24px]">
                         <div className="w-full flex flex-col items-center ">
-                            <h1 className="text-[1.5rem] h-[32px]">
+                            <h1 className="text-[1.5rem] h-[32px] font-bold">
                                 Sign In
                             </h1>
 
@@ -59,7 +59,7 @@ export function EntranceBox() {
                                 <hr className="w-full border-t border-gray-300" />
                             </div>
 
-                            <div className="pr-[8px] pl-[8px] z-10 bg-white items-center justify-center flex">
+                            <div className="z-0 pr-[8px] pl-[8px] z-10 bg-white items-center justify-center flex">
                                 <span className="text-tertiary text-[12px] ">OR CONTINUE WITH EMAIL</span>
                             </div>
                             
