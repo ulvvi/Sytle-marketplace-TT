@@ -1,58 +1,32 @@
-/*
-  Warnings:
+-- CreateEnum
+CREATE TYPE "Gender" AS ENUM ('MALE', 'FEMALE', 'OTHER');
 
-  - The primary key for the `Cart` table will be changed. If it partially fails, the table could be left without primary key constraint.
-  - You are about to drop the column `preferences` on the `User` table. All the data in the column will be lost.
-  - You are about to drop the `WishList` table. If the table is not empty, all the data it contains will be lost.
-  - You are about to drop the `cartProduct` table. If the table is not empty, all the data it contains will be lost.
-  - You are about to drop the `orderProduct` table. If the table is not empty, all the data it contains will be lost.
-  - A unique constraint covering the columns `[userId]` on the table `Cart` will be added. If there are existing duplicate values, this will fail.
-  - Changed the type of `situation` on the `Order` table. No cast exists, the column would be dropped and recreated, which cannot be done if there is data, since the column is required.
-  - Added the required column `hash` to the `User` table without a default value. This is not possible if the table is not empty.
-  - Added the required column `marketingEmail` to the `User` table without a default value. This is not possible if the table is not empty.
-  - Added the required column `salt` to the `User` table without a default value. This is not possible if the table is not empty.
-
-*/
 -- CreateEnum
 CREATE TYPE "OrderStatus" AS ENUM ('DELIVERED', 'SHIPPED', 'PROCESSING');
 
--- DropForeignKey
-ALTER TABLE "WishList" DROP CONSTRAINT "WishList_userId_fkey";
+-- CreateTable
+CREATE TABLE "User" (
+    "id" SERIAL NOT NULL,
+    "firstName" TEXT NOT NULL,
+    "lastName" TEXT NOT NULL,
+    "email" TEXT NOT NULL,
+    "hash" TEXT NOT NULL,
+    "salt" TEXT NOT NULL,
+    "gender" "Gender",
+    "phoneNumber" TEXT,
+    "dateBirth" TIMESTAMP(3),
+    "totalOrders" INTEGER NOT NULL DEFAULT 0,
+    "totalRating" DOUBLE PRECISION NOT NULL DEFAULT 0,
+    "totalWishlist" INTEGER NOT NULL DEFAULT 0,
+    "emailNotification" BOOLEAN NOT NULL DEFAULT true,
+    "smsNotification" BOOLEAN NOT NULL DEFAULT false,
+    "marketingEmail" BOOLEAN NOT NULL,
+    "orderUpdate" BOOLEAN NOT NULL DEFAULT true,
+    "newArrival" BOOLEAN NOT NULL DEFAULT false,
+    "saleAlert" BOOLEAN NOT NULL DEFAULT false,
 
--- DropForeignKey
-ALTER TABLE "cartProduct" DROP CONSTRAINT "cartProduct_cartId_fkey";
-
--- DropForeignKey
-ALTER TABLE "orderProduct" DROP CONSTRAINT "orderProduct_orderId_fkey";
-
--- AlterTable
-ALTER TABLE "Cart" DROP CONSTRAINT "Cart_pkey",
-ADD COLUMN     "id" SERIAL NOT NULL,
-ADD CONSTRAINT "Cart_pkey" PRIMARY KEY ("id");
-
--- AlterTable
-ALTER TABLE "Order" DROP COLUMN "situation",
-ADD COLUMN     "situation" "OrderStatus" NOT NULL;
-
--- AlterTable
-ALTER TABLE "User" DROP COLUMN "preferences",
-ADD COLUMN     "emailNotification" BOOLEAN NOT NULL DEFAULT true,
-ADD COLUMN     "hash" TEXT NOT NULL,
-ADD COLUMN     "marketingEmail" BOOLEAN NOT NULL,
-ADD COLUMN     "newArrival" BOOLEAN NOT NULL DEFAULT false,
-ADD COLUMN     "orderUpdate" BOOLEAN NOT NULL DEFAULT true,
-ADD COLUMN     "saleAlert" BOOLEAN NOT NULL DEFAULT false,
-ADD COLUMN     "salt" TEXT NOT NULL,
-ADD COLUMN     "smsNotification" BOOLEAN NOT NULL DEFAULT false;
-
--- DropTable
-DROP TABLE "WishList";
-
--- DropTable
-DROP TABLE "cartProduct";
-
--- DropTable
-DROP TABLE "orderProduct";
+    CONSTRAINT "User_pkey" PRIMARY KEY ("id")
+);
 
 -- CreateTable
 CREATE TABLE "Wishlist" (
@@ -72,11 +46,38 @@ CREATE TABLE "WishlistProduct" (
 );
 
 -- CreateTable
+CREATE TABLE "Cart" (
+    "id" SERIAL NOT NULL,
+    "subtotal" DOUBLE PRECISION NOT NULL DEFAULT 0,
+    "savings" DOUBLE PRECISION NOT NULL DEFAULT 0,
+    "shipping" DOUBLE PRECISION NOT NULL DEFAULT 0,
+    "tax" DOUBLE PRECISION NOT NULL DEFAULT 0,
+    "promoCode" TEXT,
+    "totalCost" DOUBLE PRECISION NOT NULL DEFAULT 0,
+    "userId" INTEGER NOT NULL,
+
+    CONSTRAINT "Cart_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
 CREATE TABLE "CartVariant" (
     "cartId" INTEGER NOT NULL,
     "variantId" INTEGER NOT NULL,
 
     CONSTRAINT "CartVariant_pkey" PRIMARY KEY ("cartId","variantId")
+);
+
+-- CreateTable
+CREATE TABLE "Order" (
+    "id" SERIAL NOT NULL,
+    "time" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "address" TEXT NOT NULL,
+    "rastreio" TEXT NOT NULL,
+    "situation" "OrderStatus" NOT NULL,
+    "totalPrice" DOUBLE PRECISION NOT NULL,
+    "userId" INTEGER NOT NULL,
+
+    CONSTRAINT "Order_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
@@ -92,6 +93,7 @@ CREATE TABLE "OrderVariant" (
 -- CreateTable
 CREATE TABLE "Product" (
     "id" SERIAL NOT NULL,
+    "name" TEXT NOT NULL,
     "rating" DOUBLE PRECISION NOT NULL,
     "price" DOUBLE PRECISION NOT NULL,
     "numOfReviews" INTEGER NOT NULL,
@@ -105,7 +107,7 @@ CREATE TABLE "Variant" (
     "id" SERIAL NOT NULL,
     "color" TEXT NOT NULL,
     "size" TEXT NOT NULL,
-    "stock" INTEGER NOT NULL,
+    "stock" INTEGER NOT NULL DEFAULT 0,
     "productId" INTEGER NOT NULL,
 
     CONSTRAINT "Variant_pkey" PRIMARY KEY ("id")
@@ -121,16 +123,16 @@ CREATE TABLE "Review" (
 );
 
 -- CreateIndex
+CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
+
+-- CreateIndex
 CREATE UNIQUE INDEX "Wishlist_userId_key" ON "Wishlist"("userId");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "Variant_color_key" ON "Variant"("color");
-
--- CreateIndex
-CREATE UNIQUE INDEX "Review_productId_key" ON "Review"("productId");
-
--- CreateIndex
 CREATE UNIQUE INDEX "Cart_userId_key" ON "Cart"("userId");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "Variant_productId_color_size_key" ON "Variant"("productId", "color", "size");
 
 -- AddForeignKey
 ALTER TABLE "Wishlist" ADD CONSTRAINT "Wishlist_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
