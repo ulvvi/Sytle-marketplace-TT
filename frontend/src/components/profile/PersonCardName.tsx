@@ -4,8 +4,8 @@ interface PersonCardName {
     photo?: ReactNode;
     name?: String;
     email?: String;
-    orders?: Number;
-    memberSince?: String;
+    orders?: ReactNode;
+    memberSince?: ReactNode;
 
 }
 
@@ -33,10 +33,10 @@ export function PersonCardName ({
                     <div>
                         <div className="flex justify-end gap-[16px] pt-[8px]">
                             <div className="items-center bg-[#F3F4F6] rounded-[10px] flex pt-[3px] pr-[11px] pb-[3px] pl-[11px]">
-                                <span className="font-semibold text-[12px]">3 Orders</span>
+                                <span className="font-semibold text-[12px]">{orders} Orders</span>
                             </div>
                             <div className="items-center bg-[#F3F4F6] rounded-[10px] flex pt-[3px] pr-[11px] pb-[3px] pl-[11px]">
-                                <span className="font-semibold text-[12px]">Member since 2023</span>
+                                <span className="font-semibold text-[12px]">Member since {memberSince}</span>
                             </div>
 
                         </div>
