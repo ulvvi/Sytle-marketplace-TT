@@ -53,7 +53,7 @@ export function EntranceBoxExtended() {
 
                         </div>
 
-                        <div className="w-full relative flex items-center justify-center gap-[12px]">
+                        <div className="z-0 w-full relative flex items-center justify-center gap-[12px]">
 
                             <div className="absolute flex items-center w-full  z-1">
                                 <hr className="w-full border-t border-gray-300" />
