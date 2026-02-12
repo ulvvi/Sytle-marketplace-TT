@@ -70,6 +70,9 @@ export class UserController{
                     id: parseInt(id as string) //garantir q o id seja int, ja q nos params ele é string
                 },
                 include:{
+                    wishlist:true,
+                    cart:true,
+                    orders:true,
                 }
             })
             res.status(200).json(user);
@@ -81,7 +84,17 @@ export class UserController{
     //nao acho que na aplicacao entregavel isso vai ser util, mas vou deixar pra ajudar a debugar e testar
     public static async readAllUsers(req: Request, res: Response){
         try {
-            const users = await prisma.user.findMany()
+            const users = await prisma.user.findMany({
+                include:{
+                    wishlist:{
+                        include:{
+                            product:true
+                        }
+                    },
+                    cart:true,
+                    orders:true,
+                }
+            })
             res.status(200).json(users);
         } catch (error:any) {
             res.status(500).json({message: error.message});

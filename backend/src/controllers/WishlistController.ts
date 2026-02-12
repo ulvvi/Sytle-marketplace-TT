@@ -4,7 +4,6 @@ import { Prisma } from "../generated/prisma/client";
 
 //obs: o id que to usando nas querys é do usuario
 export class Wishlist{
-    //ler a wl
     public static async readWishlist(req: Request, res: Response){
         try {
             const {id} = req.params;
@@ -21,27 +20,7 @@ export class Wishlist{
             res.status(500).json({message: error.message})
         }
     }
-    //updatar ela
-    public static async updateWishlist(req: Request, res: Response){
-        try {
-            const {id} = req.params;
-            const {quantity} = req.body;
- 
-            const updatedWishlist = await prisma.wishlist.update({
-                where:{
-                    userId: parseInt(id as string)
-                },
-                data:{
-                    quantity:quantity
-                }
-            })
-            res.status(200).json(updatedWishlist);
-        } catch (error:any) {
-            res.status(500).json({message: error.message});
-        }
-    }
-    //funcao separada pra add itens(podia ter feito no update mas na minha cabeça fica mais organizado assim. posso juntar dps se for o caso)
-    //so n consegui testar ela por n ter a controller de criacao de produto
+
     public static async addToWishlist(req:Request, res: Response){
         try {
             const {id} = req.params;
@@ -51,6 +30,9 @@ export class Wishlist{
                     userId: parseInt(id as string)
                 },
                 data:{
+                    quantity:{
+                        increment:1
+                    },
                     product:{
                         create:{
                             productId: productId
@@ -66,5 +48,52 @@ export class Wishlist{
             res.status(500).json({message: error.message})
         }
 
+    }
+
+    //dessa vez to usando a instancia da tabela auxiliar pra me facilitar um pouco
+    public static async DelFromWishlist(req:Request, res:Response){
+        try {
+
+            const {id} = req.params;
+            const {productId} = req.body;
+            //acabei tendo q aprender transactions pq se nao poderia dar o maior b.o com uma possivel dessincronizacao da quantidade
+            //em casos onde se deleta nada, mas é possivel requisitar a rota de deletar da wl por meio de algum bug ou algum fator
+            //relacionado ao frontend
+            //n precisei usar transaction na parte de add pq a atomicidade nela ja é garantida
+            const result = await prisma.$transaction(async (tx) =>{
+                const removed = await tx.wishlistProduct.deleteMany({
+                    where:{
+                        productId:productId,
+                        wishlist:{
+                            userId:parseInt(id as string)
+                        }
+                    }
+                })
+                if(removed.count == 0){
+                    throw new Error("Product not found in wishlist");
+                }
+                const wishlist = await tx.wishlist.update({
+                    where:{
+                        userId:parseInt(id as string)
+                    },
+                    data:{
+                        quantity:{
+                            decrement:1
+                        }
+                    },
+                    include:{
+                        product:true
+                    }
+                })
+                
+                return wishlist
+            })
+            res.status(200).json({result});
+        } catch (error:any) {
+            if (error.message == "Product not found in wishlist") {
+                return res.status(404).json({ message: error.message });
+            }
+            res.status(500).json({message:error.message});
+        }
     }
 }
