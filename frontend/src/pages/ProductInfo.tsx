@@ -1,6 +1,7 @@
 import { Header } from "../components/Header";
 import { Breadcrumbs } from "../components/productInfo/Breadcrumbs";
 import { ProductGallery } from "../components/productInfo/ProductGallery";
+import { ProductInfoTabs } from "../components/productInfo/ProductInfoTabs";
 import { ProductPurchasePanel } from "../components/productInfo/ProductPurchasePanel";
 
 export function ProductInfo() {
@@ -15,6 +16,7 @@ export function ProductInfo() {
                 <Breadcrumbs items={productPaths} />
                 <ProductGallery />
                 <ProductPurchasePanel />
+                <ProductInfoTabs />
             </main>  
         </>
     )
