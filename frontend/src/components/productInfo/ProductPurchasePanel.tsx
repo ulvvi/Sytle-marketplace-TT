@@ -1,3 +1,4 @@
+import { InfoBarProduct } from "./InfoBarProduct";
 import { ProductHeader } from "./ProductHeader";
 import { PurchaseActionButtons } from "./PurchaseActionButtons";
 import { VariantContainer } from "./VariantContainer";
@@ -13,7 +14,8 @@ export function ProductPurchasePanel() {
                 <hr className=" border-(--border-primary)"/>
                 <PurchaseActionButtons/>
                 <hr className=" border-(--border-primary)"/>
-                
+                <InfoBarProduct/>
+                <hr className=" border-(--border-primary)"/>
             </section>
         </>
     )
