@@ -10,9 +10,6 @@ export class variantController {
       const { productId } = request.params;
       const { color, size, stock } = request.body;
 
-      const validation = validate.createVariantValidation.safeParse(request.body);
-      if (validation.error) return response.status(400).json({message: z.treeifyError});
-
       const createdVariant = await prisma.variant.create({
         data: {
           color: color,
