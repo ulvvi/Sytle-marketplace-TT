@@ -1,5 +1,8 @@
 import { Request, Response } from "express";
 import { prisma } from "../config/prisma";
+import validate from "../config/validate"; 
+import z from "zod";
+
 
 // Classe das reviews
 export class reviewController {
@@ -7,6 +10,9 @@ export class reviewController {
     try {
       const { productId } = request.params; // Para associar à review
       const { rating } = request.body;
+
+      const validation = validate.createReviewValidation.safeParse(request.body);
+      if (validation.error) return response.status(400).json({message: z.treeifyError(validation.error)});
 
       const createdReview = await prisma.review.create({
         data: {
@@ -25,8 +31,9 @@ export class reviewController {
     try {
       const { productId } = request.params; // Ver todas as Reviews de um produto específico
 
-      const foundAllReview = await prisma.review.findMany({
-        where: { productId: parseInt(productId as string) },
+      const foundAllReview = await prisma.product.findMany({
+        where: { id: parseInt(productId as string) },
+        include:{review: true}
       });
 
       response.status(200).json(foundAllReview);
