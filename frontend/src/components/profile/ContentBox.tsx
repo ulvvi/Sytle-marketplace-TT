@@ -7,29 +7,32 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
   buttonIconSrc?: string;
   buttonLink?: string;
   buttonIconAlt?: string;
+  buttonColor?: "default" | "white" | "red"
   buttonIconPos?: "left" | "right"
 }
 
-export function ContentBox({ children,buttonName,buttonIconSrc,buttonIconAlt,buttonIconPos,buttonLink, className, ...props }: CardProps) {
+export function ContentBox({ children,buttonName,buttonIconSrc,buttonIconAlt,buttonColor,buttonIconPos,buttonLink, className, ...props }: CardProps) {
 
-    const showButton = buttonName || buttonIconSrc || buttonLink || buttonIconAlt || buttonIconPos;
+    const showButton = buttonName || buttonIconSrc || buttonLink || buttonIconAlt || buttonIconPos || buttonColor;
 
   return (
     <div
-      className={`flex flex-col items-center pt-[25px] pr-[1px] pb-[1px] pl-[1px] gap-[24px] w-full border-solid border-1 shadow-[0px_1px_2px_rgba(0,0,0,0.05)] ${className || ''}`}
+      className={`flex flex-col items-center  pt-[25px] pr-[24px] pb-[24px] pl-[24px] gap-[24px] w-full border-solid border border-[#E5E7EB] shadow-[0px_1px_2px_rgba(0,0,0,0.05)] rounded-[12px] ${className || ''}`}
       {...props}
     >
-        <div className="flex justify-between w-full ">
-            <h1>
+        <div className="flex justify-between items-center w-full ">
+            <h1 className='font-semibold text-[24px]'>
                 Title
             </h1>    
             {showButton && (
-          <Button 
-            texto={buttonName || ''} // Passa o nome dinâmico (ou string vazia se for só ícone)
+          <Button className='w-[100px] h-[36px] flex items-center justify-center  cursor-pointer border-[1px] border-(--border-primary) rounded-[10px] border-solid gap-2'
+            texto={buttonName || ''} 
             link={buttonLink || ''}
             iconSrc={buttonIconSrc || ''}
             iconAlt={buttonIconAlt || ''}
             iconPos={buttonIconPos}
+            color={buttonColor}
+            
           />
         )}
         </div>
@@ -38,5 +41,6 @@ export function ContentBox({ children,buttonName,buttonIconSrc,buttonIconAlt,but
     </div>
   );
 }
+
 
 
