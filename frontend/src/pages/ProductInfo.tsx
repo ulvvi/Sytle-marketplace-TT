@@ -3,6 +3,7 @@ import { Breadcrumbs } from "../components/productInfo/Breadcrumbs";
 import { ProductGallery } from "../components/productInfo/ProductGallery";
 import { ProductInfoTabs } from "../components/productInfo/ProductInfoTabs";
 import { ProductPurchasePanel } from "../components/productInfo/ProductPurchasePanel";
+import { RelatedProducts } from "../components/productInfo/RelatedProducts";
 
 export function ProductInfo() {
     const productPaths = [
@@ -17,6 +18,7 @@ export function ProductInfo() {
                 <ProductGallery />
                 <ProductPurchasePanel />
                 <ProductInfoTabs />
+                <RelatedProducts />
             </main>  
         </>
     )
