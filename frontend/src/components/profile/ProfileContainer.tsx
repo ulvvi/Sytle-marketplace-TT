@@ -17,8 +17,6 @@ export function ProfileContainer ({orders = 3,wishlist = 4,rating = 4.8}:Profile
                      texto2="Orders"  src2="src/assets/icons/PackageSmallIcon.svg" alt2="Package"
                      texto3="Settings" src3="src/assets/icons/SettingsIcon.svg" alt3="Settings"/>
             <div className="flex flex-col gap-[24px]">
-
-            
                 <ContentBox title="Personal Information" buttonColor="white" buttonName="Cancel" buttonIconSrc="src/assets/icons/pencilIcon.svg" buttonIconPos="left" buttonIconAlt="pencil" buttonLink="/" >
                 <div className="w-full gap-[24px] flex flex-col lg:grid lg:grid-cols-2">
                     <InputText label="First Name" type="text" textClassName="text-primary" texto="Enter your First Name"/>
