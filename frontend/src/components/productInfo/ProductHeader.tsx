@@ -1,23 +1,56 @@
-export function ProductHeader() {
+interface ProductCardProps {
+    title: string;
+    collection: string;
+    ratingAvg: number;
+    ratingQuantity: number;
+    currentPrice: number;
+    oldPrice?: number;
+    stock?: number;
+    productBadges: productBadge[]
+}
+
+export type productBadge = "Tops" | "Limited Time";
+
+export function ProductHeader({title, collection, ratingAvg = 0.0, ratingQuantity = 0, currentPrice, oldPrice, stock = 0, productBadges}:ProductCardProps) {
+    const discount = oldPrice === undefined ? 0 : oldPrice - currentPrice;
     return (
         <>
-            <div className="flex flex-col gap-6 mb-6">
+            <div className="flex flex-col gap-6 mb-6"> 
                 <div>
-                    <h1 className="text-[1.875rem] font-bold text-primary">Premium Cotton T-Shirt</h1>
-                    <h2 className="text-[1rem] text-tertiary">STYLE Premium</h2>
+                    <div className="flex gap-2"> 
+                        {productBadges.map((badge, _) => (
+                            <div className={`flex items-center py-0.75 px-2.75 rounded-[100rem] h-5.5 top-3 left-3 z-1 
+                            ${{
+                                "Tops": "bg-secondary border border-(--border-primary)",
+                                "Limited Time": "bg-[#F3F4F6]",
+                            }[badge]}`}>
+                                <span className="text-primary font-semibold text-[0.75rem]">{badge}</span>
+                            </div>
+                        ))}
+                    </div>
+                    <h1 className="text-[1.875rem] font-bold text-primary">{title}</h1>
+                    <h2 className="text-[1rem] text-tertiary">{collection}</h2>
                 </div>
-                <div className="text-[1rem]">
-                    <span className="font-semibold text-primary">4.8</span>
-                    <span className="font-regular text-tertiary">(124 reviews)</span>
+                <div className="flex flex-row text-[1rem]">
+                    <div className="flex flex-row flex-wrap">
+                        {Array.from({length: 5}).map((_, i) => (
+                            <img src={`${i <= ratingAvg - 1 ? "/src/assets/icons/starIcon.svg" : "/src/assets/icons/starOutlineIcon.svg"}`} className="w-5"/>
+                        ))}
+                    </div>
+                    <span className="font-semibold text-primary ml-2">{ratingAvg}</span>
+                    <span className="font-regular text-tertiary ml-4">({ratingQuantity} items)</span>
                 </div>
                 <div className="flex items-center gap-4">
-                    <span className="text-[1.875rem] font-bold text-[#DC2626]">$29</span>
-                    <span className="text-[1.25rem] text-tertiary line-through">$49</span>
-
+                    <span className="text-[1.875rem] font-bold text-[#DC2626]">${currentPrice}</span>
+                    <span className={`text-[1.25rem] text-tertiary line-through ${oldPrice ? "inline-block" : "hidden"}`}>${oldPrice}</span>
+                    <div className={`flex items-center bg-[#EF4343] px-2.75 rounded-[100rem] h-6 z-1 ${oldPrice ? "inline-block" : "hidden"}`}>
+                        <span className={`text-secondary font-semibold text-[0.75rem]`}>Save ${discount}</span>
+                    </div>
                 </div>
                 <div className="flex gap-2 items-center">
-                    <div className="w-3 h-3 bg-[#22C55E] rounded-full"></div>
-                    <span className="font-semibold text-[#16A34A]">In Stock (12 Left)</span>
+                    <div className={`w-3 h-3 ${stock === 0 ? "bg-[#DC2626]" : "bg-[#22C55E]"} rounded-full`}></div>
+                    <span className={`font-semibold text-[#16A34A] ${stock === 0 ? "hidden" : "block"}`}>In Stock ({stock} left)</span>
+                    <span className={`font-semibold text-[#DC2626] ${stock !== 0 ? "hidden" : "block"}`}>Out Of Stock</span>
                 </div>
             </div>
         </>
