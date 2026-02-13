@@ -5,7 +5,7 @@ export function Profile() {
     return (
         <>  
             <Header/>
-            <div className="w-full pr-[260px] pb-[346px] pl-[260px] min-h-[1200px]">
+            <div className="w-full min-h-[780px] lg:pr-[260px] lg:pb-[346px] lg:pl-[260px] lg:min-h-[1200px]">
                 <PrincipalContainer/>    
             </div>
             

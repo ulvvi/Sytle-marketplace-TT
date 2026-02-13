@@ -18,21 +18,27 @@ export function ProfileContainer ({orders = 3,wishlist = 4,rating = 4.8}:Profile
 
             
                 <ContentBox title="Personal Information" buttonColor="white" buttonName="Cancel" buttonIconSrc="src/assets/icons/pencilIcon.svg" buttonIconPos="left" buttonIconAlt="pencil" buttonLink="/" >
+                <div className="w-full gap-[24px] flex flex-col lg:grid lg:grid-cols-2">
                     <InputText label="First Name" type="text" textClassName="text-primary"/>
                     <InputText label="Last Name" type="text" textClassName="text-primary"/>
                     <InputText label="Email" type="email" textClassName="text-primary"/>
                     <InputText label="Phone" type="tel" textClassName="text-primary"/>
                     <InputText label="Date of Birth" type="date" textClassName="text-primary"/>
-                    <InputText label="Gender" texto="Genero" textClassName="text-primary" options={[
+                    <InputText label="Gender" texto="Gender" textClassName="text-primary" options={[
                         {label: "Male", value:"male"},
-                        {label: "Woman", value:"woman"}
+                        {label: "Female", value:"female"}
                     ]}/>
-                    <div className="flex items-end justify-start w-full pt-[16px] gap-[16px]">
+                        <div className="flex items-end justify-start w-full pt-[16px] gap-[16px]">
                             <Button texto="Save Changes" link="/Profile" buttonClassName="!w-[120px]"/>    
                             <Button texto="Cancel" link="/Profile" color="white" buttonClassName="!w-[76px]"/>
-                    </div>
+                        </div>
+                </div>
+                    
+                    
                 </ContentBox>
+                <div className="w-full gap-[24px] flex flex-col lg:flex-row">
 
+                
                 <ContentBox>
                     <div className="flex flex-col gap-[8px] items-center">
                         <img src="src/assets/icons/packageIcon.svg" alt="package" />
@@ -56,7 +62,7 @@ export function ProfileContainer ({orders = 3,wishlist = 4,rating = 4.8}:Profile
                         <span className="text-[14px]/5 text-tertiary">Avg. Rating</span>
                     </div>
                 </ContentBox>
-                
+                </div>
             </div>
         </div>
         
