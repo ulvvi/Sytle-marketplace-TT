@@ -21,14 +21,6 @@
     body {
           width: 100%;
     }
-    html,
-    body {
-          width: 100%;
-    }
-
-    #root {
-        height: 100%;
-    }
 
     header {
         width: 100%;
@@ -37,4 +29,5 @@
 }
 
 @layer components {
+
 }

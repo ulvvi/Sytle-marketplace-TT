@@ -52,14 +52,14 @@ router.get("/user/:id/wishlist",
     authenticateJWT, 
     ensureOwner, 
     Wishlist.readWishlist);
-router.put("/user/:id/wishlist",
-    authenticateJWT, 
-    ensureOwner, 
-    Wishlist.updateWishlist);
 router.put("/user/:id/wishlist/add",
     authenticateJWT, 
     ensureOwner, 
     Wishlist.addToWishlist);
+    router.put("/user/:id/wishlist/del",
+    authenticateJWT, 
+    ensureOwner, 
+    Wishlist.DelFromWishlist);
 
 
 export default router;
