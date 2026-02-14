@@ -18,7 +18,7 @@ export function Button({ texto, link, color = "default", buttonClassName, textCl
                 color === "white" ? "bg-white text-black hover:bg-[#F3F4F6]" : 
                 "bg-red-500 text-white"
             }
-            ${buttonClassName}`}
+            ${iconPos === "left" ? "flex-row-reverse" : ""} ${buttonClassName}`}
             onClick={() => window.location.href = link}
             {...props}
             
