@@ -5,6 +5,7 @@ import { SalesHero } from "../components/Sales/SalesHero";
 import { SalesStats } from "../components/Sales/SalesStats";
 import { Filter } from "../components/Sales/Filter";
 import { ProductSection } from "../components/Sales/ProductSection";
+import { Footer } from "../components/home/Footer";
 
 export function Sales(){
     return(
@@ -16,6 +17,7 @@ export function Sales(){
                 <Filter/>
                 <ProductSection/>
             </section>
+            <Footer footerStyle="Sales"/>
         </>
     )
 }
