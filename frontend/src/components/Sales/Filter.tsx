@@ -6,7 +6,7 @@ export function Filter(){
     const categories = ["Tops", "Bottoms", "Dresses", "Shoes", "Acessories"];
     const sizes = ["XS","S", "M", "L", "XL", "6", "7", "8", "9", "10", "11", "28", "30", "32", "34", "36"];
     return(
-        <div className="flex flex-col gap-5 w-1/4 max-w-64">
+        <div className="flex flex-col gap-5 lg:w-1/4 lg:max-w-64">
             <div className="flex lg:hidden">
                 <img src={filterIcon} alt="ícone de filtro" />
                 <p className="font-semibold">Filters</p>
