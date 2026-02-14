@@ -3,7 +3,7 @@ import { CheckBox } from "../Checkbox"
 
 
 export function Filter(){
-    const categories = ["Tops", "Bottoms", "Dresses", "Shoes", "Acessories"];
+   const categories = ["Tops", "Bottoms", "Dresses", "Shoes", "Acessories"];
     const sizes = ["XS","S", "M", "L", "XL", "6", "7", "8", "9", "10", "11", "28", "30", "32", "34", "36"];
     return(
         <div className="flex flex-col gap-5 lg:w-1/4 lg:max-w-64">
@@ -32,8 +32,11 @@ export function Filter(){
                 <h3 className="font-semibold">Price Range</h3>
                 <select name="" id="" className="rounded-xl border border-(--border-primary)  text-[0.875rem] py-1 px-2 w-full" >
                     <option selected value="Opcao1" >All prices</option>
-                    <option value="Opcao1">Opcao1</option>
-                    <option value="Opcao1">Opcao1</option>
+                    <option value="Opcao1">$0~$25</option>
+                    <option value="Opcao1">$25~$50</option>
+                    <option value="Opcao1">$50~$75</option>
+                    <option value="Opcao1">$75~$100</option>
+                    <option value="Opcao1">$100+</option>
                 </select>
             </div>
             

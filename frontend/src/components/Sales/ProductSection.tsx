@@ -6,6 +6,8 @@ import { SvgIconProduct } from "../SvgIconProduct";
 
 export function ProductSection(){
     const quantityFound = 6;
+    const badges = ['Best Seller' , 'New' , 'Sale' , 'Premium' , 'Limited Time' 
+        , 'Flash Sale' , 'Luxury Sale' , 'Summer Sale' , 'Sport Sale']
     return(
         <>
             <main className="flex flex-col gap-6">
@@ -19,8 +21,11 @@ export function ProductSection(){
                     <div className="flex gap-3">
                         <select name="" id="" className="rounded-xl border border-(--border-primary)  text-[0.875rem] py-1 px-2 w-48" >
                             <option selected value="Opcao1" >Featured</option>
-                            <option value="Opcao1">Opcao1</option>
-                            <option value="Opcao1">Opcao1</option>
+                            {badges.map((badgeText) =>{
+                                return(
+                                    <option>{badgeText}</option>
+                                )
+                            })}
                         </select>
                         <div className="flex gap-1">
                             <SvgIconProduct path = "src\assets\icons\gridIcon.svg" border="false" color="bg-primary" alt="ícone para alternar para disposição em grade"/>
