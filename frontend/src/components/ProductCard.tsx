@@ -1,5 +1,7 @@
 import { Button } from "./Button";
 import { SvgIconProduct } from "./SvgIconProduct";
+import { useState } from 'react';
+
 type badgeType = 'Best Seller' | 'New' | 'Sale' | 'Premium' | 'Limited Time' 
         | 'Flash Sale' | 'Luxury Sale' | 'Summer Sale' | 'Sport Sale' | 'Out Of Stock'
 interface ProductCardProps {
@@ -17,6 +19,8 @@ interface ProductCardProps {
     imgAlt?: string;
 }
 
+
+
 export function ProductCard({title="product", ratingAvg=0, ratingQuantity=0, currentPrice=0, oldPrice, productBadge=[], imgSrc="/src/assets/placeholder.svg", imgAlt, cardStyle, category}:ProductCardProps) {
     const isHome = cardStyle === 'Home'
     const isSales = cardStyle === 'Sales'
@@ -27,6 +31,11 @@ export function ProductCard({title="product", ratingAvg=0, ratingQuantity=0, cur
     let allBadges:string[] = [...productBadge];
     const priceColor: string = isSales ? "text-red-text" : "text-primary"
     const buttonColor: "default" | "white" | "red" = !isHome ? "default" : "white"
+
+    const [isLiked, setIsLiked] = useState(false)
+    const likeProduct = () =>{
+        setIsLiked(!isLiked)
+    }
 
     if(isSales){
         const discount = Math.round( (1 - (currentPrice/(oldPrice as number)))*100 ) 
@@ -53,8 +62,7 @@ export function ProductCard({title="product", ratingAvg=0, ratingQuantity=0, cur
 
     return (
         <>
-            <article className="w-full max-w-[320px] h-auto border-0 rounded-xl shadow-lg hover:shadow-xl relative mx-auto
-            ">
+            <article className={` border-0 rounded-xl shadow-lg hover:shadow-xl relative ${isSales ? 'w-full max-w-[320px] h-auto' : 'w-89.5 h-122.5 lg:w-79.5' }`}>
 
                 {/**div das badges com loop */}
                 <div className={`${isSales ? 'flex justify-between w-full' : 'flex-col'}  p-3 z-1 absolute gap-2`}>
@@ -100,7 +108,7 @@ export function ProductCard({title="product", ratingAvg=0, ratingQuantity=0, cur
                         </div>
                         <div className={`${!isHome ? 'w-full flex gap-2' : 'w-25'}`}> 
                             <Button texto="Add to Cart" color={buttonColor} link="" buttonClassName="h-[length:36px]"  iconSrc={!isHome ? "src/assets/icons/cartIconWhite.svg" : undefined} iconPos="left"/>
-                            <SvgIconProduct path = "\src\assets\icons\heartIcon.svg" alt="Ícone para salvar na wishlist" border="true" className={`${isHome ? 'hidden' : ''}`}/>
+                            <SvgIconProduct onClick={likeProduct} path={`${isLiked ?'src/assets/icons/heartFilled.svg' : 'src/assets/icons/heartIcon.svg' }`} alt="Ícone para salvar na wishlist" border="true" className={`${isHome ? 'hidden' : ''}`}/>
                         </div>
                     </div>
                 </div>
