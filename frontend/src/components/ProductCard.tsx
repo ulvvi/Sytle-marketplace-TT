@@ -22,12 +22,16 @@ export function ProductCard({title="product", ratingAvg=0, ratingQuantity=0, cur
     const isSales = cardStyle === 'Sales'
     const isWishlist = cardStyle === 'Wishlist'
 
+    let saving = ''
+
     let allBadges:string[] = [...productBadge];
     const priceColor: string = isSales ? "text-red-text" : "text-primary"
     const buttonColor: "default" | "white" | "red" = !isHome ? "default" : "white"
 
     if(isSales){
         const discount = Math.round( (1 - (currentPrice/(oldPrice as number)))*100 ) 
+        const numericDiscount = oldPrice as number - currentPrice;
+        saving = (`Save $${numericDiscount.toString()}`)
         allBadges.unshift(`-${discount.toString()}%`)
     }
     if(allBadges.length == 0){
@@ -90,6 +94,9 @@ export function ProductCard({title="product", ratingAvg=0, ratingQuantity=0, cur
                         <div className="flex gap-2 items-center">
                             <span className={`text-[1.25rem] font-bold ${priceColor}`}>${currentPrice}</span>
                             <span className={`text-[0.875rem] font-normal text-tertiary line-through ${oldPrice ? "inline-block" : "hidden"} `}>${oldPrice}</span>
+                            <div className={`${!isSales ? 'hidden' : 'flex'} bg-[#EF4343]  items-center text-white py-0.75 px-2.75 rounded-[100rem] h-5.5 `}>
+                                <span className=" font-semibold text-[0.75rem] ">{saving}</span>
+                            </div>
                         </div>
                         <div className={`${!isHome ? 'w-full flex gap-2' : 'w-25'}`}> 
                             <Button texto="Add to Cart" color={buttonColor} link="" buttonClassName="h-[length:36px]"  iconSrc={!isHome ? "src/assets/icons/cartIconWhite.svg" : undefined} iconPos="left"/>
