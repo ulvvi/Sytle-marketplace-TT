@@ -13,7 +13,7 @@ export function ProductSection(){
 
                 </div>
             </div>
-            <ProductCard title="Premium Cotton T-Shirt" ratingAvg={4.8} ratingQuantity={124} currentPrice={29} cardStyle="Sales" category="Tops" oldPrice={49} productBadge={36}/>
+            <ProductCard title="Premium Cotton T-Shirt" ratingAvg={4.8} ratingQuantity={124} currentPrice={29} cardStyle="Sales" category="Tops" oldPrice={49}/>
             
         </div>
     )
