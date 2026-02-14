@@ -12,7 +12,7 @@ export function Filter(){
                 <p className="font-semibold">Filters</p>
             </div>
 
-            <ul className="flex flex-col gap-y-1">
+            <ul className="flex flex-col gap-y-1 lg:pt-6">
                 <legend className="font-semibold py-1">Category</legend>
                 {categories.map((category) => (
                     <li><CheckBox label = {category}/></li>

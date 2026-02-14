@@ -10,14 +10,16 @@ import { Footer } from "../components/home/Footer";
 export function Sales(){
     return(
         <>
-            <Header/>
-            <SalesHero/>
-            <SalesStats maxDiscount={70} totalItens={500} timeLeft={48} shippingDiscount={100}/>
-            <section className="w-full px-4 lg:flex lg:justify-center">
-                <Filter/>
-                <ProductSection/>
-            </section>
-            <Footer footerStyle="Sales"/>
+            <div className="flex flex-col w-full m-0 overflow-x-hidden">
+                <Header/>
+                <SalesHero/>
+                <SalesStats maxDiscount={70} totalItens={500} timeLeft={48} shippingDiscount={100}/>
+                <section className="w-full p-6 lg:flex lg:justify-center gap-8">
+                    <Filter/>
+                    <ProductSection/>
+                </section>
+                <Footer footerStyle="Sales"/>
+            </div>
         </>
     )
 }
