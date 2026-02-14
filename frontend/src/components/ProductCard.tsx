@@ -24,7 +24,7 @@ export function ProductCard({title="product", ratingAvg=0, ratingQuantity=0, cur
 
     let allBadges:string[] = [...productBadge];
     const priceColor: string = isSales ? "text-red-text" : "text-primary"
-    const buttonColor: "default" | "white" | "red" = cardStyle != 'Home' ? "default" : "white"
+    const buttonColor: "default" | "white" | "red" = !isHome ? "default" : "white"
 
     if(isSales){
         const discount = Math.round( (1 - (currentPrice/(oldPrice as number)))*100 ) 
@@ -68,7 +68,7 @@ export function ProductCard({title="product", ratingAvg=0, ratingQuantity=0, cur
                 </div>
                 <div className=" bg-secondary rounded-b-xl flex flex-col gap-2 p-4">
                     
-                    <div className={` ${cardStyle != 'Home' ? 'flex justify-between' : 'hidden'}`}>
+                    <div className={` ${!isHome ? 'flex justify-between' : 'hidden'}`}>
                         <span className="font-semibold text-[0.75rem] py-0.5 border-(--border-primary) border rounded-full px-2.75">{category}</span>
                         <div className="text-[0.875rem] flex items-center gap-1">
                             <img src="/src/assets/icons/starIcon.svg"></img>
@@ -86,13 +86,13 @@ export function ProductCard({title="product", ratingAvg=0, ratingQuantity=0, cur
                         <span className="font-semibold">{ratingAvg}</span>
                         <span className="font-normal text-tertiary ml-1">({ratingQuantity})</span>
                     </div>
-                    <div className= {`flex  ${cardStyle != 'Home' ? 'flex-col gap-y-2' : 'justify-between '}`}>
+                    <div className= {`flex  ${!isHome ? 'flex-col gap-y-2' : 'justify-between '}`}>
                         <div className="flex gap-2 items-center">
                             <span className={`text-[1.25rem] font-bold ${priceColor}`}>${currentPrice}</span>
                             <span className={`text-[0.875rem] font-normal text-tertiary line-through ${oldPrice ? "inline-block" : "hidden"} `}>${oldPrice}</span>
                         </div>
-                        <div className={`${cardStyle != 'Home' ? 'w-full flex gap-2' : 'w-25'}`}> 
-                            <Button texto="Add to Cart" color={buttonColor} link="" buttonClassName="h-[length:36px]"  iconSrc={cardStyle != 'Home' ? "src/assets/icons/cartIconWhite.svg" : undefined} iconPos="left"/>
+                        <div className={`${!isHome ? 'w-full flex gap-2' : 'w-25'}`}> 
+                            <Button texto="Add to Cart" color={buttonColor} link="" buttonClassName="h-[length:36px]"  iconSrc={!isHome ? "src/assets/icons/cartIconWhite.svg" : undefined} iconPos="left"/>
                             <SvgIconProduct path = "\src\assets\icons\heartIcon.svg" alt="Ícone para salvar na wishlist" border="true" className={`${isHome ? 'hidden' : ''}`}/>
                         </div>
                     </div>
