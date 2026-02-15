@@ -16,7 +16,7 @@ export function ProductInfo() {
             <main className="flex justify-center">
                 <div className="grid grid-cols-2 gap-x-12 mg-0 px-4 py-8 lg:max-w-350">
                     <Breadcrumbs items={productPaths} />
-                    <ProductGallery />
+                    <ProductGallery salePrice={29} price={49} />
                     <ProductPurchasePanel />
                     <ProductInfoTabs />
                     <RelatedProducts />
