@@ -8,6 +8,11 @@
     --color-placeholder: #EAEAEA;
     --border-primary: #E5E7EB;
 
+    /*Sales*/
+    --color-red-grad: #EF4444;
+    --color-pink-grad: #DB2777;
+    --color-red-text: #DC2626;
+
 }
 
 @layer base {
