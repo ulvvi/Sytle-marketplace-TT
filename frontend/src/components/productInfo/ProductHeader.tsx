@@ -37,7 +37,7 @@ export function ProductHeader({title, collection, ratingAvg = 0.0, ratingQuantit
                         ))}
                     </div>
                     <span className="font-semibold text-primary ml-2">{ratingAvg}</span>
-                    <span className="font-regular text-tertiary ml-4">({ratingQuantity} items)</span>
+                    <span className="font-regular text-tertiary ml-4">({ratingQuantity} reviews)</span>
                 </div>
                 <div className="flex items-center gap-4">
                     <span className="text-[1.875rem] font-bold text-[#DC2626]">${currentPrice}</span>

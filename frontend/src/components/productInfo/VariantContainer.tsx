@@ -94,7 +94,7 @@ export function VariantContainer({variants}:VariantContainerProps) {
                     <legend className="text-[1rem] font-semibold mb-3">Size:</legend>
                     <div className="flex gap-2 mb-3">
                         {sizes.map((size) => (
-                            <Button color="white" texto={size} buttonClassName={`!h-12.5 disabled:cursor-default disabled:opacity-50 disabled:hover:bg-secondary disabled:cursor-not-allowed ${size === currentSize ? "border-tertiary !cursor-default hover:bg-secondary" : ""}`} onClick={() => handleChangeSize(size)} textClassName="!font-normal !text-[1rem]" disabled={!isSizeOnStock(size)}/>
+                            <Button color="white" texto={size} buttonClassName={`!h-12.5 disabled:cursor-default disabled:opacity-50 disabled:bg-[#F3F4F6] disabled:cursor-not-allowed ${size === currentSize ? "border-tertiary !cursor-default hover:bg-secondary" : ""}`} onClick={() => handleChangeSize(size)} textClassName="!font-normal !text-[1rem]" disabled={!isSizeOnStock(size)}/>
                         ))}
                     </div>
                     <span className="text-[0.875rem] font-semibold">Size Guide</span>
@@ -102,10 +102,10 @@ export function VariantContainer({variants}:VariantContainerProps) {
                 <fieldset>
                     <legend className="text-[1rem] font-semibold mb-3">Quantity</legend>
                     <div className="flex gap-3 items-center">
-                        <div className="flex justify-evenly items-center w-35.5 h-10.5 border border-(--border-primary) rounded-[10px] overflow-hidden">
-                            <IconButton iconSrc="/src/assets/icons/minusIcon.svg" buttonClassName="hover:bg-[#F3F4F6] !w-full !h-full flex justify-center disabled:opacity-30 disabled:hover:bg-secondary disabled:cursor-not-allowed" onClick={() => decreaseQuantity()} disabled={(currentVariant === null || currentQuantity <= 1)}/>
+                        <div className={`flex justify-evenly items-center w-35.5 h-10.5 border border-(--border-primary) rounded-[10px] overflow-hidden ${currentVariant === null ? "bg-[#F3F4F6]" : ""}`}>
+                            <IconButton iconSrc="/src/assets/icons/minusIcon.svg" buttonClassName="hover:bg-[#F3F4F6] !w-full !h-full flex justify-center disabled:opacity-30 disabled:cursor-not-allowed" onClick={() => decreaseQuantity()} disabled={(currentVariant === null || currentQuantity <= 1)}/>
                             <span className={`w-full h-full flex items-center cursor-default justify-center ${currentVariant === null ? "opacity-50 cursor-not-allowed" : ""}`}>{currentQuantity}</span>
-                            <IconButton iconSrc="/src/assets/icons/plusIcon.svg" buttonClassName="hover:bg-[#F3F4F6] !w-full !h-full flex justify-center disabled:opacity-30 disabled:hover:bg-secondary disabled:cursor-not-allowed" onClick={() => increaseQuantity()} disabled={(currentVariant === null || currentQuantity >= currentVariant.stock)}/>
+                            <IconButton iconSrc="/src/assets/icons/plusIcon.svg" buttonClassName="hover:bg-[#F3F4F6] !w-full !h-full flex justify-center disabled:opacity-30 disabled:cursor-not-allowed" onClick={() => increaseQuantity()} disabled={(currentVariant === null || currentQuantity >= currentVariant.stock)}/>
                         </div>
                         <span className={`text-[0.875rem] text-tertiary ${currentVariant ? "block" : "hidden"}`}>Max {currentVariant?.stock} items</span>
                     </div>

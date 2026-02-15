@@ -7,7 +7,7 @@ type badgeType = 'Best Seller' | 'New' | 'Sale' | 'Premium' | 'Limited Time'
 interface ProductCardProps {
     title: string;
     ratingAvg: number;
-    ratingQuantity: number;
+    ratingQuantity?: number;
     currentPrice: number;
     oldPrice?: number;
     category?: 'Tops'| 'Bottoms' | 'Dresses' | 'Shoes' | 'Acessories';
@@ -106,7 +106,7 @@ export function ProductCard({title="product", ratingAvg=0, ratingQuantity=0, cur
                     inclusive, me parece o mesmo da de home*/}
                     <div className={`text-[0.875rem] flex items-center gap-1 ${(isHome || isProductInfo) ? '' : 'hidden'}`}>
                         <img src="/src/assets/icons/starIcon.svg"></img>
-                        <span className="font-semibold">{ratingAvg}</span>
+                        <span className={`${isProductInfo ? "font-normal" : "font-semibold"}`}>{ratingAvg}</span>
                         <span className={`font-normal text-tertiary ml-1 
                         ${isProductInfo ? "hidden" : "block"}`}>({ratingQuantity})</span>
                     </div>
