@@ -5,13 +5,12 @@ interface ProductCardProps {
     ratingQuantity: number;
     currentPrice: number;
     oldPrice?: number;
-    stock?: number;
     productBadges: productBadge[]
 }
 
 export type productBadge = "Tops" | "Limited Time";
 
-export function ProductHeader({title, collection, ratingAvg = 0.0, ratingQuantity = 0, currentPrice, oldPrice, stock = 0, productBadges}:ProductCardProps) {
+export function ProductHeader({title, collection, ratingAvg = 0.0, ratingQuantity = 0, currentPrice, oldPrice, productBadges}:ProductCardProps) {
     const discount = oldPrice === undefined ? 0 : oldPrice - currentPrice;
     return (
         <>
@@ -46,11 +45,6 @@ export function ProductHeader({title, collection, ratingAvg = 0.0, ratingQuantit
                     <div className={`flex items-center bg-[#EF4343] px-2.75 rounded-[100rem] h-6 z-1 ${oldPrice ? "inline-block" : "hidden"}`}>
                         <span className={`text-secondary font-semibold text-[0.75rem]`}>Save ${discount}</span>
                     </div>
-                </div>
-                <div className="flex gap-2 items-center">
-                    <div className={`w-3 h-3 ${stock === 0 ? "bg-[#DC2626]" : "bg-[#22C55E]"} rounded-full`}></div>
-                    <span className={`font-semibold text-[#16A34A] ${stock === 0 ? "hidden" : "block"}`}>In Stock ({stock} left)</span>
-                    <span className={`font-semibold text-[#DC2626] ${stock !== 0 ? "hidden" : "block"}`}>Out Of Stock</span>
                 </div>
             </div>
         </>
