@@ -14,9 +14,6 @@ const signInVal= signUpVal.pick({
     password:true
 })
 
-const getUserId = z.object({
-    id: z.coerce.number().int()
-})
 
 const updateUserVal= signUpVal.partial().extend({
     gender: z.enum(Gender),
@@ -33,5 +30,4 @@ export default{
     signUpVal,
     signInVal,
     updateUserVal,
-    getUserId
 }

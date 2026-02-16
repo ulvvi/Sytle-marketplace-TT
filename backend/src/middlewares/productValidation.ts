@@ -17,10 +17,6 @@ const createProductVal = product.extend({
     stock: z.int()
 })
 
-const getProductId = z.object({
-    id: z.coerce.number().int()
-})
-
 const updateProductVal = createProductVal.omit({
     color: true,
     size: true,
@@ -29,6 +25,5 @@ const updateProductVal = createProductVal.omit({
 
 export default{
     createProductVal, 
-    getProductId, 
     updateProductVal
 }

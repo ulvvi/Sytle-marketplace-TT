@@ -1,5 +1,10 @@
 import { Request, Response, NextFunction } from "express"
 import z from "zod"
+
+const getSelfId = z.object({
+    id: z.coerce.number().int()
+})
+
 export function validateRequestParams<T>(schema:z.ZodSchema<T>){
     return(req: Request, res: Response, next: NextFunction)=>{
         const validateParams = schema.safeParse(req.params)
@@ -10,3 +15,8 @@ export function validateRequestParams<T>(schema:z.ZodSchema<T>){
         next();
     }
 }
+
+export default{
+    getSelfId
+}
+

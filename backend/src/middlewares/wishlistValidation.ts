@@ -4,7 +4,13 @@ const addWishlistVal = z.object({
 })
 const delWishlistVal = addWishlistVal;
 
+const getUserId = z.object({
+    id: z.coerce.number().int()
+})
+
+
 export default{
     addWishlistVal,
-    delWishlistVal
+    delWishlistVal,
+    getUserId
 }
