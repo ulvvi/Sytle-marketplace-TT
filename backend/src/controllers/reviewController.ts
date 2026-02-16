@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
 import { prisma } from "../config/prisma";
-import validate from "../config/validate"; 
 import z from "zod";
 
 
@@ -10,9 +9,6 @@ export class reviewController {
     try {
       const { productId } = request.params; // Para associar à review
       const { rating } = request.body;
-
-      const validation = validate.createReviewValidation.safeParse(request.body);
-      if (validation.error) return response.status(400).json({message: z.treeifyError(validation.error)});
 
       const createdReview = await prisma.review.create({
         data: {

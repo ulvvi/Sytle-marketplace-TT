@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
 import { prisma } from "../config/prisma";
-import validate from "../config/validate"; 
 import z from "zod";
 
 // Classe das variantes

@@ -9,15 +9,25 @@ import userValidation from "../middlewares/userValidation";
 import { validateRequestBody } from "../middlewares/ValidateSchemaBody";
 import { validateRequestParams } from "../middlewares/ValidadeSchemaParams";
 import wishlistValidation from "../middlewares/wishlistValidation";
+import productValidation from "../middlewares/productValidation";
 
 const router = Router();
 
 // Rota do produto
-router.post("/product", productController.createProduct);
+router.post("/product", 
+    validateRequestBody(productValidation.createProductVal),
+    productController.createProduct);
 router.get("/products", productController.readAllProduct);
-router.get("/product/:id", productController.readProduct);
-router.put("/product/:id", productController.updateProduct);
-router.delete("/product/:id", productController.deleteProduct);
+router.get("/product/:id",
+    validateRequestParams(productValidation.getProductId),
+    productController.readProduct);
+router.put("/product/:id", 
+    validateRequestParams(productValidation.getProductId),
+    validateRequestBody(productValidation.updateProductVal),
+    productController.updateProduct);
+router.delete("/product/:id", 
+    validateRequestParams(productValidation.getProductId),
+    productController.deleteProduct);
 
 // Rota da variante
 router.post("/variant/:productId", variantController.createVariant);

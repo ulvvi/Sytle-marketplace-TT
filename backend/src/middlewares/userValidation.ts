@@ -15,7 +15,7 @@ const signInVal= signUpVal.pick({
 })
 
 const getUserId = z.object({
-    id: z.coerce.number()
+    id: z.coerce.number().int()
 })
 
 const updateUserVal= signUpVal.partial().extend({
