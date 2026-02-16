@@ -180,7 +180,7 @@ model Review {
 
 model Category {
   id Int @id @default(autoincrement())
-  type CategoryType
+  type CategoryType @unique
 
   products ProductCategory[]
 }
