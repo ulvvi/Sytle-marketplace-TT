@@ -11,10 +11,6 @@ export class UserController{
         try {
             const {firstName, lastName, email, marketingEmail, password} = req.body;
             
-            const validation = validate.createUserValidation.safeParse(req.body);
-            if (validation.error) return res.status(400).json({message: z.treeifyError(validation.error)});
-            
-
             const {salt, hash} = auth.generatePassword(password);
             const createData: Prisma.UserCreateInput = {
                 firstName: firstName,

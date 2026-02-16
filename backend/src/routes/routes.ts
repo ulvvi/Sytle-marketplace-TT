@@ -5,6 +5,8 @@ import { reviewController } from "../controllers/reviewController";
 import { UserController } from "../controllers/UserController";
 import { Wishlist } from "../controllers/WishlistController";
 import { authenticateJWT, ensureOwner } from "../middlewares/authMiddleware";
+import { validateRequest } from "../middlewares/ValidateSchemaBody";
+import userValidation from "../middlewares/userValidation";
 
 const router = Router();
 
@@ -30,7 +32,7 @@ router.put("/review/:id", reviewController.updateReview);
 router.delete("/review/:id", reviewController.deleteReview);
 
 //usuario
-router.post("/signUp", UserController.signUp);
+router.post("/signUp", validateRequest(userValidation.signUpVal),UserController.signUp);
 router.post("/signIn", UserController.signIn);
 router.get("/user/:id",
     authenticateJWT, 
