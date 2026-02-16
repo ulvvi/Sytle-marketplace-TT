@@ -6,7 +6,7 @@ export function Orders() {
     return(
         <>
             <Header/>
-            <div className="w-full min-h-[780px] lg:pr-[260px] lg:pb-[37px] lg:pl-[260px] lg:min-h-[1200px]">
+            <div className="w-full min-h-[780px] pr-[16px] pl-[16px] lg:pr-[260px] lg:pb-[37px] lg:pl-[260px] lg:min-h-[1200px]">
                 <PrincipalContainer/>    
             </div>      
         

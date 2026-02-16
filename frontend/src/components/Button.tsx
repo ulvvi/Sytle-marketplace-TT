@@ -1,6 +1,6 @@
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     texto: string;
-    link: string;
+    link?: string;
     color?: "default" | "white" | "red";
     buttonClassName?: string;
     textClassName?: string;
@@ -18,8 +18,8 @@ export function Button({ texto, link, color = "default", buttonClassName, textCl
                 color === "white" ? "bg-white text-black hover:bg-[#F3F4F6]" : 
                 "bg-red-500 text-white"
             }
-            ${buttonClassName}`}
-            onClick={() => window.location.href = link}
+            ${iconPos === "left" ? "flex-row-reverse" : ""} ${buttonClassName}`}
+            onClick={link ? () => window.location.href = link : undefined}
             {...props}
             
         >
