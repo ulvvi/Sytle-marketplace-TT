@@ -1,13 +1,12 @@
 import { Request, Response } from "express";
 import { prisma } from "../config/prisma";
 
-export class CartController {
+export class cartController {
   public static async addVariantToCart(req: Request, res: Response) {
-    const { userID } = req.params;
+    const { userId } = req.params;
     const { variantId } = req.body;
 
     try {
-      const userId = Number(userID);
 
       //Busca variante e carrinho em paralelo
       //(isso ajuda a salvar tempo, descobri e é importante especialmente pro cart)
@@ -17,7 +16,7 @@ export class CartController {
             include: { product: true } 
         }),
         prisma.cart.findUnique({ 
-            where: { userId: userId },
+            where: { userId: Number(userId) },
             include: { cartVariants: true }
         })
       ]);
@@ -70,15 +69,14 @@ export class CartController {
   }
 
   public static async removeVariant(req: Request, res: Response) {
-    const { userID } = req.params;
+    const { userId } = req.params;
     const { variantId } = req.body;
 
     try {
-      const userId = Number(userID);
 
       const cartItem = await prisma.cartVariant.findFirst({
         where: { 
-          cart: { userId: userId },
+          cart: { userId: Number(userId) },
           variantId: variantId 
         },
         include: { 
@@ -101,7 +99,7 @@ export class CartController {
         });
 
         return tx.cart.update({
-          where: { userId: userId },
+          where: { userId: Number(userId) },
           data: {
             subtotal: { decrement: totalToRemove },
             totalCost: { decrement: totalToRemove }
@@ -138,7 +136,7 @@ export class CartController {
 
       return res.status(200).json(cart);
     } catch (error) {
-      return res.status(500).json({ error: "Erro ao buscar carrinho." });
+      return res.status(500).json({ error: "Erro ao buscar carrinho.", details: error });
     }
   }
 }

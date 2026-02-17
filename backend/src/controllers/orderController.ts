@@ -6,14 +6,16 @@ export class orderController {
     public static async createOrder (req: Request, res: Response) {
         try {
             
-            const { userId, adress } = req.body;
+            const { userId, address } = req.body;
 
             const cart = await prisma.cart.findUnique({
                 where: { userId: userId },
                 include: {
                     cartVariants: {
                         include: {
-                            variant: true
+                            variant: {
+                                include: { product: true }
+                            }
                         }
                     }
                 }
@@ -28,20 +30,22 @@ export class orderController {
                 const createdOrder = await tx.order.create({
                     data: {
                         userId: userId,
-                        address: adress,
+                        address: address,
                         situation: "PROCESSING",
                         totalPrice: cart.totalCost,
+                        rastreio: "tete",
                         variants: { 
                             create: cart.cartVariants.map((cartVariant: any) => ({
                                 variantId: cartVariant.variantId,
-                                unitPrice: cartVariant.variant.price,
-                                quantity: 1
+                                unitPrice: cartVariant.variant.product.price,
+                                quantity: cartVariant.quantity
                             }))
                         }
                     },
                 
                     include: { variants: true }  
             });
+
                 await tx.cartVariant.deleteMany({
                     where: { cartId: cart.id }
                 });
@@ -50,7 +54,7 @@ export class orderController {
                     where: { id: cart.id },
                     data: {
                         subtotal: 0,
-                        total: 0
+                        totalCost: 0
                     }
                 });
 
@@ -59,8 +63,8 @@ export class orderController {
 
             
             res.status(201).json(order);
-        } catch (error) {
-            res.status(500).json({ error: "Internal server error.", message: error });
+        } catch (error: any) {
+            res.status(500).json({ error: "Internal server error.", message: error.message });
         }
     }
 

@@ -74,9 +74,9 @@ router.delete("/review/:id",
     reviewController.deleteReview);
 
 // Cart router
-router.post("/cart/:cartId", cartController.addVariantToCart);
-router.delete("/cart/:cartId", cartController.removeVariant);
-router.get("/cart/:cartId", cartController.getCart);
+router.post("/cart/:userId", cartController.addVariantToCart);
+router.delete("/cart/:userId", cartController.removeVariant);
+router.get("/cart/:userId", cartController.getCart);
 
 // Order router
 router.post("/order/:userId", orderController.createOrder);
