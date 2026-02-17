@@ -19,7 +19,7 @@ export function TabList({texto1,src1,alt1,texto2,src2,alt2,texto3,src3,alt3}:Tab
 
     const navigate = useNavigate();
 
-    const [actualSection, setActualSection] = useState("Profile");
+    const [actualSection, setActualSection] = useState("Settings");
 
     return(
 
