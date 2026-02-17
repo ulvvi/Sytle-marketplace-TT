@@ -30,6 +30,7 @@ export class CartController {
       const updatedCart = await prisma.$transaction(async (tx) => {
         const existingItem = cart.cartVariants.find(cv => cv.variantId === variantId);
 
+        //tirei o updatedcart porque estava dando problema
         if (existingItem) {
           // se ja tem o item, so aumenta a quantidade
           await tx.cartVariant.update({
