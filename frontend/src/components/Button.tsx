@@ -13,7 +13,7 @@ export function Button({ texto, link, color = "default", buttonClassName, textCl
     
     return (
         <button 
-            className={`w-full h-[40px] flex items-center justify-center  cursor-pointer border-[1px] border-(--border-primary) rounded-[10px] border-solid gap-2 ${
+            className={`${iconPos === "left" ? "flex-row-reverse" : "flex-row"} w-full h-[40px] flex items-center justify-center  cursor-pointer border-[1px] border-(--border-primary) rounded-[10px] border-solid gap-2 ${
                 color === "default" ? "bg-[#030711] hover:bg-primary/90" : 
                 color === "white" ? "bg-white text-black hover:bg-[#F3F4F6]" : 
                 "bg-red-500 text-white"

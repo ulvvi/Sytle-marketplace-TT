@@ -1,7 +1,5 @@
 import { Request, Response } from "express";
 import { prisma } from "../config/prisma";
-import validate from "../config/validate"; 
-import z from "zod";
 
 // Class do Product
 export class productController {
@@ -17,9 +15,6 @@ export class productController {
         size,
         stock,
       } = request.body;
-
-      const validation = validate.createProductValidation.safeParse(request.body);
-      if (validation.error) return response.status(400).json({message: z.treeifyError(validation.error)});
 
       const createdProduct = {
         name: name,
@@ -66,7 +61,14 @@ export class productController {
         where: {
           id: parseInt(id as string),
         },
-        include: { variant: true, review: true },
+        include: { 
+          variant: true, 
+          review: true, 
+          categories: {             
+                select: {
+                    category: true
+                }
+            } },
       });
 
       response.status(200).json(foundProduct);

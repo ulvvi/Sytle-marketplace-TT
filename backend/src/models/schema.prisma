@@ -25,6 +25,20 @@ enum OrderStatus {
   PROCESSING
 }
 
+enum CategoryType {
+  BEST_SELLER
+  NEW
+  SALE
+  PREMIUM
+  LIMITED_TIME
+  FLASH_SALE
+  LUXURY_SALE
+  SUMMER_SALE
+  SPORT_SALE
+  OUT_OF_STOCK
+
+}
+
 model User{
   id Int @id @default(autoincrement())
   firstName String
@@ -61,17 +75,27 @@ model Wishlist{
   product WishlistProduct[]
 }
 
-model WishlistProduct{
-  wishlistId Int
-  wishlist Wishlist @relation(fields: [wishlistId], references: [id], onDelete: Cascade)
+model CartVariant {
+  cartId    Int
+  cart      Cart    @relation(fields: [cartId], references: [id], onDelete: Cascade)
 
-  productId   Int
-  variant Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  variantId Int
+  variant   Variant @relation(fields: [variantId], references: [id], onDelete: Cascade)
 
-  @@id([wishlistId, productId])
+  quantity  Int     @default(1)
 
+  @@id([cartId, variantId])
 }
 
+model WishlistProduct {
+  wishlistId Int
+  wishlist   Wishlist @relation(fields: [wishlistId], references: [id], onDelete: Cascade)
+
+  productId  Int
+  product    Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@id([wishlistId, productId])
+}
 model Cart{
   id        Int   @id @default(autoincrement()) 
   subtotal  Float @default(0)
@@ -85,16 +109,6 @@ model Cart{
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   cartVariants CartVariant[]
-}
-
-model CartVariant{
-  cartId Int
-  cart Cart @relation(fields: [cartId], references: [id], onDelete: Cascade)
-
-  variantId Int
-  variant Variant @relation(fields: [variantId], references: [id], onDelete: Cascade)
-
-  @@id([cartId, variantId])
 }
 
 model Order{
@@ -136,6 +150,7 @@ model Product {
   variant Variant[]
   review Review[]
   wishlistProducts WishlistProduct[]
+  categories ProductCategory[]
 }
 
 model Variant {
@@ -151,8 +166,7 @@ model Variant {
   carts CartVariant[]
   orderVariants OrderVariant[]
 
-  @@unique([productId, color, size]) // Permite que produtos diferentes tenham a mesma cor, porém produtos iguais não
-  // Cada tamanho tem sua quantidade, é possível ter (Produto 1, Preto, P, 5 peças) e (Produto 1, Preto, M, 10 peças)
+  @@unique([productId, color, size])
 }
 
 model Review {
@@ -161,4 +175,22 @@ model Review {
 
   productId Int // Não pode ser unique, pois se não aceitaria somente uma review por produto
   product Product @relation(fields: [productId], references: [id])
+}
+
+model Category {
+  id Int @id @default(autoincrement())
+  type CategoryType @unique
+
+  products ProductCategory[]
+}
+
+model ProductCategory{
+  productId  Int
+  product Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  categoryId Int
+  category Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+
+  @@id([productId, categoryId])
+
 }
