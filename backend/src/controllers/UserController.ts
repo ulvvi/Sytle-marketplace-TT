@@ -2,7 +2,6 @@ import { Request, response, Response } from "express";
 import { prisma } from "../config/prisma";
 import { Prisma } from "../generated/prisma/client";
 import auth from "../config/auth";
-import validate from "../config/validate"; 
 import z from "zod";
 
 export class UserController{
@@ -11,10 +10,6 @@ export class UserController{
         try {
             const {firstName, lastName, email, marketingEmail, password} = req.body;
             
-            const validation = validate.createUserValidation.safeParse(req.body);
-            if (validation.error) return res.status(400).json({message: z.treeifyError(validation.error)});
-            
-
             const {salt, hash} = auth.generatePassword(password);
             const createData: Prisma.UserCreateInput = {
                 firstName: firstName,

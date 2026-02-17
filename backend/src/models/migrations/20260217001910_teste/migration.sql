@@ -38,11 +38,21 @@ CREATE TABLE "Wishlist" (
 );
 
 -- CreateTable
+CREATE TABLE "CartVariant" (
+    "cartId" INTEGER NOT NULL,
+    "variantId" INTEGER NOT NULL,
+    "quantity" INTEGER NOT NULL DEFAULT 1,
+
+    CONSTRAINT "CartVariant_pkey" PRIMARY KEY ("cartId","variantId")
+);
+
+-- CreateTable
 CREATE TABLE "WishlistProduct" (
     "wishlistId" INTEGER NOT NULL,
+    "variantId" INTEGER NOT NULL,
     "productId" INTEGER NOT NULL,
 
-    CONSTRAINT "WishlistProduct_pkey" PRIMARY KEY ("wishlistId","productId")
+    CONSTRAINT "WishlistProduct_pkey" PRIMARY KEY ("wishlistId","variantId")
 );
 
 -- CreateTable
@@ -57,14 +67,6 @@ CREATE TABLE "Cart" (
     "userId" INTEGER NOT NULL,
 
     CONSTRAINT "Cart_pkey" PRIMARY KEY ("id")
-);
-
--- CreateTable
-CREATE TABLE "CartVariant" (
-    "cartId" INTEGER NOT NULL,
-    "variantId" INTEGER NOT NULL,
-
-    CONSTRAINT "CartVariant_pkey" PRIMARY KEY ("cartId","variantId")
 );
 
 -- CreateTable
@@ -138,19 +140,22 @@ CREATE UNIQUE INDEX "Variant_productId_color_size_key" ON "Variant"("productId",
 ALTER TABLE "Wishlist" ADD CONSTRAINT "Wishlist_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
+ALTER TABLE "CartVariant" ADD CONSTRAINT "CartVariant_cartId_fkey" FOREIGN KEY ("cartId") REFERENCES "Cart"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "CartVariant" ADD CONSTRAINT "CartVariant_variantId_fkey" FOREIGN KEY ("variantId") REFERENCES "Variant"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
 ALTER TABLE "WishlistProduct" ADD CONSTRAINT "WishlistProduct_wishlistId_fkey" FOREIGN KEY ("wishlistId") REFERENCES "Wishlist"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "WishlistProduct" ADD CONSTRAINT "WishlistProduct_variantId_fkey" FOREIGN KEY ("variantId") REFERENCES "Variant"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "WishlistProduct" ADD CONSTRAINT "WishlistProduct_productId_fkey" FOREIGN KEY ("productId") REFERENCES "Product"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "Cart" ADD CONSTRAINT "Cart_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
-
--- AddForeignKey
-ALTER TABLE "CartVariant" ADD CONSTRAINT "CartVariant_cartId_fkey" FOREIGN KEY ("cartId") REFERENCES "Cart"("id") ON DELETE CASCADE ON UPDATE CASCADE;
-
--- AddForeignKey
-ALTER TABLE "CartVariant" ADD CONSTRAINT "CartVariant_variantId_fkey" FOREIGN KEY ("variantId") REFERENCES "Variant"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "Order" ADD CONSTRAINT "Order_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
