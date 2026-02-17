@@ -5,6 +5,7 @@ import { reviewController } from "../controllers/reviewController";
 import { UserController } from "../controllers/UserController";
 import { Wishlist } from "../controllers/WishlistController";
 import { authenticateJWT, ensureOwner } from "../middlewares/authMiddleware";
+import { categoryController } from "../controllers/categoryController";
 import { cartController } from "../controllers/cartController";
 import { orderController } from "../controllers/orderController";
 
@@ -124,6 +125,15 @@ router.put("/user/:id/wishlist/del",
     authenticateJWT, 
     ensureOwner, 
     Wishlist.DelFromWishlist);
+
+// Rota do produto
+router.post("/category", categoryController.createCategory);
+router.post("/category/:categoryId/product/:productId", categoryController.addToCategory)
+router.get("/categories", categoryController.readAllCategories);
+router.get("/category/:id", categoryController.readCategory);
+router.put("/category/:id", categoryController.updateCategory);
+router.delete("/category/:id", categoryController.deleteCategory);
+router.delete("/category/:categoryId/product/:productId", categoryController.delFromCategory)
 
 
 export default router;
