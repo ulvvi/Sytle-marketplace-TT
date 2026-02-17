@@ -92,6 +92,77 @@ export function PrincipalContainer(){
   }
 ];
 
+const variantesEletronicos: Variant[] = [
+  // --- ITEM 1: iPhone (1/2) ---
+  {
+    id: 700,
+    color: "Titânio Natural",
+    size: "256GB",
+    produtos: {
+      name: "iPhone 15 Pro",
+      price: 7299.00,
+      rating: 4.9,
+      numReviews: 500,
+      isOutOfStock: false
+    },
+    photo: <div className="w-12 h-12 bg-gray-400 rounded-md border border-gray-600" />
+  },
+
+  // --- ITEM 2: Cabo USB (1/5) ---
+  {
+    id: 888,
+    color: "Branco",
+    size: "2m",
+    produtos: {
+      name: "Cabo USB-C Trançado",
+      price: 49.90,
+      rating: 4.2,
+      numReviews: 1200,
+      isOutOfStock: false
+    },
+    photo: <div className="w-12 h-12 bg-gray-100 rounded-full border border-gray-300" />
+  },
+
+  // --- ITEM 2: Cabo USB (2/5) ---
+  {
+    id: 888,
+    color: "Branco",
+    size: "2m",
+    produtos: { name: "Cabo USB-C Trançado", price: 49.90, rating: 4.2, numReviews: 1200, isOutOfStock: false },
+    photo: <div className="w-12 h-12 bg-gray-100 rounded-full border border-gray-300" />
+  },
+
+  // --- ITEM 3: Fone (Único) ---
+  {
+    id: 901,
+    color: "Preto",
+    size: "Padrão",
+    produtos: {
+      name: "Fone Sony WH-1000XM5",
+      price: 2499.00,
+      rating: 4.8,
+      numReviews: 350,
+      isOutOfStock: false
+    },
+    photo: <div className="w-12 h-12 bg-black rounded-lg shadow-lg" />
+  },
+
+  // --- ITEM 1: iPhone (2/2) ---
+  {
+    id: 700, // ID repetido
+    color: "Titânio Natural",
+    size: "256GB",
+    produtos: { name: "iPhone 15 Pro", price: 7299.00, rating: 4.9, numReviews: 500, isOutOfStock: false },
+    photo: <div className="w-12 h-12 bg-gray-400 rounded-md border border-gray-600" />
+  },
+
+  // --- ITEM 2: Cabo USB (3/5, 4/5, 5/5) ---
+  // Vamos adicionar mais 3 cabos de uma vez
+  { id: 888, color: "Branco", size: "2m", produtos: { name: "Cabo USB-C Trançado", price: 49.90 }, photo: <div className="bg-gray-100" /> },
+  { id: 888, color: "Branco", size: "2m", produtos: { name: "Cabo USB-C Trançado", price: 49.90 }, photo: <div className="bg-gray-100" /> },
+  { id: 888, color: "Branco", size: "2m", produtos: { name: "Cabo USB-C Trançado", price: 49.90 }, photo: <div className="bg-gray-100" /> },
+];
+
     return(
         <>
             <div className="flex max-w-[1400px] flex-col items-center justify-start gap-[32px] mt-[32px] mb-[32px] ">
@@ -108,8 +179,15 @@ export function PrincipalContainer(){
                     </ContentBox>
                     <Order 
                         variantes={variantesTeste} 
-                        orderName="PEDIDO-TESTE-99"
+                        orderName="PEDIDO-TESTE-00"
                         totalPrice={2500.00}
+
+                    />
+                    <Order 
+                        variantes={variantesEletronicos} 
+                        orderName="PEDIDO-TESTE-01"
+                        totalPrice={2500.00}
+                        situations="PROCESSING"
                     />
                 </div>
                 

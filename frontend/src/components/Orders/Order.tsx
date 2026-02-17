@@ -96,11 +96,10 @@ export function Order({
                 </div>
                 
                 </div>
-                <div className="color-tertiary">
-                    <hr className=""/>
-                </div>
-                
 
+
+                    <div className="w-full h-[1px] bg-[#E5E7EB]"></div>
+                
                 <ul className="w-full flex flex-col gap-[12px]">
                     {VariantList.map((variantes) => (
                         <li key={variantes.id} className="flex justify-between items-center gap-[12px]" >
