@@ -21,7 +21,7 @@ function App() {
       <BrowserRouter>
         <Header />
         <Routes>
-          <Route path="/" element={<Profile />}/>
+          <Route path="/" element={<Settings />}/>
         </Routes>
       </BrowserRouter>
     </>

@@ -27,7 +27,7 @@ export function Navbar() {
                     </li>
                     <div className="hidden gap-8 font-semibold text-primary/80 text-[0.875rem] lg:flex">
                         <li className="cursor-pointer hover:text-primary" >
-                            <Link to="/" >New in</Link>
+                            <Link to="/" >New In</Link>
                         </li>
                         <li className="cursor-pointer hover:text-primary" >
                             <Link to="/" >Women</Link>
@@ -40,7 +40,7 @@ export function Navbar() {
                         </li>
                     </div>
                     <li className="hidden w-md max-w-md h-10 lg:inline-block ">
-                        <InputText texto="Search for products..." icone={iconSearchBar} inputClassName="w-[348px] max-w-[348px] bg-[#F3F4F6]/50" textClassName="text-[length:0.875rem] placeholder:text-tertiary"/>
+                        <InputText texto="Search for products..." icone={iconSearchBar} inputClassName="w-[348px] max-w-[348px] !bg-[#F3F4F6]/50" textClassName="text-[length:0.875rem] placeholder:text-tertiary"/>
                     </li>
 
                     <div className="flex">
