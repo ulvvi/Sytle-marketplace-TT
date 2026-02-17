@@ -66,7 +66,14 @@ export class productController {
         where: {
           id: parseInt(id as string),
         },
-        include: { variant: true, review: true },
+        include: { 
+          variant: true, 
+          review: true, 
+          categories: {             
+                select: {
+                    category: true
+                }
+            } },
       });
 
       response.status(200).json(foundProduct);
