@@ -21,33 +21,35 @@ export class Wishlist{
         }
     }
 
-    public static async addToWishlist(req:Request, res: Response){
+    public static async addToWishlist(req: Request, res: Response) {
         try {
-            const {id} = req.params;
-            const {productId} = req.body;
-            const added = await prisma.wishlist.update({
-                where:{
-                    userId: parseInt(id as string)
-                },
-                data:{
-                    quantity:{
-                        increment:1
-                    },
-                    product:{
-                        create:{
-                            productId: productId
-                        }
-                    }
-                },
-                include:{
-                    product:true
-                }
-            })
-            res.status(200).json(added);
-        } catch (error:any) {
-            res.status(500).json({message: error.message})
-        }
+            const { id } = req.params;
+            const { productId } = req.body;
 
+            const wishlist = await prisma.wishlist.findUnique({
+                where: {
+                    userId: parseInt(id as string)
+                }
+            });
+
+            if (!wishlist) {
+                return res.status(404).json({ message: "Wishlist não encontrada para este usuário." });
+            }
+
+            const added = await prisma.wishlistProduct.create({
+                data: {
+                    wishlistId: wishlist.id,
+                    productId: parseInt(productId)
+                },
+                include: {
+                    product: true
+                }
+            });
+
+            res.status(201).json(added);
+        } catch (error: any) {
+            res.status(500).json({ message: error.message });
+        }
     }
 
     //dessa vez to usando a instancia da tabela auxiliar pra me facilitar um pouco

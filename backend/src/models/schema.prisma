@@ -92,14 +92,10 @@ model WishlistProduct {
   wishlistId Int
   wishlist   Wishlist @relation(fields: [wishlistId], references: [id], onDelete: Cascade)
 
-  // Alterado para Variant para ser consistente com o Carrinho
-  variantId  Int
-  variant    Variant  @relation(fields: [variantId], references: [id], onDelete: Cascade)
-
   productId  Int
   product    Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
 
-  @@id([wishlistId, variantId])
+  @@id([wishlistId, productId])
 }
 model Cart{
   id        Int   @id @default(autoincrement()) 
@@ -170,7 +166,6 @@ model Variant {
 
   carts CartVariant[]
   orderVariants OrderVariant[]
-  wishlistProducts WishlistProduct[]
 
   @@unique([productId, color, size])
 }
