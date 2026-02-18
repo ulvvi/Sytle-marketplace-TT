@@ -5,11 +5,11 @@ export class orderController {
     
     public static async createOrder (req: Request, res: Response) {
         try {
-            
-            const { userId, address } = req.body;
+            const { userId } = req.params
+            const { address } = req.body;
 
             const cart = await prisma.cart.findUnique({
-                where: { userId: userId },
+                where: { userId: Number(userId) },
                 include: {
                     cartVariants: {
                         include: {
@@ -29,7 +29,7 @@ export class orderController {
 
                 const createdOrder = await tx.order.create({
                     data: {
-                        userId: userId,
+                        userId: Number(userId),
                         address: address,
                         situation: "PROCESSING",
                         totalPrice: cart.totalCost,
