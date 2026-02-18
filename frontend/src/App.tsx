@@ -11,6 +11,8 @@ import { Orders } from './pages/Orders'
 import { Sales } from './pages/Sales'
 import { Settings } from './pages/Settings'
 import { Header } from './components/Header'
+import { UserProvider } from './contexts/UserProvider'
+import { CartProvider } from './contexts/CartProvider'
 
 
 function App() {
@@ -19,7 +21,11 @@ function App() {
     <>
       
       <BrowserRouter>
-        <Header />
+        <UserProvider>
+          <CartProvider>
+            <Header />
+          </CartProvider>
+        </UserProvider>
         <Routes>
           <Route path="/" element={<Settings />}/>
         </Routes>
