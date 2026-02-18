@@ -4,8 +4,10 @@ import { Link } from "react-router"
 import { Button } from "./Button"
 import { useAuth } from '../contexts/AuthContext'
 import { useGoogleLogin } from "@react-oauth/google"
+import FacebookLogin from '@greatsumini/react-facebook-login';
 import { useState } from "react"
 import axios from 'axios'
+
 
 interface UserData{
     name: string
@@ -17,6 +19,7 @@ export function EntranceBox() {
 
     const { signIn } = useAuth();
 
+    //1545019629889517 IDFACE
     const [profileImage,setProfileImage] = useState()
     const [user,setUser] = useState<UserData | null>(null);
 
@@ -50,6 +53,19 @@ export function EntranceBox() {
         }
         
     })
+
+    const loginWithFacebook = (response: any) => {
+    console.log("Resposta do FB:", response);
+
+    // Verificamos se veio o accessToken (login deu certo)
+    
+      signIn({
+        firstName: response.first_name, 
+        lastName: response.last_name,
+        email: response.email,
+        picture: response.picture?.data?.url // O Facebook manda a foto aqui
+      });
+  };
     return (
         <>
             <div className=" max-w-[448px] h-[748px] md:h-[704px] flex flex-col items-center gap-[32px]">
@@ -95,7 +111,15 @@ export function EntranceBox() {
                     <div className="flex flex-col items-center justify-center gap-[24px] w-full pb-[24px] pl-[24px] pr-[24px]">
                         <div className="w-full  gap-[12px] flex flex-col items-center justify-center">
                             <ButtonIntegration icone="src/assets/icons/googleLogo.svg" texto="Continue with Google" onClick={() => loginWithGoogle()} />
-                            <ButtonIntegration icone="src/assets/icons/facebookLogo.svg" texto="Continue with Facebook" />
+                            
+                            <FacebookLogin
+                                appId="1545019629889517"
+                                fields="first_name,last_name,email,picture"
+                                onProfileSuccess={loginWithFacebook}
+                                render={({onClick}) => (
+                                    <ButtonIntegration icone="src/assets/icons/facebookLogo.svg" texto="Continue with Facebook" onClick={onClick} />
+                                )}/>
+                            
 
                         </div>
 

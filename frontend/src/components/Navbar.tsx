@@ -2,8 +2,11 @@ import { Link } from "react-router"
 import { IconButton } from "./IconButton"
 import { InputText } from "./InputText"
 import type { ReactNode } from "react"
+import { useAuth } from '../contexts/AuthContext';
 
 export function Navbar() {
+
+    const { user } = useAuth();
 
     const iconSearchBar: ReactNode = <img src="/src/assets/icons/searchIcon.svg" className="filter-[invert(46%)_sepia(8%)_saturate(595%)_hue-rotate(182deg)_brightness(93%)_contrast(89%)]"/>
 
@@ -52,6 +55,7 @@ export function Navbar() {
                         </li>
                         <li className="ml-2">
                             <IconButton buttonType="profile" isLogged={true} iconSrc="/src/assets/icons/userIcon.svg"></IconButton>
+                            {/*<IconButton buttonType="profile" isLogged={false} iconSrc={`${user?.picture}`}></IconButton> FUNCIONA COM LoginWith Google e Facebook*/}
                         </li>
                         <li className="ml-2">
                             <IconButton buttonType="cart" cartItems={2} iconSrc="/src/assets/icons/cartIcon.svg"></IconButton>
