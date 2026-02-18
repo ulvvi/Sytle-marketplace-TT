@@ -20,7 +20,6 @@ export function ProfileContainer (){
         const {name, value} = e.target;
         setFormData( (prevData)=>{
             if(!prevData) return prevData
-            console.log(formData)
             return{
                 ...prevData,
                 [name]: value,
@@ -75,7 +74,8 @@ export function ProfileContainer (){
                     <InputText name="dateBirth" onChange={handleChange} label="Date of Birth" type="date" textClassName="text-primary" value={ `${formData?.dateBirth ? new Date(formData.dateBirth).toISOString().split("T")[0] : ''}`} />
                     <InputText name="gender" onChange={handleChange} label="Gender" texto="Gender" textClassName="text-primary" value = {formData?.gender} options={[
                         {label: "Male", value:"MALE"},
-                        {label: "Female", value:"FEMALE"}
+                        {label: "Female", value:"FEMALE"},
+                        {label: "Other", value: "OTHER"}
                     ]}/>
                         <div className="flex items-end justify-start w-full pt-[16px] gap-[16px]">
                             <Button onClick={handleSubmit} texto="Save Changes" link="/Profile" buttonClassName="!w-[120px]"/>    

@@ -35,7 +35,6 @@ export function Profile() {
         getUserInfo()
     }, [])
     if(!userData) return;
-    console.log(userData)
     return (
         <>  
             <userContext.Provider value = {userData}>
