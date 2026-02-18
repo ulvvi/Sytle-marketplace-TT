@@ -2,6 +2,7 @@ import { ButtonIntegration } from "./ButtonIntegration"
 import { InputText } from "./InputText"
 import { Link } from "react-router"
 import { Button } from "./Button"
+import { useAuth } from '../contexts/AuthContext'
 import { useGoogleLogin } from "@react-oauth/google"
 import { useState } from "react"
 import axios from 'axios'
@@ -14,13 +15,14 @@ interface UserData{
 
 export function EntranceBox() {
 
+    const { signIn } = useAuth();
+
     const [profileImage,setProfileImage] = useState()
     const [user,setUser] = useState<UserData | null>(null);
 
     const loginWithGoogle = useGoogleLogin({
         onSuccess: async (tokenResponse) => {
             console.log("Logado!",tokenResponse)
-        
         try{
             const dados = await axios.get(
                 'https://www.googleapis.com/oauth2/v3/userinfo',
@@ -30,10 +32,13 @@ export function EntranceBox() {
                     },
                 }
             );
-            console.log("dados:", dados.data);
-            setUser(dados.data);
-            setProfileImage(dados.data.picture)
-            console.log("url",dados.data.picture)
+            
+            signIn({
+                firstName: dados.data.given_name,
+                lastName: dados.data.family_name,
+                email: dados.data.email,
+                picture: dados.data.picture
+            });
 
         } catch (error) {
             console.error("erro ao buscar os dados do usuario", error);

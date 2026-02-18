@@ -1,6 +1,7 @@
 import { TabList } from "./TabList";
 import { ContentBox } from "./ContentBox";
 import { InputText } from "../InputText";
+import { useAuth } from '../../contexts/AuthContext'
 import { Button } from "../Button";
 import { SwitchButton } from "./SwitchButton";
 
@@ -11,6 +12,9 @@ interface ProfileContainerProps {
 }
 
 export function ProfileContainer (  ){
+
+    const { signOut } = useAuth();
+
     return(
         <>
         <div className="w-full flex flex-col gap-[8px] w-full">
@@ -43,7 +47,7 @@ export function ProfileContainer (  ){
                         <h2 className="text-[16px]/5 font-semibold text-[#DC2626]">Delete Account</h2>
                         <span className="text-[14px]/5 text-tertiary">Permanently delete your account and data</span>
                     </div>
-                    <Button texto="Delete Account" buttonClassName="!h-40px !w-[144px]" color="red" link=""/>
+                    <Button texto="Delete Account" buttonClassName="!h-40px !w-[144px]" color="red" link="" onClick={signOut}/>
                 </div>
 
                 </ContentBox>
