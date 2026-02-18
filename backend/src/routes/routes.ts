@@ -74,12 +74,24 @@ router.delete("/review/:id",
     reviewController.deleteReview);
 
 // Cart router
-router.post("/cart/:userId", cartController.addVariantToCart);
-router.delete("/cart/:userId", cartController.removeVariant);
-router.get("/cart/:userId", cartController.getCart);
+router.post("/cart/:userId", 
+    authenticateJWT,
+    ensureOwner,
+    cartController.addVariantToCart);
+router.delete("/cart/:userId", 
+    authenticateJWT,
+    ensureOwner,
+    cartController.removeVariant);
+router.get("/cart/:userId", 
+    authenticateJWT,
+    ensureOwner,
+    cartController.getCart);
 
 // Order router
-router.post("/order/:userId", orderController.createOrder);
+router.post("/order/:userId", 
+    authenticateJWT,
+    ensureOwner,
+    orderController.createOrder);
 
 //usuario
 router.post("/signUp", 
