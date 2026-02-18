@@ -16,5 +16,6 @@ export type userInfo = {
     orderUpdate: boolean,
     newArrival: boolean,
     saleAlert: boolean,
+    memberSince: Date
 }
 export const userContext = createContext<userInfo | undefined>(undefined);

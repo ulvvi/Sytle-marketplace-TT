@@ -9,7 +9,7 @@ export function PrincipalContainer(){
     return(
         <>
             <div className="flex max-w-[1400px] flex-col items-center justify-start gap-[32px] mt-[32px] pr-[16px] mb-[32px] pl-[16px] ">
-            <PersonCardName name={`${user?.firstName} ${user?.lastName}`} email={user?.email} orders={user?.totalOrders} memberSince={2023}/>
+            <PersonCardName name={`${user?.firstName} ${user?.lastName}`} email={user?.email} orders={user?.totalOrders} memberSince={` ${user?.memberSince ? new Date(user.memberSince).toISOString().split('-')[0] : 'Unknown'} ` }/>
             <ProfileContainer/>
             
 

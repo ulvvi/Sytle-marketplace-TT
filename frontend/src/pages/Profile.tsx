@@ -11,9 +11,9 @@ export function Profile() {
     useEffect(()=>{
         const getUserInfo = async() =>{
             
-            const id = 3
+            const id = 1
             const url = `http://localhost:3333/user/${id}`
-            const token = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOnsiaWQiOjN9LCJpYXQiOjE3NzE0MzM2NTAsImV4cCI6MTc3MjAzODQ1MH0.WBbq3ZOjRhAtFvv9Q9FGwBIvu5TMbfTSppfQofWzsVzki1y049hYSgVQS0Px4H7VugyLMS-l8xcjJTEZNPc8Rn_CBXFvnEFLgf2H7Pk9MYkc2rWeNAjfAhjCeZWp8kTt3FoCBna2bdeUfa1kDUQ1mG-PlqvUczdqp427yqIRHNrYzXaVrxEUmiwKE0k6ThojNmnn5D4igcIjFnLrFwIS4jep3xDpcttLvTvzgz2XcdLKwwhnE2tOBpvfqQtTPlsuyPBVjcatpeVob1SO7dpnlQWaL1Ddx5a8JX_xViUU0F_ZZfkXGdk2QbzWaRB3dFcWtEgmIGKa9lE9dXixtxUQg2RwBt6Upt9Jt01bv2LjdMHGgVIBNcnVIzrZJ44Z2e9dxXDFHLsT2j2O93c0lexTrSvAP_vaqZvlAVTPiy973FDuAQ-XlejpNKt3WiTqqbuYPVMzIb0spF-rHjeYWu-9VECu6a7Tj69NkfBDJ4qU6io1K02DTKQMEjciFPqgGaw3JEAe5-Kk83e1GBrHWzPpAuG_myjECjm2jPRWPXVBAsUCpRqT88lqsKeIfBD1nXeijjVq8yDnjwVzAXvk3hzmlFyDG7knORziVRveWJiTFBtE3sOGB3oAcxCijAiOTLf9dTVYYSsYOLEZzIp8PP9DqcAXYSBiqN7qVT6y-c8ahHk"
+            const token = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOnsiaWQiOjF9LCJpYXQiOjE3NzE0Mzg1MzcsImV4cCI6MTc3MjA0MzMzN30.CRhBpa0oFgAV9IvupWb0V7d2HQXd3z1nrYhBn3dkoM_TQMJMobxVes3ksl5HxYitip_wl75JYogiQVRBU6slIvFTu2gKrxuNmzCmsREorMi6aiUv7oXAD18GbVSOp_Q6EzVc27Cx89oMycbBAgX5QT2OUhx8fUBB357w--jBj7SjxwrIlP0jXqdnzTnLedk5f1Om9fGmbLpXYkHpHygyftR2jSIg9Pkv98PJ5S7sFLRuoM2fTxSWmV_4tSCSHqIVeqyW5O2MBqDj-cNAxpaHkwm0Znzx5x6xK90Izde_Ih0rRWZ2KVU7efBau1dtSEqvcuMb6C0gT_ueVKz260n9lRDsnA0HpYrBPkn2BiOt5JqFSAv5a9ZlVF_Dg5IW4doX2N8PHm1QbCIULB9VnCBrSPFZ8B0fjpFFmRRsVX-KhNQa6QmYGXxyc43uBF0r69i3zHYY8UUL581S4vmeWgFbndHscBTL5_ex_oW8rhSPTp1xqQv_09rS7H6qRf8PTVeIw-nfBmU_FPu87EiuFhf8XTDBlennZLIDZDzRwaUgO7HSbcgX_7Hcp_bU2UPIbQEI52jFRUh2NfR90RQ4fFWq6j-uULfq6KV0HbNOGlsmQGpGdJc2m0cNNvXFkIsP3Yq_sfeOcWIQLvUffis9zFDO0xiapP2VGGU3Yyn2f3ruMsg"
             try {
                 const response = await fetch(url,{ 
                     method:"GET",
