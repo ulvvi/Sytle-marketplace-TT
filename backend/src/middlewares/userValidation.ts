@@ -16,7 +16,7 @@ const signInVal= signUpVal.pick({
 
 
 const updateUserVal= signUpVal.partial().extend({
-    gender: z.enum(Gender),
+    gender: z.enum(Gender).nullable(),
     phoneNumber: z.string().min(10, {message: "Telefone deve ter DDD + número"}).max(11, {message: "Telefone não pode ter mais de 11 dígitos"}).nullable(),
     dateBirth: z.coerce.date().nullable(),
     emailNotification: z.boolean(),

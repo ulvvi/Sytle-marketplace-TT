@@ -20,9 +20,7 @@ function App() {
       
       <BrowserRouter>
         <Header />
-        <Routes>
-          <Route path="/" element={<Settings />}/>
-        </Routes>
+        <Profile/>
       </BrowserRouter>
     </>
   )
