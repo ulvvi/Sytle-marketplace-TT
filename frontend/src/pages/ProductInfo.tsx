@@ -10,6 +10,8 @@ export function ProductInfo() {
         { label: "Sale", path: "/" },
         { label: "Premium Cotton T-Shirt", path: "/" }
     ]
+
+    
     return (
         <>
 
