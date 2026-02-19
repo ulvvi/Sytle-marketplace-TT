@@ -14,26 +14,6 @@ interface OrderProps {
     variantes: orderVariantInfo[];
 }
 
-interface Product{
-    name?: string;
-    rating?: number;
-    price?: number;
-    numReviews?: number;
-    isOutOfStock?: boolean;
-}
-
-interface Variant{
-    produtos?: Product;
-    id: number;
-    color?: string;
-    size?: string;
-    photo?:ReactNode
-}
-
-interface QuantityVarinats extends Variant {
-    quantidade : number
-}
-
 export function Order({
     orderName = "Unknown",
     totalPrice = 0,
