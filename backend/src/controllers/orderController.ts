@@ -58,6 +58,26 @@ export class orderController {
                     }
                 });
 
+                await tx.variant.updateMany({
+                    where: {
+                        id: { in: cart.cartVariants.map((cv: any) => cv.variantId) }
+                    },
+                    data: {
+                        stock: {
+                            decrement: cart.cartVariants.reduce((acc: number, cv: any) => acc + cv.quantity, 0)
+                        }
+                    }
+                });
+
+                await tx.user.update({
+                    where: { id: Number(userId) },
+                    data: {
+                        totalOrders: {
+                            increment: 1
+                        }
+                    }
+                });
+
                 return createdOrder;
             });
 

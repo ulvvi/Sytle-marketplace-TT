@@ -12,7 +12,7 @@ export function Navbar() {
     const { cart } = useContext(CartContext)
     
     //variaveis de teste enquanto a tela de login não está integrada
-    const email = "Johndoe@email.com"
+    const email = "josesoares@gmail.com"
     const password = "teste"
 
     const formatUserName = (firstName:string | null, lastName:string | null) => {
