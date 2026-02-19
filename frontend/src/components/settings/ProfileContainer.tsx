@@ -12,7 +12,7 @@ interface ProfileContainerProps {
     wishlist?: number
     rating?: number
 }
-const navigate = useNavigate();
+//const navigate = useNavigate();
 
 type userPreferences = {
     emailNotification: boolean,
@@ -62,7 +62,7 @@ export function ProfileContainer (  ){
             console.error(error.message)
         }
         //vai pra home e talvez necessite fazer mais coisas, como apagar o localstorage ou algo do tipo
-        navigate('/home')
+        //navigate('/home')
     }
 
     async function update(bodyData : userPreferences){
