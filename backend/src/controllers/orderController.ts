@@ -76,7 +76,11 @@ export class orderController {
                 include: {
                     variants: {
                         include: {
-                            variant: true
+                            variant:{
+                                include:{
+                                    product:true
+                                }
+                            }
                         }
                     }
                 }
