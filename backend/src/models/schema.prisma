@@ -148,12 +148,13 @@ model Product {
   SalePrice Float?
   numOfReviews Int
   isOutOfStock Boolean
+  saleId Int?
 
   variant Variant[]
   review Review[]
   wishlistProducts WishlistProduct[]
   categories ProductCategory[]
-  sales sale[]
+  sales sale? @relation(fields: [saleId], references: [id], onDelete: SetNull)
 }
 
 model sale {

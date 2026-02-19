@@ -8,6 +8,7 @@ import { authenticateJWT, ensureOwner } from "../middlewares/authMiddleware";
 import { categoryController } from "../controllers/categoryController";
 import { cartController } from "../controllers/cartController";
 import { orderController } from "../controllers/orderController";
+import { saleController } from "../controllers/saleController";
 
 import userValidation from "../middlewares/userValidation";
 import { validateRequestBody } from "../middlewares/ValidateSchemaBody";
@@ -16,6 +17,7 @@ import wishlistValidation from "../middlewares/wishlistValidation";
 import productValidation from "../middlewares/productValidation";
 import variantValidation from "../middlewares/variantValidation";
 import reviewValidation from "../middlewares/reviewValidation";
+
 
 const router = Router();
 
@@ -146,6 +148,11 @@ router.get("/category/:id", categoryController.readCategory);
 router.put("/category/:id", categoryController.updateCategory);
 router.delete("/category/:id", categoryController.deleteCategory);
 router.delete("/category/:categoryId/product/:productId", categoryController.delFromCategory)
+
+//sale router
+router.post("/sale", saleController.createSale);
+router.put("/sale/:saleId/addProducts", saleController.addProductsToSale);
+router.delete("/sale/:saleId", saleController.deleteSale);
 
 
 export default router;
