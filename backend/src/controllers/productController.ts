@@ -71,7 +71,16 @@ export class productController {
             } },
       });
 
-      response.status(200).json(foundProduct);
+      if (!foundProduct) {
+        return response.status(404).json({message: "Produto não encontrado"})
+      }
+
+      const formattedProduct = {
+        ...foundProduct,
+        categories: foundProduct?.categories.map(c => c.category)
+      }
+
+      response.status(200).json(formattedProduct);
     } catch (error: any) {
       response.status(500).send({ message: error.message });
     }
