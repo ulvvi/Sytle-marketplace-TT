@@ -7,10 +7,17 @@ const colorMap: Record<string, string> = {
     "black": "#000000",
     "white": "#FFFFFF",
     "blue": "#1E40AF",
-    "red": "#EF4444"
+    "red": "#EF4444",
+    "green": "#16A34A",
+    "yellow": "#EAB308",
+    "gray": "#6B7280",
+    "pink": "#EC4899",
+    "silver": "#D1D5DB",   
+    "beige": "#F5F5DC",   
+    "brown": "#78350F",
+    "orange": "#F97316",   
+    "purple": "#A855F7",  
 }
-
-const sizes: string[] = ["XS", "S", "M", "L", "XL"]
 
 export function VariantContainer() {
     const [currentColor, setCurrentColor] = useState<string | null>(null)
@@ -27,6 +34,10 @@ export function VariantContainer() {
 
     const productColors = useMemo(() => {
         return Array.from(new Set(variants?.map((variant) => variant.color)))
+    },[variants])
+
+    const productSizes = useMemo(() => {
+        return Array.from(new Set(variants?.map((variant) => variant.size)))
     },[variants])
 
     const isSizeOnStock = ((size: string | null, color: string | null = currentColor) => {
@@ -73,7 +84,7 @@ export function VariantContainer() {
 
                 <fieldset>
                     <legend className="text-[1rem] font-semibold mb-3">Color:</legend>
-                    <div className="flex gap-3">
+                    <div className="flex gap-3 flex-wrap">
                         {productColors.map((color) =>(
                             <div className="relative w-10 h-10">
                                 <button style={{backgroundColor: colorMap[color]}} className={`w-10 h-10 rounded-full border-2 border-[#D1D5DB] disabled:opacity-50 disabled:grayscale-65 disabled:brightness-80 disabled:cursor-not-allowed ${color === currentColor ? "border-2 border-tertiary cursor-default" : "cursor-pointer hover:opacity-90"}`} onClick={() => handleChangeColor(color)} disabled={!isColorOnStock(color)}></button>
@@ -84,8 +95,8 @@ export function VariantContainer() {
                 </fieldset>
                 <fieldset>
                     <legend className="text-[1rem] font-semibold mb-3">Size:</legend>
-                    <div className="flex gap-2 mb-3">
-                        {sizes.map((size) => (
+                    <div className="grid grid-cols-5 gap-2 mb-3">
+                        {productSizes.map((size) => (
                             <Button color="white" texto={size} buttonClassName={`!h-12.5 disabled:cursor-default disabled:opacity-50 disabled:bg-[#F3F4F6] disabled:cursor-not-allowed ${size === currentSize ? "border-tertiary !cursor-default hover:bg-secondary" : ""}`} onClick={() => handleChangeSize(size)} textClassName="!font-normal !text-[1rem]" disabled={!isSizeOnStock(size)}/>
                         ))}
                     </div>
