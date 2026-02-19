@@ -18,4 +18,5 @@ export type userInfo = {
     saleAlert: boolean,
     memberSince: Date
 }
-export const userContext = createContext<userInfo | undefined>(undefined);
+
+export const userContext = createContext<userInfo | undefined >(undefined);
