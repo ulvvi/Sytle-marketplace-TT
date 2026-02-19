@@ -67,7 +67,7 @@ export class UserController{
                 include:{
                     wishlist:true,
                     cart:true,
-                    orders:true,
+                    orders:true
                 }
             })
             res.status(200).json(user);

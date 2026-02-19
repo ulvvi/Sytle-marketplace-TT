@@ -26,14 +26,15 @@ export class orderController {
                 if (cart === null || cart.cartVariants.length === 0) {
                     throw new Error("O carrinho está vazio.");
                 }
-
+                const rastreio = new Uint32Array(1);
+                crypto.getRandomValues(rastreio)
                 const createdOrder = await tx.order.create({
                     data: {
                         userId: Number(userId),
                         address: address,
                         situation: "PROCESSING",
                         totalPrice: cart.totalCost,
-                        rastreio: "tete",
+                        rastreio: rastreio.toString(),
                         variants: { 
                             create: cart.cartVariants.map((cartVariant: any) => ({
                                 variantId: cartVariant.variantId,
@@ -93,10 +94,17 @@ export class orderController {
         try {
             const orders = await prisma.order.findMany({
                 where: { userId: Number(userId) },
+                orderBy:{
+                    time:'asc'
+                },
                 include: {
                     variants: {
                         include: {
-                            variant: true
+                            variant:{
+                                include:{
+                                    product:true
+                                }
+                            }
                         }
                     }
                 }

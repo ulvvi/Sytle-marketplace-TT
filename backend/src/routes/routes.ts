@@ -94,6 +94,12 @@ router.post("/order/:userId",
     authenticateJWT,
     ensureOwner,
     orderController.createOrder);
+router.get("/order/:userId",
+    authenticateJWT,
+    ensureOwner,
+    orderController.getUserOrders);
+router.put("/order/:orderId",
+    orderController.updateSituation)
 
 //usuario
 router.post("/signUp", 

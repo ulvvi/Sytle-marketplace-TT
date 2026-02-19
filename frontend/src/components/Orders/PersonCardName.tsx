@@ -6,6 +6,7 @@ interface PersonCardName {
     email?: String;
     orders?: ReactNode;
     memberSince?: ReactNode;
+    lastName?: string
 
 }
 
@@ -15,6 +16,7 @@ export function PersonCardName ({
                     <span className="text-[0.875rem] font-semibold">JD</span>
                 </div>,
     name,
+    lastName,
     email,
     orders,
     memberSince
@@ -25,7 +27,7 @@ export function PersonCardName ({
                 {photo}
                 <div className="flex flex-col ">
                     <div>
-                        <h1 className="font-bold text-[30px] ">{name} </h1>
+                        <h1 className="font-bold text-[30px] ">{name + ' ' + lastName} </h1>
                     </div>
                     <div>
                         <h2 className="text-tertiary text-[16px]">{email}</h2>

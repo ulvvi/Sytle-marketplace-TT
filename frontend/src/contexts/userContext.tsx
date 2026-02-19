@@ -1,4 +1,34 @@
 import {createContext } from "react";
+export type productInfo = {
+    name: string,
+    rating: number,
+    price: number,
+    salePrice: number,
+    numOfReviews: number,
+    isOutOfStock: boolean,
+}
+
+export type variantInfo ={
+    color: string,
+    size: number,
+    stock: number,
+    product: productInfo
+}
+
+export type orderVariantInfo = {
+    variant: variantInfo
+    quantity: number
+}
+
+export type orderInfo = {
+    id: number,
+    time: Date,
+    address: string,
+    rastreio: string,
+    situation: "DELIVERED" | "SHIPPED" | "PROCESSING",
+    totalPrice: number
+    variants: orderVariantInfo[]
+}
 
 export type userInfo = {
     firstName: string,
@@ -18,5 +48,6 @@ export type userInfo = {
     saleAlert: boolean,
     memberSince: Date
 }
+
 
 export const userContext = createContext<userInfo | undefined >(undefined);
