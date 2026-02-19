@@ -1,5 +1,7 @@
 import { Request, Response } from "express";
 import { prisma } from "../config/prisma";
+import z from "zod";
+
 
 // Classe das reviews
 export class reviewController {
@@ -25,8 +27,9 @@ export class reviewController {
     try {
       const { productId } = request.params; // Ver todas as Reviews de um produto específico
 
-      const foundAllReview = await prisma.review.findMany({
-        where: { productId: parseInt(productId as string) },
+      const foundAllReview = await prisma.product.findMany({
+        where: { id: parseInt(productId as string) },
+        include:{review: true}
       });
 
       response.status(200).json(foundAllReview);

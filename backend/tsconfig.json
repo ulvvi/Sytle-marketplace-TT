@@ -41,6 +41,6 @@
     "moduleDetection": "force",
     "skipLibCheck": true,
   },
-  "include": ["src/**/*", "prisma.config.ts"],
+  "include": ["src/**/*", "prisma.config.ts", "../frontend/src/contexts"],
   "exclude": ["node_modules", "dist", "scripts", "test"]
 }

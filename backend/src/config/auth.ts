@@ -38,7 +38,7 @@ const checkPassword = (password: string, hash: string, salt: string) => {
 const generateJWT = (userId: number) => {
     try {
         const payload = {
-            sub: { id: userId},
+            sub: { id: userId },
             iat: Math.floor(Date.now() / 1000),
         };
 

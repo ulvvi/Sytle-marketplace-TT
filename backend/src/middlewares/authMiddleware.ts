@@ -36,15 +36,15 @@ passport.use(new Strategy(
 
 export async function ensureOwner(req: Request, res: Response, next: NextFunction){
     try {
-        const {id} = req.params;
+        const {userId} = req.params;
 
-        const targetId = parseInt(id as string);
+        const targetId = parseInt(userId as string);
         //to pegando as infos do token em req.token_user pq foi definido ali na linha 58 pra salvar o objeto do token nessa propriedade
         const {id:tokenId} = (req as any).token_user;
-        /*
+        
         console.log(tokenId)
         console.log(targetId)
-        */
+        
 
         if(!targetId || targetId != tokenId){
             return res.status(401).json({message:"Token não autorizado"})

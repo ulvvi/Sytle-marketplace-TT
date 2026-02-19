@@ -4,6 +4,9 @@ CREATE TYPE "Gender" AS ENUM ('MALE', 'FEMALE', 'OTHER');
 -- CreateEnum
 CREATE TYPE "OrderStatus" AS ENUM ('DELIVERED', 'SHIPPED', 'PROCESSING');
 
+-- CreateEnum
+CREATE TYPE "CategoryType" AS ENUM ('BEST_SELLER', 'NEW', 'SALE', 'PREMIUM', 'LIMITED_TIME', 'FLASH_SALE', 'LUXURY_SALE', 'SUMMER_SALE', 'SPORT_SALE', 'OUT_OF_STOCK');
+
 -- CreateTable
 CREATE TABLE "User" (
     "id" SERIAL NOT NULL,
@@ -38,6 +41,15 @@ CREATE TABLE "Wishlist" (
 );
 
 -- CreateTable
+CREATE TABLE "CartVariant" (
+    "cartId" INTEGER NOT NULL,
+    "variantId" INTEGER NOT NULL,
+    "quantity" INTEGER NOT NULL DEFAULT 1,
+
+    CONSTRAINT "CartVariant_pkey" PRIMARY KEY ("cartId","variantId")
+);
+
+-- CreateTable
 CREATE TABLE "WishlistProduct" (
     "wishlistId" INTEGER NOT NULL,
     "productId" INTEGER NOT NULL,
@@ -57,14 +69,6 @@ CREATE TABLE "Cart" (
     "userId" INTEGER NOT NULL,
 
     CONSTRAINT "Cart_pkey" PRIMARY KEY ("id")
-);
-
--- CreateTable
-CREATE TABLE "CartVariant" (
-    "cartId" INTEGER NOT NULL,
-    "variantId" INTEGER NOT NULL,
-
-    CONSTRAINT "CartVariant_pkey" PRIMARY KEY ("cartId","variantId")
 );
 
 -- CreateTable
@@ -122,6 +126,22 @@ CREATE TABLE "Review" (
     CONSTRAINT "Review_pkey" PRIMARY KEY ("id")
 );
 
+-- CreateTable
+CREATE TABLE "Category" (
+    "id" SERIAL NOT NULL,
+    "type" "CategoryType" NOT NULL,
+
+    CONSTRAINT "Category_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "ProductCategory" (
+    "productId" INTEGER NOT NULL,
+    "categoryId" INTEGER NOT NULL,
+
+    CONSTRAINT "ProductCategory_pkey" PRIMARY KEY ("productId","categoryId")
+);
+
 -- CreateIndex
 CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
 
@@ -134,8 +154,17 @@ CREATE UNIQUE INDEX "Cart_userId_key" ON "Cart"("userId");
 -- CreateIndex
 CREATE UNIQUE INDEX "Variant_productId_color_size_key" ON "Variant"("productId", "color", "size");
 
+-- CreateIndex
+CREATE UNIQUE INDEX "Category_type_key" ON "Category"("type");
+
 -- AddForeignKey
 ALTER TABLE "Wishlist" ADD CONSTRAINT "Wishlist_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "CartVariant" ADD CONSTRAINT "CartVariant_cartId_fkey" FOREIGN KEY ("cartId") REFERENCES "Cart"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "CartVariant" ADD CONSTRAINT "CartVariant_variantId_fkey" FOREIGN KEY ("variantId") REFERENCES "Variant"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "WishlistProduct" ADD CONSTRAINT "WishlistProduct_wishlistId_fkey" FOREIGN KEY ("wishlistId") REFERENCES "Wishlist"("id") ON DELETE CASCADE ON UPDATE CASCADE;
@@ -145,12 +174,6 @@ ALTER TABLE "WishlistProduct" ADD CONSTRAINT "WishlistProduct_productId_fkey" FO
 
 -- AddForeignKey
 ALTER TABLE "Cart" ADD CONSTRAINT "Cart_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
-
--- AddForeignKey
-ALTER TABLE "CartVariant" ADD CONSTRAINT "CartVariant_cartId_fkey" FOREIGN KEY ("cartId") REFERENCES "Cart"("id") ON DELETE CASCADE ON UPDATE CASCADE;
-
--- AddForeignKey
-ALTER TABLE "CartVariant" ADD CONSTRAINT "CartVariant_variantId_fkey" FOREIGN KEY ("variantId") REFERENCES "Variant"("id") ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "Order" ADD CONSTRAINT "Order_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
@@ -166,3 +189,9 @@ ALTER TABLE "Variant" ADD CONSTRAINT "Variant_productId_fkey" FOREIGN KEY ("prod
 
 -- AddForeignKey
 ALTER TABLE "Review" ADD CONSTRAINT "Review_productId_fkey" FOREIGN KEY ("productId") REFERENCES "Product"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "ProductCategory" ADD CONSTRAINT "ProductCategory_productId_fkey" FOREIGN KEY ("productId") REFERENCES "Product"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "ProductCategory" ADD CONSTRAINT "ProductCategory_categoryId_fkey" FOREIGN KEY ("categoryId") REFERENCES "Category"("id") ON DELETE CASCADE ON UPDATE CASCADE;

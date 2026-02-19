@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import { prisma } from "../config/prisma";
+import z from "zod";
 
 // Classe das variantes
 export class variantController {
@@ -15,6 +16,7 @@ export class variantController {
           stock: stock,
           product: { connect: { id: parseInt(productId as string) } }, // Conectar explicitamente ao ID do produto
         },
+        include: {product: true}
       });
 
       response.status(201).json(createdVariant);
@@ -27,8 +29,10 @@ export class variantController {
     try {
       const { productId } = request.params; // Ver todas as variantes de um produto específico
 
-      const foundAllVariant = await prisma.variant.findMany({
-        where: { productId: parseInt(productId as string) },
+
+      const foundAllVariant = await prisma.product.findMany({ // mais prática de fazer a operação usando a model Product para ver todos seus variantes
+        where: { id: parseInt(productId as string) },
+        include: {variant: true}
       });
 
       response.status(200).json(foundAllVariant);
