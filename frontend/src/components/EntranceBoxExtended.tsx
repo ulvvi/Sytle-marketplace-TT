@@ -104,7 +104,7 @@ export function EntranceBoxExtended() {
                        {/*Fim da checkbox*/}
 
                         <Button texto="Create Account" link="/" color="default"/>
-                        <span className="text-[14px] text-tertiary">Already have an account? <Link to="/register" className="font-semibold text-primary hover:underline">Sign In</Link></span>
+                        <span className="text-[14px] text-tertiary">Already have an account? <Link to="/SignIn" className="font-semibold text-primary hover:underline">Sign In</Link></span>
 
                     </div>
                 </div>
