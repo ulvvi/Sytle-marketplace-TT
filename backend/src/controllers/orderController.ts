@@ -62,10 +62,6 @@ export class orderController {
                 return createdOrder;
             });
 
-            const subject = "Confirmação de Pedido - Style Marketplace";
-            const messageText = `Olá,\n\nSeu pedido foi recebido e está sendo processado. Agradecemos por comprar conosco no Style Marketplace! Em breve, você receberá mais informações sobre o status do seu pedido.\n\nAtenciosamente,\nEquipe Style Marketplace`;
-            Mailer.sendEmail(cart.user.email, subject, messageText);
-
             
             res.status(201).json(order);
         } catch (error: any) {
