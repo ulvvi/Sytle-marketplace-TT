@@ -3,6 +3,7 @@ import type { ReactNode } from "react"
 interface PersonCardName {
     photo?: ReactNode;
     name?: String;
+    lastName?: string
     email?: String;
     orders?: ReactNode;
     memberSince?: ReactNode;
@@ -17,7 +18,8 @@ export function PersonCardName ({
     name,
     email,
     orders,
-    memberSince
+    memberSince,
+    lastName
     }: PersonCardName) {
     return(
         <>
@@ -25,7 +27,7 @@ export function PersonCardName ({
                 {photo}
                 <div className="flex flex-col ">
                     <div>
-                        <h1 className="font-bold text-[30px] ">{name} </h1>
+                        <h1 className="font-bold text-[30px] ">{name + ' ' + lastName} </h1>
                     </div>
                     <div>
                         <h2 className="text-tertiary text-[16px]">{email}</h2>
