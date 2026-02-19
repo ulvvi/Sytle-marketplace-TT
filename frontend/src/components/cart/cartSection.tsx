@@ -12,7 +12,7 @@ export function CartSection() {
 
         <div className="flex flex-col md:pl-30">
 
-            <div className="flex flex-col border-1 border-gray-300 rounded-xl m-5 max-w-210">
+            <div className="flex flex-col border-1 border-gray-300 rounded-xl m-5 mt-0 max-w-210">
                 <div className="flex flex-col gap-3">
                     <div className="flex flex-row gap-3 ml-5 mt-2 items-center">
                         <p className="border-1 border-b-green-500 rounded-full p-1 text-green-500 bg-green-500  text-xs h-3 w-3 flex items-center justify-center">x</p>
@@ -28,7 +28,7 @@ export function CartSection() {
                 </div>
             </div>
 
-            <div className="flex flex-col border-1 border-red-600 rounded-xl m-5 max-w-210">
+            <div className="flex flex-col border-1 border-red-600 rounded-xl m-5 mt-0 max-w-210">
                 <div className="flex flex-col gap-3">
                     <div className="flex flex-row gap-3 ml-0 mt-2 items-center">
                         <p className="border-1 border-b-red-700 rounded-full p-1 text-red-700 bg-secondary ml-5 mt-1 text-xs h-5 w-5 flex items-center justify-center">!</p>

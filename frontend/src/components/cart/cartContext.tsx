@@ -20,6 +20,11 @@ interface CartContextType {
   removeItem: (id: string) => void; // <-- Nova função
   totalAvailableItems: number;
   totalOutOfStockItems: number;
+    subtotal: number;
+    couponDiscountValue: number;
+    total: number;
+    discountPercent: number;
+    applyCoupon: (code: string) => boolean;
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -54,7 +59,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
     setItems(prev => prev.map(item => item.id === id ? { ...item, quantity: qty } : item));
   };
 
-  // 2. Implemente a lógica de remoção
+  // Lógica de remoção
   const removeItem = (id: string) => {
     setItems(prev => prev.filter(item => item.id !== id));
   };
@@ -69,11 +74,49 @@ export function CartProvider({ children }: { children: ReactNode }) {
         .filter(item => !item.inStock)
         .length; 
 
+
+
+  const [discountPercent, setDiscountPercent] = useState(0);
+
+    // Cálculo do Subtotal (Apenas itens em estoque)
+    const subtotal = items
+        .filter(item => item.inStock)
+        .reduce((acc, item) => {
+        // Se o item tem promoção (ex: 20%), calculamos o preço unitário com desconto
+        const priceWithPromotion = item.promotion 
+        ? item.price * (1 - item.promotion / 100) 
+        : item.price;
+        return acc + (priceWithPromotion * item.quantity);
+    }, 0);
+
+    // Cálculo do Valor do Desconto do Cupom
+    const couponDiscountValue = subtotal * (discountPercent / 100);
+
+    // Total Final
+    const total = subtotal - couponDiscountValue;
+
+    // Função para aplicar o cupom (será usada no componente PromoCode)
+    const applyCoupon = (code: string) => {
+        const coupons: Record<string, number> = {
+            "SALVE10": 10,
+            "WELCOME20": 20,
+            "STUDENTS15": 50
+        };
+
+        const discount = coupons[code.toUpperCase()];
+        if (discount) {
+            setDiscountPercent(discount);
+            return true;
+        }
+        return false;
+    };
+
   return (
-    <CartContext.Provider value={{ items, updateQuantity, removeItem, totalAvailableItems, totalOutOfStockItems }}>
+    <CartContext.Provider value={{ items, updateQuantity, removeItem, totalAvailableItems, totalOutOfStockItems, subtotal, couponDiscountValue, total, discountPercent, applyCoupon}}>
       {children}
     </CartContext.Provider>
   );
+  
 }
 
 export const useCart = () => useContext(CartContext)!;
