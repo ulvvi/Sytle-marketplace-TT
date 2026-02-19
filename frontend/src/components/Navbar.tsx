@@ -1,11 +1,32 @@
 import { Link } from "react-router"
 import { IconButton } from "./IconButton"
 import { InputText } from "./InputText"
-import type { ReactNode } from "react"
+import { useContext, useEffect, useState, type ReactNode } from "react"
+import { UserContext } from "../contexts/UserProvider"
+import { CartContext } from "../contexts/CartProvider"
 
 export function Navbar() {
 
     const iconSearchBar: ReactNode = <img src="/src/assets/icons/searchIcon.svg" className="filter-[invert(46%)_sepia(8%)_saturate(595%)_hue-rotate(182deg)_brightness(93%)_contrast(89%)]"/>
+    const { user, isLogged, login } = useContext(UserContext)
+    const { cart } = useContext(CartContext)
+    
+    //variaveis de teste enquanto a tela de login não está integrada
+    const email = "josesoares@gmail.com"
+    const password = "teste"
+
+    const formatUserName = (firstName:string | null, lastName:string | null) => {
+        
+        if(firstName && lastName){
+        const firstNameWords = firstName.trim().split(/\s+/);
+
+        //verificando se o primeiro nome é composto ou nao
+        return firstNameWords.length > 1 ? `${firstNameWords[0][0].toUpperCase()}${firstNameWords[1][0].toUpperCase()}` 
+        : `${firstName[0].toUpperCase()}${lastName[0].toUpperCase()}`;
+        } else {
+            return ""
+        }
+    }
 
     return (
         <>
@@ -48,13 +69,13 @@ export function Navbar() {
                             <IconButton iconSrc="/src/assets/icons/searchIcon.svg"></IconButton>
                         </li>
                         <li className="ml-2">
-                            <IconButton iconSrc="/src/assets/icons/heartIcon.svg"></IconButton>
+                            <IconButton iconSrc="/src/assets/icons/heartIcon.svg" onClick={()=>login(email, password)}></IconButton>
                         </li>
                         <li className="ml-2">
-                            <IconButton buttonType="profile" isLogged={true} iconSrc="/src/assets/icons/userIcon.svg"></IconButton>
+                            <IconButton buttonType="profile" isLogged={isLogged} profileInitials={isLogged ? formatUserName(user!.firstName.toString(), user!.lastName.toString()) : ""} iconSrc="/src/assets/icons/userIcon.svg"></IconButton>
                         </li>
                         <li className="ml-2">
-                            <IconButton buttonType="cart" cartItems={2} iconSrc="/src/assets/icons/cartIcon.svg"></IconButton>
+                            <IconButton buttonType="cart" cartItems={cart?.cartQuantity ?? 0} iconSrc="/src/assets/icons/cartIcon.svg"></IconButton>
                         </li>
                     </div>
                 </ul>
