@@ -10,7 +10,6 @@ export function Cart() {
     return(
         <>
             <CartProvider>
-                <Header/>
                 <ReturnButton text="Shopping Cart" link="a" isCart={true} />
                 <div className="md:flex md:flex-row md:pr-20">
                     <div className="md:flex-2">
