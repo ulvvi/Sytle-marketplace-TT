@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import { prisma } from "../config/prisma";
+import { Mailer } from "../mailer";
 
 export class orderController {
     

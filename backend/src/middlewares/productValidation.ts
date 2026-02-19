@@ -14,7 +14,8 @@ const createProductVal = product.extend({
     isOutOfStock: z.boolean(),
     color: z.string(),
     size: z.string(),
-    stock: z.int()
+    stock: z.int(),
+    photoUrl: z.string()
 })
 
 const updateProductVal = createProductVal.omit({
