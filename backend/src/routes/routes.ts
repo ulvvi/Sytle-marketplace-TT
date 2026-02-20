@@ -98,13 +98,28 @@ router.delete("/cart/:userId",
     ensureOwner,
     validateRequestBody(cartValidation.removeVariantVal),
     cartController.removeVariant);
-router.get("/cart/:userId", 
-    validateRequestParams(ValidateSchemaParams.getUserId),
-    authenticateJWT,
-    validateRequestParams(ValidateSchemaParams.getUserId),
-    authenticateJWT,
-    ensureOwner,
-    cartController.getCart);
+router.get("/cart/:userId",
+  validateRequestParams(ValidateSchemaParams.getUserId),
+  authenticateJWT,
+  ensureOwner,
+  cartController.getCart);
+
+router.patch("/cart/:userId",
+  validateRequestParams(ValidateSchemaParams.getUserId),
+  authenticateJWT,
+  ensureOwner,
+  validateRequestBody(cartValidation.updateQuantityVal), // { variantId: number, quantity: number }
+  cartController.updateQuantity);
+
+
+router.post("/cart/:userId/promo",
+  validateRequestParams(ValidateSchemaParams.getUserId),
+  authenticateJWT,
+  ensureOwner,
+  validateRequestBody(cartValidation.applyPromoVal), // { code: string }
+  cartController.applyPromoCode);
+
+
 
 // Order router
 router.post("/order/:userId", 
