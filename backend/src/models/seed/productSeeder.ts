@@ -17,7 +17,6 @@ export async function seedProducts(amount: number = 20) {
           rating: faker.number.float({ min: 1, max: 5, fractionDigits: 1 }),
           numOfReviews: faker.number.int({ min: 0, max: 100 }),
           isOutOfStock: faker.datatype.boolean(0.1),
-          photoUrl: faker.image.urlLoremFlickr({ category: 'fashion' }),
           
             variant: {
             create: generateVariants()
