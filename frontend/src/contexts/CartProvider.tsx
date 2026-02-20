@@ -54,7 +54,7 @@ export function CartProvider({children}:{children: ReactNode}) {
     async function addToCart(variantId: number, quantity: number){
         if(isLogged && user?.id){
             const response = await fetch(`http://localhost:3333/cart/${user.id}`, {
-                        method: "POST",
+                        method: "PATCH",
                         headers: {
                         "Content-Type": "application/json",
                         "Authorization": `Bearer ${localStorage.getItem("styleToken")}`
