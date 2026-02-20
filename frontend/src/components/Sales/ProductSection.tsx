@@ -8,12 +8,12 @@ import { SvgIconProduct } from "../SvgIconProduct";
 export function ProductSection(){
     const quantityFound = 6;
     const products: Product[] = [
-  {"id": 1, "name": "Premium Cotton T-Shirt", "rating": 4.8, "price": 49, "SalePrice": 29, "numOfReviews": 124, "isOutOfStock": false, "variant": [], "categories": [{"id": 1, "type": "Tops"}]},
-  {"id": 2, "name": "Designer Jeans", "rating": 4.9, "price": 120, "SalePrice": 79, "numOfReviews": 89, "isOutOfStock": false, "variant": [], "categories": [{"id": 2, "type": "Bottoms"}]},
-  {"id": 3, "name": "Leather Ankle Boots", "rating": 4.7, "price": 180, "SalePrice": 99, "numOfReviews": 203, "isOutOfStock": false, "variant": [], "categories": [{"id": 3, "type": "Shoes"}]},
-  {"id": 4, "name": "Cashmere Sweater", "rating": 4.8, "price": 200, "SalePrice": 120, "numOfReviews": 156, "isOutOfStock": false, "variant": [], "categories": [{"id": 1, "type": "Tops"}]},
-  {"id": 5, "name": "Summer Dress", "rating": 4.6, "price": 89, "SalePrice": 49, "numOfReviews": 91, "isOutOfStock": false, "variant": [], "categories": [{"id": 4, "type": "Dresses"}]},
-  {"id": 6, "name": "Athletic Sneakers", "rating": 4.5, "price": 140, "SalePrice": 84, "numOfReviews": 234, "isOutOfStock": false, "variant": [], "categories": [{"id": 3, "type": "Shoes"}]}
+  {"id": 1, "name": "Premium Cotton T-Shirt", "rating": 4.8, "price": 49, "SalePrice": 29, "numOfReviews": 124, "isOutOfStock": false, "variant": [], "categories": [{"id": 1, "type": "Tops"}], "collection": null},
+  {"id": 2, "name": "Designer Jeans", "rating": 4.9, "price": 120, "SalePrice": 79, "numOfReviews": 89, "isOutOfStock": false, "variant": [], "categories": [{"id": 2, "type": "Bottoms"}], "collection": null},
+  {"id": 3, "name": "Leather Ankle Boots", "rating": 4.7, "price": 180, "SalePrice": 99, "numOfReviews": 203, "isOutOfStock": false, "variant": [], "categories": [{"id": 3, "type": "Shoes"}], "collection": null},
+  {"id": 4, "name": "Cashmere Sweater", "rating": 4.8, "price": 200, "SalePrice": 120, "numOfReviews": 156, "isOutOfStock": false, "variant": [], "categories": [{"id": 1, "type": "Tops"}], "collection": null},
+  {"id": 5, "name": "Summer Dress", "rating": 4.6, "price": 89, "SalePrice": 49, "numOfReviews": 91, "isOutOfStock": false, "variant": [], "categories": [{"id": 4, "type": "Dresses"}], "collection": null},
+  {"id": 6, "name": "Athletic Sneakers", "rating": 4.5, "price": 140, "SalePrice": 84, "numOfReviews": 234, "isOutOfStock": false, "variant": [], "categories": [{"id": 3, "type": "Shoes"}], "collection": null}
 ]
     const badges = ['Best Seller' , 'New' , 'Sale' , 'Premium' , 'Limited Time' 
         , 'Flash Sale' , 'Luxury Sale' , 'Summer Sale' , 'Sport Sale']

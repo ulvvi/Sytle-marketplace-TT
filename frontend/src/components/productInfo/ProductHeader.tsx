@@ -25,7 +25,7 @@ export function ProductHeader() {
                         ))}
                     </div>
                     <h1 className="text-[1.875rem] font-bold text-primary">{formatedProductName}</h1>
-                    <h2 className="text-[1rem] text-tertiary">Style Premium</h2>
+                    <h2 className={`text-[1rem] text-tertiary ${product?.collection?.type ? "inline-block" : "hidden"}`}>{product?.collection?.type ?? ""}</h2>
                 </div>
                 <div className="flex flex-row text-[1rem]">
                     <div className="flex flex-row flex-wrap">
