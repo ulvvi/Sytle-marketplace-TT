@@ -1,13 +1,12 @@
 import { ButtonIntegration } from "./ButtonIntegration"
 import { InputText } from "./InputText"
-import { Link } from "react-router"
+import { Link, useNavigate } from "react-router" // 1. Adicionado useNavigate
 import { Button } from "./Button"
 import { useAuth } from '../contexts/AuthContext'
 import { useGoogleLogin } from "@react-oauth/google"
 import FacebookLogin from '@greatsumini/react-facebook-login';
-import { useState } from "react"
+import { useState, type ChangeEvent } from "react" // 2. Adicionado ChangeEvent
 import axios from 'axios'
-
 
 interface UserData{
     name: string
@@ -16,12 +15,42 @@ interface UserData{
 }
 
 export function EntranceBox() {
-
+    const navigate = useNavigate(); // Hook de navegação
     const { signIn } = useAuth();
 
-    //1545019629889517 IDFACE
-    const [profileImage,setProfileImage] = useState()
-    const [user,setUser] = useState<UserData | null>(null);
+
+    // --- 3. NOVA ESTRUTURA DO FORMULÁRIO MANUAL ---
+    const [formData, setFormData] = useState({
+        email: '',
+        password: ''
+    });
+
+    const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+        const { name, value } = e.target;
+        setFormData((prev) => ({ ...prev, [name]: value }));
+    };
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        
+        if (!formData.email || !formData.password) {
+            window.alert("preencha o e-mail e a senha.");
+            return;
+        }
+
+        try {
+            await signIn({
+                email: formData.email,
+                password: formData.password
+            });
+            
+            window.alert("Login passou");
+            navigate('/');
+            
+        } catch (error: any) {
+            window.alert(error.message);
+        }
+    };
 
     const loginWithGoogle = useGoogleLogin({
         onSuccess: async (tokenResponse) => {
@@ -41,7 +70,7 @@ export function EntranceBox() {
                 lastName: dados.data.family_name,
                 email: dados.data.email,
                 picture: dados.data.picture
-            });
+            } as any); 
 
         } catch (error) {
             console.error("erro ao buscar os dados do usuario", error);
@@ -58,14 +87,14 @@ export function EntranceBox() {
     console.log("Resposta do FB:", response);
 
     // Verificamos se veio o accessToken (login deu certo)
-    
       signIn({
         firstName: response.first_name, 
         lastName: response.last_name,
         email: response.email,
         picture: response.picture?.data?.url // O Facebook manda a foto aqui
-      });
+      } as any); // "as any" adicionado temporariamente
   };
+
     return (
         <>
             <div className=" max-w-[448px] h-[748px] md:h-[704px] flex flex-col items-center gap-[32px]">
@@ -134,13 +163,39 @@ export function EntranceBox() {
                             </div>
                             
                         </div>
-                        <InputText icone="./src/assets/icons/emailIcon.svg" texto="Enter your email" isPassword={false} label="Email Address"/>
-                        <div className="relative flex items-end w-full">
-                            <InputText icone="./src/assets/icons/passwordIcon.svg" texto="Enter your password" isPassword={true} label="Password"/>    
-                        <Link className="absolute right-0 top-0 text-[12px] text-[14px] hover:underline text-primary" to="/forgot-password">Forgot Password?</Link>
-                        </div>
+                        
+                        {/* --- 4. FORMULÁRIO ENVOLVENDO OS INPUTS --- */}
+                        <form onSubmit={handleSubmit} className="flex flex-col w-full gap-[24px]">
+                            
+                            <InputText 
+                                icone="./src/assets/icons/emailIcon.svg" 
+                                texto="Enter your email" 
+                                isPassword={false} 
+                                label="Email Address"
+                                name="email" // Conectando ao estado
+                                value={formData.email} // Conectando ao estado
+                                onChange={handleChange} // Conectando ao estado
+                            />
+                            
+                            <div className="relative flex items-end w-full">
+                                <InputText 
+                                    icone="./src/assets/icons/passwordIcon.svg" 
+                                    texto="Enter your password" 
+                                    isPassword={true} 
+                                    label="Password"
+                                    name="password" // Conectando ao estado
+                                    value={formData.password} // Conectando ao estado
+                                    onChange={handleChange} // Conectando ao estado
+                                />    
+                                <Link className="absolute right-0 top-0 text-[12px] text-[14px] hover:underline text-primary" to="/forgot-password">Forgot Password?</Link>
+                            </div>
 
-                        <Button texto="Sign In" link="/dashboard" color="default"/>
+                            {/* O onClick dispara o form, o link="/dashboard" foi removido pois a navegação agora é condicional */}
+                            <Button texto="Sign In" color="default" onClick={handleSubmit} />
+
+                        </form>
+                        {/* ------------------------------------------- */}
+
                         <span className="text-[14px] text-tertiary">Don't have an account? <Link to="/register" className="font-semibold text-primary hover:underline">Sign Up</Link></span>
 
                     </div>
