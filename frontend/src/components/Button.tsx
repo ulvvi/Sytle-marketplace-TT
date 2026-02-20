@@ -21,7 +21,7 @@ export function Button({ texto, link, color = "default", buttonClassName, textCl
                 "bg-red-500 text-white"
             }
             ${iconPos === "left" ? "flex-row-reverse" : ""} ${buttonClassName}`}
-            onClick={link ? () =>  navigate('/Sales') : undefined}
+            onClick={link ? () =>  navigate(link) : undefined}
             {...props}
             
         >

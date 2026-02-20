@@ -115,7 +115,7 @@ export function ProductCard({productBadge=[], imgSrc="/src/assets/placeholder.sv
                         </div>
                         <div className={`${isProductInfo ? 'w-14' :
                             !isHome ? 'w-full flex gap-2' : 'w-25'}`}> 
-                            <Button texto={`${isProductInfo ? "View" : "Add to Cart"}`} color={buttonColor} link={isProductInfo ? `/product/${product.id}` : ""} buttonClassName="h-[length:36px]"  iconSrc={!(isHome || isProductInfo) ? "src/assets/icons/cartIconWhite.svg" : undefined} iconPos="left"/>
+                            <Button texto={`${isProductInfo ? "View" : "Add to Cart"}`} color={buttonColor} link={isProductInfo ? `/Product/${product.id}` : ""} buttonClassName="h-[length:36px]"  iconSrc={!(isHome || isProductInfo) ? "src/assets/icons/cartIconWhite.svg" : undefined} iconPos="left"/>
                             <SvgIconProduct onClick={likeProduct} path={`${isLiked ?'src/assets/icons/heartFilled.svg' : 'src/assets/icons/heartIcon.svg' }`} alt="Ícone para salvar na wishlist" border="true" className={`${(isHome || isProductInfo) ? 'hidden' : ''}`}/>
                         </div>
                     </div>

@@ -39,7 +39,7 @@ export function Navbar() {
                     <li>
                         <Link to='/Home' className="flex gap-2 items-center justify-center">
                             
-                            <img src="src/assets/icons/styleLogo.svg" alt="Logo" />
+                            <img src="/src/assets/icons/styleLogo.svg" alt="Logo" />
                             <div className="flex">
                                 <span className="text-black font-bold text-[20px]">
                                     STYLE
