@@ -12,13 +12,8 @@ interface PurchaseActionProps {
 }
 
 export function PurchaseActionButtons({variant, quantity}:PurchaseActionProps) {
-    const { login } = useContext(UserContext)
-    const { addToCart } = useContext(CartContext)
 
-    useEffect(() => {
-        login("josesoares@gmail.com", "teste")
-    }, [])
-    
+    const { addToCart } = useContext(CartContext)
 
     return <>
         <div className="flex flex-col gap-4">

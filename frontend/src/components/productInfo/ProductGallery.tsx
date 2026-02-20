@@ -1,8 +1,9 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { IconButton } from "../IconButton";
 import { SvgIconProduct } from "../SvgIconProduct";
 import { ProductInfoContext } from "../../pages/ProductInfo";
 import { UserContext } from "../../contexts/UserProvider";
+import type { Product } from "../../hooks/useProduct";
 
 interface ProductGalleryProps {
     productPics?: ProductPic[];
@@ -21,9 +22,34 @@ export function ProductGallery({productPics = new Array(4).fill({imgSrc: "/src/a
     const {user, isLogged} = useContext(UserContext)
 
     const [isLiked, setIsLiked] = useState(false)
-    const likeProduct = () =>{
-        setIsLiked(!isLiked)
-    }
+
+    useEffect( () =>{
+        async function requestWishlistStatus() {
+            try{
+                if (isLogged && product && user?.id){   
+                    const response = await fetch(`http://localhost:3333/user/${user.id}/wishlist/`, {
+                                method: "GET",
+                                headers: {
+                                "Content-type": "application/json",
+                                "Authorization": `Bearer ${localStorage.getItem("styleToken")}`
+                                }
+                    })
+
+                    if(response.ok){
+                        const wishlist = await response.json();
+                        const productExists = wishlist.product.some((item: any) => item.productId === product.id);
+                        console.log("Wishlist:")
+                        console.log(productExists)
+                        setIsLiked(productExists);
+                    }
+
+                }
+            } catch (error) {
+                console.error("Erro ao verificar wishlist", error)
+            }
+        }
+        requestWishlistStatus();
+}, [])
 
     async function toggleLike(){
         if (isLogged && product && user?.id){   

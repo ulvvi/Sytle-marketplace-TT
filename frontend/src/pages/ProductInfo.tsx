@@ -1,5 +1,5 @@
 
-import { createContext } from "react";
+import { createContext, useContext, useEffect } from "react";
 import { Breadcrumbs } from "../components/productInfo/Breadcrumbs";
 import { ProductGallery } from "../components/productInfo/ProductGallery";
 import { ProductInfoTabs } from "../components/productInfo/ProductInfoTabs";
@@ -7,6 +7,7 @@ import { ProductPurchasePanel } from "../components/productInfo/ProductPurchaseP
 import { RelatedProducts } from "../components/productInfo/RelatedProducts";
 import { useProduct, type Product } from "../hooks/useProduct";
 import { useParams } from "react-router-dom";
+import { UserContext } from "../contexts/UserProvider";
 
 export const ProductInfoContext = createContext<Product | null>({} as Product)
 
@@ -14,6 +15,13 @@ export function ProductInfo() {
     const { id } = useParams();
     const {product, loading} = useProduct(id);
 
+    //Login temporario de teste
+    const { login, isLogged } = useContext(UserContext)
+    useEffect(() => {
+        login("josesoares@gmail.com", "teste")
+        console.log(isLogged)
+    }, [])
+    
     if(loading){
         return (
             <></>
