@@ -56,10 +56,10 @@ export function CartProvider({children}:{children: ReactNode}) {
             const response = await fetch(`http://localhost:3333/cart/${user.id}`, {
                         method: "POST",
                         headers: {
-                        "Content-type": "application/json",
+                        "Content-Type": "application/json",
                         "Authorization": `Bearer ${localStorage.getItem("styleToken")}`
                         },
-                        body: JSON.stringify({variantId: variantId})
+                        body: JSON.stringify({variantId: variantId, quantity: quantity})
             })
 
             const data = await response.json();

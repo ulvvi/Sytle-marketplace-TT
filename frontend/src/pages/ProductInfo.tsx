@@ -34,7 +34,7 @@ export function ProductInfo() {
 
     const productPaths = [
         { label: "Sale", path: "/" },
-        { label: formatedProductName, path: "/product/:id" }
+        { label: formatedProductName, path: `/product/${id}` }
     ]
         return (
             <>

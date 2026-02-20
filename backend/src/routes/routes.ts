@@ -104,7 +104,7 @@ router.get("/cart/:userId",
     validateRequestParams(ValidateSchemaParams.getUserId),
     authenticateJWT,
     ensureOwner,
-    validateRequestBody(orderValidation.createOrderVal),cartController.getCart);
+    cartController.getCart);
 
 // Order router
 router.post("/order/:userId", 

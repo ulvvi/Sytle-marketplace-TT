@@ -7,7 +7,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { EntranceBoxExtended } from './components/EntranceBoxExtended'
 import { SignUp } from './pages/signUp'
 import { SignIn } from './pages/signIn'
-import { Cart } from './pages/Cart'
+import { Cart } from './pages/cart'
 import { Orders } from './pages/Orders'
 import { Sales } from './pages/Sales'
 import { Settings } from './pages/Settings'
@@ -36,7 +36,7 @@ function App() {
           <Route path="/Settings" element={<Settings/>}/>
           <Route path="/Orders" element={<Orders/>}/>
           <Route path="/Cart" element={<Cart/>}/>
-          <Route path="/Product/" element={<ProductInfo/>}/>
+          <Route path="/Product/:id" element={<ProductInfo/>}/>
           
           
         </Routes>

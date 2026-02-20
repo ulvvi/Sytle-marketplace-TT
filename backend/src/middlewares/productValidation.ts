@@ -15,7 +15,7 @@ const createProductVal = product.extend({
     color: z.string(),
     size: z.string(),
     stock: z.int(),
-    photoUrl: z.string()
+    photoUrl: z.string().optional().nullable()
 })
 
 const updateProductVal = createProductVal.omit({
