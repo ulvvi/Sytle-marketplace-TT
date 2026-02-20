@@ -48,12 +48,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const signIn = async (payload: SignInPayload) => {
     setIsLoading(true);
     try {
-        // 1. FAZ LOGIN E PEGA O TOKEN
         const response = await axios.post('/signIn', payload); 
         const token = response.data.token;
-        localStorage.setItem('token_acesso', token);
+        localStorage.setItem('styleToken', token);
 
-        // 2. ABRE O TOKEN E PEGA O ID (Isso já sabemos que funciona perfeitamente)
         const base64Url = token.split('.')[1];
         const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
         const tokenDecodificado = JSON.parse(decodeURIComponent(window.atob(base64).split('').map(function(c) {
@@ -61,22 +59,18 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         }).join('')));
         
         const userId = tokenDecodificado.sub.id; 
-        console.log(`🚀 Tentando buscar dados na rota: /user/${userId}`);
 
-        // 3. BUSCA OS DADOS (É AQUI QUE O BACKEND ESTÁ RECLAMANDO)
         try {
             const userResponse = await axios.get(`/user/${userId}`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
 
-            // Se passar pelo leão de chácara, salva os dados
             const dadosReais = userResponse.data;
             setUser(dadosReais);
             localStorage.setItem('usuarioLogado', JSON.stringify(dadosReais));
 
         } catch (erroGet: any) {
-            // AQUI ESTÁ O RASTREADOR! Ele vai imprimir exatamente o que o backend recusou:
-            console.error("🚨 O BACKEND RECUSOU A BUSCA! Motivo exato:", erroGet.response?.data);
+            console.error("Erro obtido: ", erroGet.response?.data);
             throw new Error("Erro na validação do backend ao buscar usuário.");
         }
 

@@ -1,25 +1,19 @@
 import { ButtonIntegration } from "./ButtonIntegration"
 import { InputText } from "./InputText"
-import { Link, useNavigate } from "react-router" // 1. Adicionado useNavigate
+import { Link, useNavigate } from "react-router"
 import { Button } from "./Button"
 import { useAuth } from '../contexts/AuthContext'
 import { useGoogleLogin } from "@react-oauth/google"
 import FacebookLogin from '@greatsumini/react-facebook-login';
-import { useState, type ChangeEvent } from "react" // 2. Adicionado ChangeEvent
+import { useState, type ChangeEvent } from "react" 
 import axios from 'axios'
 
-interface UserData{
-    name: string
-    email: string
-    picture: string
-}
 
 export function EntranceBox() {
-    const navigate = useNavigate(); // Hook de navegação
+    const navigate = useNavigate(); 
     const { signIn } = useAuth();
 
 
-    // --- 3. NOVA ESTRUTURA DO FORMULÁRIO MANUAL ---
     const [formData, setFormData] = useState({
         email: '',
         password: ''
@@ -86,13 +80,12 @@ export function EntranceBox() {
     const loginWithFacebook = (response: any) => {
     console.log("Resposta do FB:", response);
 
-    // Verificamos se veio o accessToken (login deu certo)
       signIn({
         firstName: response.first_name, 
         lastName: response.last_name,
         email: response.email,
-        picture: response.picture?.data?.url // O Facebook manda a foto aqui
-      } as any); // "as any" adicionado temporariamente
+        picture: response.picture?.data?.url
+      } as any);
   };
 
     return (
@@ -164,7 +157,6 @@ export function EntranceBox() {
                             
                         </div>
                         
-                        {/* --- 4. FORMULÁRIO ENVOLVENDO OS INPUTS --- */}
                         <form onSubmit={handleSubmit} className="flex flex-col w-full gap-[24px]">
                             
                             <InputText 
@@ -172,9 +164,9 @@ export function EntranceBox() {
                                 texto="Enter your email" 
                                 isPassword={false} 
                                 label="Email Address"
-                                name="email" // Conectando ao estado
-                                value={formData.email} // Conectando ao estado
-                                onChange={handleChange} // Conectando ao estado
+                                name="email"
+                                value={formData.email}
+                                onChange={handleChange}
                             />
                             
                             <div className="relative flex items-end w-full">
@@ -183,18 +175,16 @@ export function EntranceBox() {
                                     texto="Enter your password" 
                                     isPassword={true} 
                                     label="Password"
-                                    name="password" // Conectando ao estado
-                                    value={formData.password} // Conectando ao estado
-                                    onChange={handleChange} // Conectando ao estado
+                                    name="password" 
+                                    value={formData.password} 
+                                    onChange={handleChange} 
                                 />    
                                 <Link className="absolute right-0 top-0 text-[12px] text-[14px] hover:underline text-primary" to="/forgot-password">Forgot Password?</Link>
                             </div>
 
-                            {/* O onClick dispara o form, o link="/dashboard" foi removido pois a navegação agora é condicional */}
                             <Button texto="Sign In" color="default" onClick={handleSubmit} />
 
                         </form>
-                        {/* ------------------------------------------- */}
 
                         <span className="text-[14px] text-tertiary">Don't have an account? <Link to="/register" className="font-semibold text-primary hover:underline">Sign Up</Link></span>
 
