@@ -37,7 +37,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [isLoading, setIsLoading] = useState(false); 
 
   useEffect(() => {
-    const userStorage = localStorage.getItem('usuarioLogado');
+    const userStorage = localStorage.getItem('styleUserId');
     
     if (userStorage) {
       setUser(JSON.parse(userStorage));
@@ -67,7 +67,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
             const dadosReais = userResponse.data;
             setUser(dadosReais);
-            localStorage.setItem('usuarioLogado', JSON.stringify(dadosReais));
+            localStorage.setItem('styleUserId', JSON.stringify(dadosReais));
 
         } catch (erroGet: any) {
             console.error("Erro obtido: ", erroGet.response?.data);
@@ -83,23 +83,30 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
   const signOut = () => {
     setUser(null);
-    localStorage.removeItem('usuarioLogado');
+    localStorage.removeItem('styleUserId');
+    localStorage.removeItem('styleToken');
   };
 
   const signUp = async (payload: UserPayload) => {
     setIsLoading(true);
     try {
-        const response = await axios.post('/signup', payload);
-        
-        return response.data
+        const response = await axios.post('/signUp', payload); 
+        return response.data;
 
     } catch (error: any) {
-        console.error("Erro ao criar conta no backend:", error);
+        console.error("Erro SignUp:", error.response?.data);
+
         const backEndMessage = error.response?.data?.message || "";
-          if (backEndMessage.includes("Unique") || backEndMessage.includes("email")){
+        const errosDeValidacao = error.response?.data?.errors;
+
+        if (backEndMessage.includes("Unique") || backEndMessage.includes("email") || backEndMessage.includes("já existe")){
             throw new Error("Email já existente"); 
-          }
-        throw new Error("Erro ao criar conta"); 
+        }
+        if (errosDeValidacao) {
+            throw new Error(`O Backend recusou os dados: ${JSON.stringify(errosDeValidacao)}`); 
+        }
+
+        throw new Error("Erro ao criar conta no servidor."); 
     } finally {
         setIsLoading(false);
     }

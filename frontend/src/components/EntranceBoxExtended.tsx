@@ -97,32 +97,43 @@ export function EntranceBoxExtended() {
                     'https://www.googleapis.com/oauth2/v3/userinfo',
                     { headers: { Authorization: `Bearer ${tokenResponse.access_token}` } }
                 );
-
+                
                 const emailGoogle = dados.data.email;
                 const senhaGoogle = "Google_1234_abc!@#";
 
                 try {
-                    await signUp({
-                        firstName: dados.data.given_name || "Usuário",
-                        lastName: dados.data.family_name || "",
+                    await signIn({
                         email: emailGoogle,
-                        password: senhaGoogle, 
-                        marketingEmail: false 
+                        password: senhaGoogle
                     });
-                } catch (criaContaErro: any) {
-                    if (criaContaErro.message !== "Email já existente") {
-                        throw criaContaErro;
+                
+                    window.alert("Conectado");
+                    navigate('/'); 
+                    return; 
+
+                } catch (erroLogin) {
+                    
+                    try {
+                        await signUp({
+                            firstName: dados.data.given_name || "Usuário",
+                            lastName: dados.data.family_name || "",
+                            email: emailGoogle,
+                            password: senhaGoogle, 
+                            marketingEmail: false 
+                        });
+
+                        await signIn({
+                            email: emailGoogle,
+                            password: senhaGoogle
+                        });
+
+                        window.alert("Conta Google criada");
+                        navigate('/');
+
+                    } catch (erroCadastro: any) {
+                        window.alert(erroCadastro.message || "Erro ao criar conta Google");
                     }
                 }
-
-                
-                await signIn({
-                    email: emailGoogle,
-                    password: senhaGoogle
-                });
-
-                window.alert("Conectado");
-                navigate('/'); 
 
             } catch (error: any) {
                 window.alert(error.message || "Erro ao conectar com Google");
@@ -134,32 +145,43 @@ export function EntranceBoxExtended() {
     const loginWithFacebook = async (response: any) => {
         try {
             const emailFace = response.email;
-            const senhaFace = "Facebook_1234_abc!@#";
-
+            const senhaFace = "Facebook_1234_abc!@#"; 
             try {
-                await signUp({
-                    firstName: response.first_name || "Usuário", 
-                    lastName: response.last_name || "",
+                await signIn({
                     email: emailFace,
-                    password: senhaFace, 
-                    marketingEmail: false
+                    password: senhaFace
                 });
-            } catch (criaContaErro: any) {
-                if (criaContaErro.message !== "Email já existente") {
-                    throw criaContaErro; 
+                
+                window.alert("Conectado");
+                navigate('/');
+                return; 
+
+            } catch (erroLogin) {
+                try {
+                    await signUp({
+                        firstName: response.first_name || "Usuário", 
+                        lastName: response.last_name || "",
+                        email: emailFace,
+                        password: senhaFace, 
+                        marketingEmail: false
+                    });
+
+                    
+                    await signIn({
+                        email: emailFace,
+                        password: senhaFace
+                    });
+                    
+                    window.alert("Conta Facebook criada");
+                    navigate('/');
+
+                } catch (erroCadastro: any) {
+                    window.alert(erroCadastro.message || "Erro ao criar conta com Facebook");
                 }
             }
 
-            await signIn({
-                email: emailFace,
-                password: senhaFace
-            });
-            
-            window.alert("Conectado");
-            navigate('/');
-
         } catch (error: any) {
-             window.alert(error.message || "Erro ao conectar com Facebook");
+             window.alert(error.message || "Erro geral ao conectar com Facebook");
         }
     };
 

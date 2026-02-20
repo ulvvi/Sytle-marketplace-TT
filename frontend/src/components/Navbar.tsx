@@ -1,11 +1,20 @@
-import { Link } from "react-router"
+import { Link, useNavigate } from "react-router"
 import { IconButton } from "./IconButton"
 import { InputText } from "./InputText"
 import type { ReactNode } from "react"
+import { useAuth } from '../contexts/AuthContext'
 
 export function Navbar() {
 
     const iconSearchBar: ReactNode = <img src="/src/assets/icons/searchIcon.svg" className="filter-[invert(46%)_sepia(8%)_saturate(595%)_hue-rotate(182deg)_brightness(93%)_contrast(89%)]"/>
+
+    const {signOut} = useAuth();
+    const navigate = useNavigate();
+
+    const handleOut = () => {
+        signOut();
+        navigate('/signIn')
+    };
 
     return (
         <>
@@ -45,7 +54,7 @@ export function Navbar() {
 
                     <div className="flex">
                         <li className="lg:hidden">
-                            <IconButton iconSrc="/src/assets/icons/searchIcon.svg"></IconButton>
+                            <IconButton iconSrc="/src/assets/icons/searchIcon.svg" onClick={handleOut}></IconButton>
                         </li>
                         <li className="ml-2">
                             <IconButton iconSrc="/src/assets/icons/heartIcon.svg"></IconButton>
