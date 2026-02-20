@@ -5,7 +5,7 @@ CREATE TYPE "Gender" AS ENUM ('MALE', 'FEMALE', 'OTHER');
 CREATE TYPE "OrderStatus" AS ENUM ('DELIVERED', 'SHIPPED', 'PROCESSING');
 
 -- CreateEnum
-CREATE TYPE "CategoryType" AS ENUM ('BEST_SELLER', 'NEW', 'SALE', 'PREMIUM', 'LIMITED_TIME', 'FLASH_SALE', 'LUXURY_SALE', 'SUMMER_SALE', 'SPORT_SALE', 'OUT_OF_STOCK');
+CREATE TYPE "CategoryType" AS ENUM ('TOPS', 'BOTTOMS', 'SHOES', 'DRESSES', 'ACCESSORIES');
 
 -- CreateTable
 CREATE TABLE "User" (
@@ -21,6 +21,7 @@ CREATE TABLE "User" (
     "totalOrders" INTEGER NOT NULL DEFAULT 0,
     "totalRating" DOUBLE PRECISION NOT NULL DEFAULT 0,
     "totalWishlist" INTEGER NOT NULL DEFAULT 0,
+    "memberSince" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "emailNotification" BOOLEAN NOT NULL DEFAULT true,
     "smsNotification" BOOLEAN NOT NULL DEFAULT false,
     "marketingEmail" BOOLEAN NOT NULL,
@@ -100,10 +101,25 @@ CREATE TABLE "Product" (
     "name" TEXT NOT NULL,
     "rating" DOUBLE PRECISION NOT NULL,
     "price" DOUBLE PRECISION NOT NULL,
+    "SalePrice" DOUBLE PRECISION,
     "numOfReviews" INTEGER NOT NULL,
     "isOutOfStock" BOOLEAN NOT NULL,
+    "photoUrl" TEXT,
+    "saleId" INTEGER,
+    "collectionId" INTEGER,
+    "description" TEXT NOT NULL,
 
     CONSTRAINT "Product_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "sale" (
+    "id" SERIAL NOT NULL,
+    "discountPercentage" DOUBLE PRECISION NOT NULL,
+    "startDate" TIMESTAMP(3) NOT NULL,
+    "endDate" TIMESTAMP(3) NOT NULL,
+
+    CONSTRAINT "sale_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
@@ -142,6 +158,14 @@ CREATE TABLE "ProductCategory" (
     CONSTRAINT "ProductCategory_pkey" PRIMARY KEY ("productId","categoryId")
 );
 
+-- CreateTable
+CREATE TABLE "Collection" (
+    "id" SERIAL NOT NULL,
+    "type" TEXT NOT NULL,
+
+    CONSTRAINT "Collection_pkey" PRIMARY KEY ("id")
+);
+
 -- CreateIndex
 CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
 
@@ -156,6 +180,9 @@ CREATE UNIQUE INDEX "Variant_productId_color_size_key" ON "Variant"("productId",
 
 -- CreateIndex
 CREATE UNIQUE INDEX "Category_type_key" ON "Category"("type");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "Collection_type_key" ON "Collection"("type");
 
 -- AddForeignKey
 ALTER TABLE "Wishlist" ADD CONSTRAINT "Wishlist_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
@@ -183,6 +210,12 @@ ALTER TABLE "OrderVariant" ADD CONSTRAINT "OrderVariant_orderId_fkey" FOREIGN KE
 
 -- AddForeignKey
 ALTER TABLE "OrderVariant" ADD CONSTRAINT "OrderVariant_variantId_fkey" FOREIGN KEY ("variantId") REFERENCES "Variant"("id") ON DELETE CASCADE ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "Product" ADD CONSTRAINT "Product_collectionId_fkey" FOREIGN KEY ("collectionId") REFERENCES "Collection"("id") ON DELETE SET NULL ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "Product" ADD CONSTRAINT "Product_saleId_fkey" FOREIGN KEY ("saleId") REFERENCES "sale"("id") ON DELETE SET NULL ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE "Variant" ADD CONSTRAINT "Variant_productId_fkey" FOREIGN KEY ("productId") REFERENCES "Product"("id") ON DELETE CASCADE ON UPDATE CASCADE;
