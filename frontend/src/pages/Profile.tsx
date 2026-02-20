@@ -3,11 +3,12 @@ import { useState, useEffect } from 'react';
 import { PrincipalContainer } from "../components/profile/PrincipalContainer"
 import type {userInfo} from "../contexts/userContext"
 import { useUserData } from "../hooks/getUserData";
+import { useTitle } from "../hooks/useTitle";
 
 
 
 export function Profile() {
-
+    useTitle("Profile")
     const userData = useUserData()
     if(!userData) return;
     return (

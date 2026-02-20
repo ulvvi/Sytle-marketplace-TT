@@ -4,8 +4,11 @@ import { CartSection } from "../components/cart/cartSection";
 import { CartProvider } from "../components/cart/cartContext";
 import { PromoCode } from "../components/cart/promoCode";
 import { OrderSummary } from "../components/cart/orderSummary";
+import { useTitle } from "../hooks/useTitle";
 
 export function Cart() {
+
+    useTitle("Cart")
 
     return(
         <>
