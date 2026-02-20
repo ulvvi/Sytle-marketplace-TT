@@ -16,14 +16,16 @@ import { Settings } from './pages/Settings'
 import { Header } from './components/Header'
 import { UserProvider } from './contexts/UserProvider'
 import { CartProvider } from './contexts/CartProvider'
+import { AuthProvider } from './contexts/AuthContext'
 
 
 function App() {
 
   return (
     <>
-      
+      <GoogleOAuthProvider clientId='623900671725-l059r7q9p91hbal82ikmqd0d2lhm7bai.apps.googleusercontent.com'>
       <BrowserRouter>
+      <AuthProvider>
         <UserProvider>
           <CartProvider>
             <Header />
@@ -42,7 +44,9 @@ function App() {
         </UserProvider>
         <Routes>
         </Routes>
+        </AuthProvider>
       </BrowserRouter>
+      </GoogleOAuthProvider>
     </>
   )
 }
