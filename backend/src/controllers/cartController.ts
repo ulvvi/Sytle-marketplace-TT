@@ -61,43 +61,76 @@ export class cartController {
   // Adiciona 1 unidade de um variant ao carrinho.
   public static async addVariantToCart(req: Request, res: Response) {
     const { userId } = req.params;
-    const { variantId } = req.body;
+    const { variantId , quantity = 1 } = req.body;
+
+    if (quantity <= 0) {
+      return res.status(400).json({ error: "A quantidade deve ser maior que zero." });
+    }
 
     try {
+
+      //Busca variante e carrinho em paralelo
+      //(isso ajuda a salvar tempo, descobri e é importante especialmente pro cart)
       const [variant, cart] = await Promise.all([
-        prisma.variant.findUnique({
-          where: { id: variantId },
-          include: { product: true },
+        prisma.variant.findUnique({ 
+            where: { id: variantId }, 
+            include: { product: true } 
         }),
-        prisma.cart.findUnique({
-          where: { userId: Number(userId) },
-          include: { cartVariants: true },
-        }),
+        prisma.cart.findUnique({ 
+            where: { userId: Number(userId) },
+            include: { cartVariants: true }
+        })
       ]);
 
-      if (!variant) return res.status(404).json({ error: "Variante não encontrada." });
-      if (!cart)    return res.status(404).json({ error: "Carrinho não encontrado." });
+      if (!variant) return res.status(404).json({ error: "variante nao encontrada" });
+      if (!cart) return res.status(404).json({ error: "usuario nao possui carrinho" });
 
-      await prisma.$transaction(async (tx) => {
-        const existingItem = cart.cartVariants.find((cv) => cv.variantId === variantId);
+      const price = variant.product.price;
 
+      const updatedCart = await prisma.$transaction(async (tx) => {
+        const existingItem = cart.cartVariants.find(cv => cv.variantId === variantId);
+
+        const quantityInCart = existingItem ? existingItem.quantity : 0;
+        if (quantityInCart + quantity > variant.stock) throw new Error ("Estoque insuficiente");
+
+        //tirei o updatedcart porque estava dando problema
         if (existingItem) {
+          // se ja tem o item, so aumenta a quantidade
           await tx.cartVariant.update({
-            where: { cartId_variantId: { cartId: cart.id, variantId } },
-            data: { quantity: { increment: 1 } },
+            where: { 
+                cartId_variantId: { cartId: cart.id, variantId: variantId } 
+            },
+            data: { quantity: { increment: quantity } }
           });
         } else {
           await tx.cartVariant.create({
-            data: { cartId: cart.id, variantId, quantity: 1 },
+            data: {
+              cartId: cart.id,
+              variantId: variantId,
+              quantity: quantity
+            }
           });
         }
+
+        const additionalCost = quantity * price;
+
+        return tx.cart.update({
+          where: { id: cart.id },
+          data: {
+            subtotal: { increment: additionalCost },
+            totalCost: { increment: additionalCost }
+          },
+          include: { 
+            cartVariants: { 
+                include: { variant: { include: { product: true } } } 
+            } 
+          }
+        });
       });
 
-      // Recalcula tudo corretamente (respeita SalePrice e cupom ativo)
-      const updatedCart = await recalculateCart(cart.id, getStoredDiscount(cart.promoCode));
       return res.status(200).json(updatedCart);
     } catch (error) {
-      return res.status(500).json({ error: "Erro ao adicionar ao carrinho." });
+      return res.status(500).json({ error: "erro ao adicionar ao carrinho"});
     }
   }
 
