@@ -12,14 +12,14 @@ $ cd Style-marketplace-TT
 ## Instalação 
 Depois instale as dependencias do front e do back
 
-### Pasta back
+### Pasta backend
 
 ``` bash
 $ cd backend
 $ npm install
 ```
 
-### Pasta front
+### Pasta frontend
 
 ``` bash
 $ cd ..
@@ -33,7 +33,7 @@ Copie o arquivo .env.example para um env e rode os comandos abaixo
 
 DATABASE_URL="postgresql://postgres:PASSWORD@localhost:5432/DATABASE?schema=public"
 
-Com os comandos abaixo, será feita a configuração da pasta `back`:
+Com os comandos abaixo, será feita a configuração da pasta `backend`:
 
 ``` bash
 $ cd ..
@@ -52,7 +52,7 @@ para rodar, utilize o comando abaixo na pasta 'backend'
 npm start
 ```
 
-Com as configurações feitas, mude a seguir para a pasta `front`, para a execução do aplicativo utilizando os seguintes comandos:
+mude a seguir para a pasta `frontend` e execute o app:
 
 ``` bash
 cd ..
