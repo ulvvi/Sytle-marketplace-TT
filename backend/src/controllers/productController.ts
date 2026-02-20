@@ -49,7 +49,15 @@ export class productController {
   public static async readAllProduct(request: Request, response: Response) {
     try {
       const foundAllProduct = await prisma.product.findMany({
-        include: { collection: true }
+        include: { collection: true,
+          categories:{
+            select:{
+            category:true
+            }
+          }
+        },
+        
+        
       });
 
       response.status(200).json(foundAllProduct);

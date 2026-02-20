@@ -197,10 +197,9 @@ router.put("/category/:id",
 router.delete("/category/:id", 
     validateRequestParams(ValidateSchemaParams.getSelfId),
     categoryController.deleteCategory);
-router.delete("/category/:categoryId/product/:productId", 
+router.delete("/category/:id", 
     validateRequestParams(categoryValidation.delFromCategoryVal),
     categoryController.delFromCategory);
-router.delete("/category/:id", categoryController.deleteCategory);
 router.delete("/category/:categoryId/product/:productId", categoryController.delFromCategory)
 
 // Rota da coleção
