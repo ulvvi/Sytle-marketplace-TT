@@ -1,24 +1,28 @@
 import { ProductInfoContext } from "../../pages/ProductInfo";
 import { useContext } from "react";
 
+export type productBadge = "Tops" | "Limited Time";
+
 export function ProductHeader() {
     const product  = useContext(ProductInfoContext)
     const discount = product?.SalePrice === undefined ? 0 : product.price - product.SalePrice;
     const formatedProductName = product?.name.toLowerCase().split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
+    const productBadges = ["Tops", "Limited Time"]
 
     return (
         <>
             <div className="flex flex-col gap-6 mb-6">
                 <div>
                     <div className="flex gap-2"> 
-                        {product?.categories.map((category, _) => {
-                            const formattedCategory = category.type.toLowerCase().split("_").map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
-                            
-                            return <div key={category.id} className={`flex items-center py-0.75 px-2.75 rounded-[100rem] h-5.5 top-3 left-3 z-1 
-                            ${formattedCategory === "Limited Time" ? "bg-[#F3F4F6]" : "bg-secondary border border-(--border-primary)"}`}>
-                                <span className="text-primary font-semibold text-[0.75rem]">{formattedCategory}</span>
+                        {productBadges.map((badge, _) => (
+                            <div className={`flex items-center py-0.75 px-2.75 rounded-[100rem] h-5.5 top-3 left-3 z-1 
+                            ${{
+                                "Tops": "bg-secondary border border-(--border-primary)",
+                                "Limited Time": "bg-[#F3F4F6]",
+                            }[badge]}`}>
+                                <span className="text-primary font-semibold text-[0.75rem]">{badge}</span>
                             </div>
-                            })}
+                        ))}
                     </div>
                     <h1 className="text-[1.875rem] font-bold text-primary">{formatedProductName}</h1>
                     <h2 className="text-[1rem] text-tertiary">Style Premium</h2>
