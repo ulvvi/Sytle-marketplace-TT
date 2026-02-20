@@ -59,10 +59,7 @@ export function CartProvider({children}:{children: ReactNode}) {
                         "Content-type": "application/json",
                         "Authorization": `Bearer ${localStorage.getItem("styleToken")}`
                         },
-                        body: JSON.stringify({
-                            variantId: variantId,
-                            quantity: quantity
-                        })
+                        body: JSON.stringify({variantId: variantId})
             })
 
             const data = await response.json();

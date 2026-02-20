@@ -73,7 +73,7 @@ export class cartController {
 
       return res.status(200).json(updatedCart);
     } catch (error) {
-        return res.status(500).json({ error: "erro ao adicionar ao carrinho", details: error });
+      return res.status(500).json({ error: "erro ao adicionar ao carrinho"});
     }
   }
 
@@ -123,7 +123,7 @@ export class cartController {
 
       return res.status(200).json(updatedCart);
     } catch (error) {
-      return res.status(500).json({ error: "Erro ao remover item.", details: error });
+      return res.status(500).json({ error: "Erro ao remover item."});
     }
   }
 

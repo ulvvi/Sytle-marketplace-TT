@@ -3,11 +3,14 @@ import { useState } from "react"
 interface SwitchButtonProps{
     label?: string
     message?: string
+    name: string
+    checked?: boolean
+    onChange: (name:string, newValue: boolean) => void
 }
 
-export function SwitchButton({label="Default label",message="default message"} :SwitchButtonProps) {
+export function SwitchButton({label="Default label",message="default message", checked, name, onChange} :SwitchButtonProps) {
 
-    const [activated,setActivated] = useState(false);
+    //const [activated,setActivated] = useState(checked);
 
     return(
         <>
@@ -25,8 +28,8 @@ export function SwitchButton({label="Default label",message="default message"} :
             </div>
 
             <div className=" flex flex-col items-center justify-center ">
-                <button className={`w-[44px] h-[24px] pt-[2px] pb-[2px] pr-[2px] pl-[2px] rounded-full flex flex-col items-center cursor-pointer transition-colors duration-300 ease-in-out ${activated ?  "bg-[#E5E7EB]"  : "bg-black" } `} onClick={() => setActivated(!activated)} >
-                    <div className={`w-[20px] h-[20px] self-end rounded-full bg-white shadow-[0px_10p_15px_-3px_rgba(0,0,0,0.1),0px_4px_6px_-4px_rgba(0,0,0,0.1)] transition-transform duration-300 ${activated ? "-translate-x-5" : ""}`}></div>
+                <button  onClick={()=> onChange(name, !checked)}className={`w-[44px] h-[24px] pt-[2px] pb-[2px] pr-[2px] pl-[2px] rounded-full flex flex-col items-center cursor-pointer transition-colors duration-300 ease-in-out ${!checked ?  "bg-[#E5E7EB]"  : "bg-black" } `}>
+                    <div className={`w-[20px] h-[20px] self-end rounded-full bg-white shadow-[0px_10p_15px_-3px_rgba(0,0,0,0.1),0px_4px_6px_-4px_rgba(0,0,0,0.1)] transition-transform duration-300 ${!checked ? "-translate-x-5" : ""}`}></div>
                 </button>
 
 

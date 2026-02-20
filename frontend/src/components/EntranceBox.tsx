@@ -71,7 +71,7 @@ export function EntranceBox() {
                         </div>
 
                         <Button texto="Sign In" link="/dashboard" color="default"/>
-                        <span className="text-[14px] text-tertiary">Don't have an account? <Link to="/register" className="font-semibold text-primary hover:underline">Sign Up</Link></span>
+                        <span className="text-[14px] text-tertiary">Don't have an account? <Link to="/" className="font-semibold text-primary hover:underline">Sign Up</Link></span>
 
                     </div>
                 </div>

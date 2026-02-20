@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom";
+
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     texto: string;
     link?: string;
@@ -10,7 +12,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 export function Button({ texto, link, color = "default", buttonClassName, textClassName, iconSrc, iconAlt, iconPos="right", ...props }: ButtonProps) {
-    
+    const navigate = useNavigate()
     return (
         <button 
             className={`${iconPos === "left" ? "flex-row-reverse" : "flex-row"} w-full h-[40px] flex items-center justify-center  cursor-pointer border-[1px] border-(--border-primary) rounded-[10px] border-solid gap-2 ${
@@ -19,7 +21,7 @@ export function Button({ texto, link, color = "default", buttonClassName, textCl
                 "bg-red-500 text-white"
             }
             ${iconPos === "left" ? "flex-row-reverse" : ""} ${buttonClassName}`}
-            onClick={link ? () => window.location.href = link : undefined}
+            onClick={link ? () =>  navigate('/Sales') : undefined}
             {...props}
             
         >

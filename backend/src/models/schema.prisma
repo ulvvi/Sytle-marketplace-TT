@@ -52,6 +52,7 @@ model User{
   totalOrders Int @default(0)
   totalRating Float @default(0)
   totalWishlist Int @default(0)
+  memberSince DateTime @default(now())
 
   emailNotification Boolean @default(true)
   smsNotification Boolean @default(false)
@@ -147,6 +148,7 @@ model Product {
   SalePrice Float?
   numOfReviews Int
   isOutOfStock Boolean
+  photoUrl String?
   saleId Int?
   collectionId Int?
   description String

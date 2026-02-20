@@ -51,6 +51,24 @@ export class Wishlist{
                     }
                 }
             })
+
+            const user = await prisma.user.findUnique({
+                where:{
+                    id: parseInt(userId as string)
+                },
+                include:{
+                    wishlist: true
+                }
+            })
+
+            await prisma.user.update({
+                where:{
+                    id: parseInt(userId as string)
+                },                
+                data:{
+                    totalWishlist: user?.totalWishlist ? user.totalWishlist + 1 : 1
+                }
+            })
             res.status(200).json(added);
         } catch (error:any) {
             res.status(500).json({message: error.message})

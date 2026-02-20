@@ -3,14 +3,112 @@ import { ContentBox } from "./ContentBox";
 import { InputText } from "../InputText";
 import { Button } from "../Button";
 import { SwitchButton } from "./SwitchButton";
+import { useContext, useEffect, useState } from "react";
+import { userContext } from "../../contexts/userContext";
+import { Navigate, useNavigate } from "react-router-dom";
 
 interface ProfileContainerProps {
     orders?: number
     wishlist?: number
     rating?: number
 }
+//const navigate = useNavigate();
+
+type userPreferences = {
+    emailNotification: boolean,
+    smsNotification: boolean,
+    marketingEmail: boolean,
+    orderUpdate: boolean,
+    newArrival: boolean,
+    saleAlert: boolean,
+}
 
 export function ProfileContainer (  ){
+    const user = useContext(userContext)
+    const [preferencesData, setPreferencesData] = useState<userPreferences>()
+    useEffect(()=>{
+        if(user){
+            setPreferencesData({
+                emailNotification: user.emailNotification,
+                smsNotification: user.smsNotification,
+                marketingEmail: user.marketingEmail,
+                orderUpdate: user.orderUpdate,
+                newArrival: user.newArrival,
+                saleAlert: user.saleAlert
+            })
+        }
+    }, [user])
+
+
+    async function deleteUser(){
+        try{
+            const id = 1
+            const token = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOnsiaWQiOjF9LCJpYXQiOjE3NzE1NDM5MDgsImV4cCI6MTc3MjE0ODcwOH0.aE12XbbPwr8LWR8dRT73qUXn1HMU6MLUMlJRyKTQ8dk9IDGNiSf1HKLeNU9oPhSwnFomRmV5_gL9uXdGdWb_lKjGK1Lm1RQKpfI1utgfdJ6yAQyAHoeRJ8S7UKVgzeav0HsfydrNAoHCNB4lJ61fntgtc-f-MeXT9VuFoNDiZhlVYz9N9itPcpHmA2st6WTXZqEWgAcYWUfBNqAplqnEfng0S9B0Hd9IzA6x-X0i1wi-wqE9R1giVrxDtqxgOFIPI1UwRjROuQzdTN60oUCQuG84aGw8BcbPwH5vOMcGivq_lL-Nr44HM9ROP2XUOimq8MS0K68LoM4GNiJL8Dl9e0yV2iV06LX3BxIL1ZSyzZ44DhCuEScMmFSYs86BBQJUt8_z3_MMELRylVRLd_aYNqmPyeacaPRtTwEcX47fHHPtT7Afa_cMJTFjzqDf0Bi2dr3tBemBIL3m41qo-ne-CV1JIGZyQQnipyIBusJZbH3wMU49LgeSqysnbTZsjl6LL8nVvo4ljzqul5P3TCa4y8AdC2iZ2C7wX8cp1ErmQxDseN2krJPSNN-JEB0RM90dJGnebH-nnh1mVxDocXqPWOtyKc1lnSr_NNfi8_3do658utpMeEz9SlemV7b7T3UTOfcIgKDnu4D1DQoHyd-Gti5q7IoBL3L-WPl9kljdusU"
+            const url = `http://localhost:3333/user/${id}`
+            const response = await fetch(url,{
+                method: "DELETE",
+                headers:{
+                    Authorization: `Bearer ${token}`,
+                    'Content-Type': 'application/json'
+                }
+
+            })
+            if(!response.ok){
+                throw new Error(`Response status: ${response.status}`)
+            }
+            const result = await response.json();
+            console.log(result)
+        }catch(error:any){
+            console.error(error.message)
+        }
+        //vai pra home e talvez necessite fazer mais coisas, como apagar o localstorage ou algo do tipo
+        //navigate('/home')
+    }
+
+    async function update(bodyData : userPreferences){
+        const id = 1
+        const token = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOnsiaWQiOjF9LCJpYXQiOjE3NzE1NDM5MDgsImV4cCI6MTc3MjE0ODcwOH0.aE12XbbPwr8LWR8dRT73qUXn1HMU6MLUMlJRyKTQ8dk9IDGNiSf1HKLeNU9oPhSwnFomRmV5_gL9uXdGdWb_lKjGK1Lm1RQKpfI1utgfdJ6yAQyAHoeRJ8S7UKVgzeav0HsfydrNAoHCNB4lJ61fntgtc-f-MeXT9VuFoNDiZhlVYz9N9itPcpHmA2st6WTXZqEWgAcYWUfBNqAplqnEfng0S9B0Hd9IzA6x-X0i1wi-wqE9R1giVrxDtqxgOFIPI1UwRjROuQzdTN60oUCQuG84aGw8BcbPwH5vOMcGivq_lL-Nr44HM9ROP2XUOimq8MS0K68LoM4GNiJL8Dl9e0yV2iV06LX3BxIL1ZSyzZ44DhCuEScMmFSYs86BBQJUt8_z3_MMELRylVRLd_aYNqmPyeacaPRtTwEcX47fHHPtT7Afa_cMJTFjzqDf0Bi2dr3tBemBIL3m41qo-ne-CV1JIGZyQQnipyIBusJZbH3wMU49LgeSqysnbTZsjl6LL8nVvo4ljzqul5P3TCa4y8AdC2iZ2C7wX8cp1ErmQxDseN2krJPSNN-JEB0RM90dJGnebH-nnh1mVxDocXqPWOtyKc1lnSr_NNfi8_3do658utpMeEz9SlemV7b7T3UTOfcIgKDnu4D1DQoHyd-Gti5q7IoBL3L-WPl9kljdusU"
+        const url = `http://localhost:3333/user/${id}`
+        try {
+            const response = await fetch(url,{
+                method: "PUT",
+                body: JSON.stringify(bodyData),
+                headers:{
+                    Authorization: `Bearer ${token}`,
+                    'Content-Type': 'application/json'
+                }
+
+            })
+            if(!response.ok){
+                throw new Error(`Response status: ${response.status}`)
+            }
+            const result = await response.json();
+            console.log(result);
+        } catch (error:any) {
+            console.error(error.message)
+        }
+    }
+
+    //att o estado da preferencia em questao. dentro do componente de switch button, espera-se uma prop com args string e bool,
+    //e, quando ocorre o evento de onClick, ela executa essa funcao passada pela prop passando como argumento o proprio nome do switch
+    //em questao e o inverso de seu valor atual. com isso, é possivel trocar o estado do botao de acordo com esses 2 argumentos passados
+    //dentro dele
+    function handleSwitchChange(name: string, newValue: boolean){
+        setPreferencesData((prevData) =>{
+            if(!prevData) return
+            console.log(prevData)
+            const updatedPreferences = {
+                ...prevData,
+                [name]:newValue
+            };
+            update(updatedPreferences)
+            return updatedPreferences;
+            
+        })
+    }
+   
+        
+    
     return(
         <>
         <div className="w-full flex flex-col gap-[8px] w-full">
@@ -19,12 +117,12 @@ export function ProfileContainer (  ){
                      texto3="Settings" src3="src/assets/icons/SettingsIcon.svg" alt3="Settings"/>
             <div className="flex flex-col gap-[24px]">
                 <ContentBox title="Notification Preferences" titleIconSrc="src/assets/icons/notificationIcon.svg">
-                        <SwitchButton label="Email Notifications" message="Receive notifications via email"/>
-                        <SwitchButton label="SMS Notifications" message="Receive notifications via text message"/>
-                        <SwitchButton label="Marketing Emails" message="Receive promotional emails and offers"/>
-                        <SwitchButton label="Order Updates" message="Get notified about order status changes"/>
-                        <SwitchButton label="New Arrivals" message="Be the first to know about new products"/>
-                        <SwitchButton label="Sales Alerts" message="Get notified about sales and discounts"/>
+                        <SwitchButton onChange={handleSwitchChange} name="emailNotification" checked ={preferencesData?.emailNotification} label="Email Notifications" message="Receive notifications via email"/>
+                        <SwitchButton onChange={handleSwitchChange} name="smsNotification" checked ={preferencesData?.smsNotification} label="SMS Notifications" message="Receive notifications via text message"/>
+                        <SwitchButton onChange={handleSwitchChange} name="marketingEmail"  label="Marketing Emails" checked={preferencesData?.marketingEmail} message="Receive promotional emails and offers"/>
+                        <SwitchButton onChange={handleSwitchChange} name="orderUpdate" label="Order Updates" checked={preferencesData?.orderUpdate} message="Get notified about order status changes"/>
+                        <SwitchButton onChange={handleSwitchChange} name="newArrival" label="New Arrivals" checked={preferencesData?.newArrival} message="Be the first to know about new products"/>
+                        <SwitchButton onChange={handleSwitchChange} name="saleAlert" label="Sales Alerts" checked={preferencesData?.saleAlert} message="Get notified about sales and discounts"/>
                 </ContentBox>
 
                 <ContentBox title="Account Security" titleIconSrc="src/assets/icons/securityIcon.svg">
@@ -43,7 +141,7 @@ export function ProfileContainer (  ){
                         <h2 className="text-[16px]/5 font-semibold text-[#DC2626]">Delete Account</h2>
                         <span className="text-[14px]/5 text-tertiary">Permanently delete your account and data</span>
                     </div>
-                    <Button texto="Delete Account" buttonClassName="!h-40px !w-[144px]" color="red" link=""/>
+                    <Button texto="Delete Account" onClick={deleteUser} buttonClassName="!h-40px !w-[144px]" color="red" link=""/>
                 </div>
 
                 </ContentBox>

@@ -2,6 +2,7 @@ import { useMemo, type ReactNode } from "react";
 import { Button } from "../Button";
 import { ContentBox } from "./ContentBox";
 import { Situation } from "./Situation";
+import type { orderVariantInfo } from "../../contexts/userContext";
 
 interface OrderProps {
     orderName?: string;
@@ -10,60 +11,19 @@ interface OrderProps {
     adress?: string;
     rastreio?: string;
     situations?: "DELIVERED" | "SHIPPED" | "PROCESSING";
-    variantes: Variant[];
-}
-
-interface Product{
-    name?: string;
-    rating?: number;
-    price?: number;
-    numReviews?: number;
-    isOutOfStock?: boolean;
-}
-
-interface Variant{
-    produtos?: Product;
-    id: number;
-    color?: string;
-    size?: string;
-    photo?:ReactNode
-}
-
-interface QuantityVarinats extends Variant {
-    quantidade : number
+    variantes: orderVariantInfo[];
 }
 
 export function Order({
-    orderName = "ORD-2024-001",
-    totalPrice = 186,
-    time = "14/01/2024",
-    adress = "123 Main St, New York, NY 10001",
-    rastreio = "TRK123456789",
+    orderName = "Unknown",
+    totalPrice = 0,
+    time = "Unknown",
+    adress = "Unknown",
+    rastreio = "Unknown",
     situations = "DELIVERED",
     variantes}:OrderProps
     ) {
-
-    const VariantList = useMemo(() => {
-        
-        const concatenados = variantes.reduce<Record<number, QuantityVarinats>>((acc, actualVariant) => {
-            
-            const chave = actualVariant.id;
-
-            if(!acc[chave]){
-                acc[chave] = { ...actualVariant, quantidade: 1};
-            } else {
-                acc[chave].quantidade += 1; 
-            }
-
-            return acc;
-        }, {});
-
-        return Object.values(concatenados)
-
-    }, [variantes]);
-
-
-
+    console.log(`VARIANTES : ${variantes}`)
     return(
         <>
         <ContentBox className="!gap-0 !pr-[15px]">
@@ -101,14 +61,15 @@ export function Order({
                     <div className="w-full h-[1px] bg-[#E5E7EB]"></div>
                 
                 <ul className="w-full flex flex-col gap-[12px]">
-                    {VariantList.map((variantes) => (
-                        <li key={variantes.id} className="flex justify-between items-center gap-[12px]" >
-                            <img src={` ${variantes.photo ?? "src/assets/Images/productImages.png" } `} alt="Product" />
+
+                    {variantes?.map((varOrder) => (
+                        <li className="flex justify-between items-center gap-[12px]" >
+                            <img src={`src/assets/Images/productImages.png`} alt="Product" />
 
                             <div className="flex flex-col items-start w-full">
-                                <h2 className="font-semibold text-[16px]/6"> {variantes.produtos?.name ?? "Premium Cotton T-shirt"}</h2>
-                                <span className="text-[14px]/5 text-tertiary">Size: {variantes.size ? variantes.size : "M"} • Color: {variantes.color ?? "Black"} • Qty: {variantes.quantidade ?? "2"}</span>
-                                <span className="text-[16px]/6 font-semibold">${variantes.produtos?.price ?? "29"}</span>
+                                <h2 className="font-semibold text-[16px]/6"> {varOrder.variant.product.name}</h2>
+                                <span className="text-[14px]/5 text-tertiary">Size: {varOrder.variant.size} • Color: {varOrder.variant.color} • Qty: {varOrder.quantity}</span>
+                                <span className="text-[16px]/6 font-semibold">${varOrder.variant.product.price}</span>
                             </div>
 
                             <div className="flex flex-col gap-[8px]">

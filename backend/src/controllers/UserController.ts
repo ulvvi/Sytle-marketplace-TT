@@ -3,6 +3,7 @@ import { prisma } from "../config/prisma";
 import { Prisma } from "../generated/prisma/client";
 import auth from "../config/auth";
 import z from "zod";
+import { Mailer } from "../mailer";
 
 export class UserController{
     //ato de cadastro
@@ -26,6 +27,11 @@ export class UserController{
             const createdUser = await prisma.user.create({
                 data: createData
             });
+
+            const subject = "Bem-vindo ao Style Marketplace!";
+            const messageText = `Olá ${firstName},\n\nObrigado por se cadastrar no Style Marketplace! Estamos felizes em tê-lo conosco. Explore nossos produtos e aproveite uma experiência de compra incrível!\n\nAtenciosamente,\nEquipe Style Marketplace`;
+            Mailer.sendEmail(email, subject, messageText);
+            
             res.status(201).json(createdUser);
         } catch (error:any) {
             res.status(500).json({message: error.message});
@@ -67,7 +73,7 @@ export class UserController{
                 include:{
                     wishlist:true,
                     cart:true,
-                    orders:true,
+                    orders:true
                 }
             })
             res.status(200).json(user);
@@ -109,7 +115,7 @@ export class UserController{
                 email: email,
                 gender: gender,
                 phoneNumber: phoneNumber, 
-                dateBirth: new Date(dateBirth),
+                dateBirth: dateBirth ? new Date(dateBirth) : null,
                 totalOrders: totalOrders,
                 totalRating: totalRating,
                 totalWishlist: totalWishlist,
