@@ -11,6 +11,7 @@ export interface Product {
     variant: Variant[],
     categories: Category[]
     collection: Collection | null
+    description: String
 }
 
 export interface Variant {

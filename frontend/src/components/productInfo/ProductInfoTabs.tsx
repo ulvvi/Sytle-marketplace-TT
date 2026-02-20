@@ -20,18 +20,7 @@ export function ProductInfoTabs() {
                     </button>
                 </nav>
                 <article className="flex flex-col gap-4.5 p-6 border border-(--border-primary) rounded-xl">
-                    <p className="text-[1.125rem]">Made from 100% premium organic cotton, this t-shirt offers exceptional comfort and style. The perfect
-                        addition to your wardrobe for both casual and semi-formal occasions.</p>
-                    <div>
-                        <h2 className="font-semibold mb-3">Key Features:</h2>
-                        <ul className="list-disc pl-5 flex flex-col gap-2.5">
-                            <li>100% Organic Cotton</li>
-                            <li>Pre-shrunk fabric</li>
-                            <li>Reinforced seams</li>
-                            <li>Machine washable</li>
-                            <li>Eco-friendly dyes</li>
-                        </ul>
-                    </div>
+                    <p>{product?.description}</p>
                 </article>
             </section>
         </>
