@@ -60,7 +60,7 @@ export function ProductCard({productBadge=[], imgSrc="/src/assets/placeholder.sv
         <>
             <article className={` border-0 rounded-xl shadow-lg hover:shadow-xl relative${isSales ? 'w-full max-w-[320px] h-auto' :
                    isProductInfo ? "w-85.75 h-117.75 lg:w-110 lg:h-142" : 
-                   'w-89.5 h-122.5 lg:w-79.5'}
+                   'w-89.5 h-122.5 lg:w-79.5 lg:h-112.5'}
                 group relative`}>
                     
                 <div className="z-20 absolute left-68 top-3 invisible group-hover:visible">
@@ -82,8 +82,8 @@ export function ProductCard({productBadge=[], imgSrc="/src/assets/placeholder.sv
                     ${isProductInfo ? "h-85.75 lg:h-110" : "h-89.5 lg:h-79.5"}`}>
                     <img className="w-full h-full hover:scale-105 object-cover" src={imgSrc} alt={imgAlt}></img>
                 </div>
-                <div className={`bg-secondary rounded-b-xl flex flex-col gap-2 p-4 
-                    ${isProductInfo ? "h-32 lg:" : "h-auto"}`}>
+                <div className={`bg-secondary rounded-b-xl flex flex-col gap-2 p-4
+                    ${isProductInfo ? "h-32" : isHome ? "h-33" : "h-auto"}`}>
                     
                     <div className={` ${!(isHome || isProductInfo) ? 'flex justify-between' : 'hidden'}`}>
                         <span className="font-semibold text-[0.75rem] py-0.5 border-(--border-primary) border rounded-full px-2.75">{product?.categories ? product?.categories[0]?.type : ""}</span>
@@ -115,7 +115,7 @@ export function ProductCard({productBadge=[], imgSrc="/src/assets/placeholder.sv
                         </div>
                         <div className={`${isProductInfo ? 'w-14' :
                             !isHome ? 'w-full flex gap-2' : 'w-25'}`}> 
-                            <Button texto={`${isProductInfo ? "View" : "Add to Cart"}`} color={buttonColor} link={isProductInfo ? `/Product/${product.id}` : ""} buttonClassName="h-[length:36px]"  iconSrc={!(isHome || isProductInfo) ? "src/assets/icons/cartIconWhite.svg" : undefined} iconPos="left"/>
+                            <Button texto={`${isProductInfo ? "View" : "Add to Cart"}`} color={buttonColor} link={`/Product/${product.id}`} buttonClassName="h-[length:36px]"  iconSrc={!(isHome || isProductInfo) ? "src/assets/icons/cartIconWhite.svg" : undefined} iconPos="left"/>
                             <SvgIconProduct onClick={likeProduct} path={`${isLiked ?'src/assets/icons/heartFilled.svg' : 'src/assets/icons/heartIcon.svg' }`} alt="Ícone para salvar na wishlist" border="true" className={`${(isHome || isProductInfo) ? 'hidden' : ''}`}/>
                         </div>
                     </div>
