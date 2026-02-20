@@ -6,8 +6,10 @@ import { SalesStats } from "../components/Sales/SalesStats";
 import { Filter } from "../components/Sales/Filter";
 import { ProductSection } from "../components/Sales/ProductSection";
 import { Footer } from "../components/home/Footer";
+import { useTitle } from "../hooks/useTitle";
 
 export function Sales(){
+    useTitle("Sales")
     return(
         <>
             <div className="flex flex-col w-full m-0">

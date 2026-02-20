@@ -8,12 +8,19 @@ import { RelatedProducts } from "../components/productInfo/RelatedProducts";
 import { useProduct, type Product } from "../hooks/useProduct";
 import { useParams } from "react-router-dom";
 import { UserContext } from "../contexts/UserProvider";
+import { useTitle } from "../hooks/useTitle";
 
 export const ProductInfoContext = createContext<Product | null>({} as Product)
 
 export function ProductInfo() {
     const { id } = useParams();
     const {product, loading} = useProduct(id);
+
+    const formatedProductName = product?.name 
+        ? product.name.toLowerCase().split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
+        : undefined;
+    
+    useTitle(formatedProductName);
 
     if(loading){
         return (
@@ -30,11 +37,11 @@ export function ProductInfo() {
                 </div>
             </>
         )}
-    const formatedProductName = product?.name.toLowerCase().split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
+
 
     const productPaths = [
         { label: "Sale", path: "/" },
-        { label: formatedProductName, path: `/product/${id}` }
+        { label: formatedProductName as string, path: `/product/${id}` }
     ]
         return (
             <>

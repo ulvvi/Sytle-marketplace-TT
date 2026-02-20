@@ -2,9 +2,10 @@
 import { PrincipalContainer } from "../components/settings/PrincipalContainer";
 import { userContext } from "../contexts/userContext";
 import { useUserData } from "../hooks/getUserData";
+import { useTitle } from "../hooks/useTitle";
 
 export function Settings () {
-
+    useTitle("Settings")
     const userData = useUserData();
     if(!userData) return;
     

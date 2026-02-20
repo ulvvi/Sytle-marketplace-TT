@@ -1,8 +1,10 @@
 import { userContext } from "../contexts/userContext";
 import { PrincipalContainer } from "../components/Orders/PrincipalContainer";
 import { useUserData } from "../hooks/getUserData";
+import { useTitle } from "../hooks/useTitle";
 
 export function Orders() {
+    useTitle("Orders")
     const userData = useUserData()
     if(!userData) return;
     return(
