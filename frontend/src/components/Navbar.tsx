@@ -37,24 +37,25 @@ export function Navbar() {
                         <IconButton iconSrc="/src/assets/icons/menuIcon.svg"></IconButton>
                     </li>
                     <li>
-                        <div className="flex gap-2 items-center justify-center">
+                        <Link to='/Home' className="flex gap-2 items-center justify-center">
+                            
                             <img src="src/assets/icons/styleLogo.svg" alt="Logo" />
                             <div className="flex">
                                 <span className="text-black font-bold text-[20px]">
                                     STYLE
                                 </span>
                             </div>
-                        </div>
+                        </Link>
                     </li>
                     <div className="hidden gap-8 font-semibold text-primary/80 text-[0.875rem] lg:flex">
                         <li className="cursor-pointer hover:text-primary" >
-                            <Link to="/" >New In</Link>
+                            <Link to="#" >New In</Link>
                         </li>
                         <li className="cursor-pointer hover:text-primary" >
-                            <Link to="/" >Women</Link>
+                            <Link to="#" >Women</Link>
                         </li>
                         <li className="cursor-pointer hover:text-primary" >
-                            <Link to="/" >Men</Link>
+                            <Link to="#" >Men</Link>
                         </li>
                         <li className="cursor-pointer hover:text-primary" >
                             <Link to="/Sales" >Sale</Link>

@@ -6,7 +6,6 @@ import { useUserData } from "../hooks/getUserData";
 
 
 
-
 export function Profile() {
 
     const userData = useUserData()
