@@ -77,7 +77,7 @@ export function Navbar() {
                             <IconButton link="/Profile" buttonType="profile" isLogged={isLogged} profileInitials={isLogged ? formatUserName(user!.firstName.toString(), user!.lastName.toString()) : ""} iconSrc="/src/assets/icons/userIcon.svg"></IconButton>
                         </li>
                         <li className="ml-2">
-                            <IconButton link="/Cart" buttonType="cart" cartItems={cart?.cartQuantity ?? 0} iconSrc="/src/assets/icons/cartIcon.svg"></IconButton>
+                            <IconButton link="/Cart" isLogged={isLogged} buttonType="cart" cartItems={cart?.cartQuantity ?? 0} iconSrc="/src/assets/icons/cartIcon.svg"></IconButton>
                         </li>
                     </div>
                 </ul>
