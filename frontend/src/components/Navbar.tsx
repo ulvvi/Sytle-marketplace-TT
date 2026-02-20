@@ -1,14 +1,11 @@
 import { Link, useNavigate } from "react-router"
 import { IconButton } from "./IconButton"
 import { InputText } from "./InputText"
-<<<<<<< Feature/Front/Thiago/SignUpIntegration
 import type { ReactNode } from "react"
 import { useAuth } from '../contexts/AuthContext'
-=======
-import { useContext, useEffect, useState, type ReactNode } from "react"
+import { useContext, useEffect, useState } from "react"
 import { UserContext } from "../contexts/UserProvider"
 import { CartContext } from "../contexts/CartProvider"
->>>>>>> main
 
 export function Navbar() {
 
@@ -80,12 +77,7 @@ export function Navbar() {
 
                     <div className="flex">
                         <li className="lg:hidden">
-<<<<<<< Feature/Front/Thiago/SignUpIntegration
                             <IconButton iconSrc="/src/assets/icons/searchIcon.svg" onClick={handleOut}></IconButton>
-=======
-                            <IconButton iconSrc="/src/assets/icons/searchIcon.svg"></IconButton>
-                           
->>>>>>> main
                         </li>
                         <li className="ml-2">
                             <IconButton iconSrc="/src/assets/icons/heartIcon.svg" onClick={()=>login(email, password)}></IconButton>
