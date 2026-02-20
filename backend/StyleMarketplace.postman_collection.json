@@ -1,0 +1,5064 @@
+{
+  "info": {
+    "_postman_id": "feb6a59c-b03a-4db3-af0f-145e3c2eaac0",
+    "name": "StyleMarketPlace",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "51794010",
+    "_collection_link": "https://go.postman.co/collection/51794010-feb6a59c-b03a-4db3-af0f-145e3c2eaac0?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "User",
+      "item": [
+        {
+          "name": "Create",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"firstName\": \"José\",\r\n    \"lastName\": \"Silva\",\r\n    \"email\": \"josesoares@gmail.com\",\r\n    \"marketingEmail\": true,\r\n    \"password\": \"teste\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:3333/signUp",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "signUp"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Create",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"firstName\": \"José\",\r\n    \"lastName\": \"Soares\",\r\n    \"email\": \"josesoares@gmail.com\",\r\n    \"marketingEmail\": true,\r\n    \"password\": \"teste\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "localhost:3333/signUp",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "signUp"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "558"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"22e-crrjrtUQqREkZ/qfO6P4L4fnI0M\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 20 Feb 2026 12:41:09 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": "{\n    \"id\": 2,\n    \"firstName\": \"José\",\n    \"lastName\": \"Silva\",\n    \"email\": \"josesoares@gmail.com\",\n    \"hash\": \"edc1c9ba6432859047f7d5f7e1c845e4fe906777baea706887e67071094c52a47bd3b5a89b5e76d4b6f845e0ba5948c6e77fa79cb5bc91b36bf78133fd5017e2\",\n    \"salt\": \"4ba30310967e06f6d74ec173384ae39bb4b867905be0e3d836e641413a2cd141\",\n    \"gender\": null,\n    \"phoneNumber\": null,\n    \"dateBirth\": null,\n    \"totalOrders\": 0,\n    \"totalRating\": 0,\n    \"totalWishlist\": 0,\n    \"memberSince\": \"2026-02-20T12:41:09.231Z\",\n    \"emailNotification\": true,\n    \"smsNotification\": false,\n    \"marketingEmail\": true,\n    \"orderUpdate\": true,\n    \"newArrival\": false,\n    \"saleAlert\": false\n}"
+            }
+          ]
+        },
+        {
+          "name": "Sign",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"josesoares@gmail.com\",\r\n    \"password\": \"teste\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:3333/signIn",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "signIn"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Sign",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"email\": \"josesoares@gmail.com\",\r\n    \"password\": \"teste\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "localhost:3333/signIn",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "signIn"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "811"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"32b-KlfijdBlMNIhQ8uRuM7KCAbPnLw\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 20 Feb 2026 12:47:33 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": "{\n    \"token\": \"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOnsiaWQiOjN9LCJpYXQiOjE3NzE1OTE2NTMsImV4cCI6MTc3MjE5NjQ1M30.bK6BKGFE2xBPtRqEm-19gZk4x7EMGmZmND1kq8doOeEdlaPWlkfakNK0ia08XoZjZ8YhBM7TNIwp1OeUGjMdmP_KBis4ae5SOVzBYL_DwHibmftTQF0TCf_4wHX-4TOs-zt2zg4LmjI36124vkPsJm58EERzyl3thidKhufG9H-35mW-FgvMHEtk6mevfZtNQUaqAYtMMbxHsApgdDNfflZfVrHDfcIPVk7fVLJoO6svpzJBwLxZaJRUzCbXdaUTA9sfZoOZjuMTUR64ryIFMkLt5PjbJfH7rEKB4rE1IZGNFUca-Jqi5u8xcja7WW6FIRRW9WYxTq3Kx5IZWz9-edv_gESZyVkDl1J4veb--PlYTQ_-OdeozBqpApzh2eOes9v81D0G0Y-94kCeYzlOuY-3pAytumpQ5opooDJZTieN44oXS75Il0eBC-sljCuc76gttjT3M2wyzvwmkbP4eKS4IZajPORS79-Mw-M2yXZYYOgANLVx_Op622ip33CIqZqfGV4LAEzPWC1WiKw0D4db9bdre5sOM_gzGFqxUNbQ1T95y7jiJa_1Pcm1fWMAie91OR-KjRZ3c5njU57oETa9ScBq69bbuTCVju2-PLbRSeaqa4TFhuAokvTnQN7vxdQ1FcmlhylK3POlqj1z56FerCyigX6bUUAANV52M-c\",\n    \"userId\": 3\n}"
+            }
+          ]
+        },
+        {
+          "name": "read",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOnsiaWQiOjN9LCJpYXQiOjE3NzE1OTE2NTMsImV4cCI6MTc3MjE5NjQ1M30.bK6BKGFE2xBPtRqEm-19gZk4x7EMGmZmND1kq8doOeEdlaPWlkfakNK0ia08XoZjZ8YhBM7TNIwp1OeUGjMdmP_KBis4ae5SOVzBYL_DwHibmftTQF0TCf_4wHX-4TOs-zt2zg4LmjI36124vkPsJm58EERzyl3thidKhufG9H-35mW-FgvMHEtk6mevfZtNQUaqAYtMMbxHsApgdDNfflZfVrHDfcIPVk7fVLJoO6svpzJBwLxZaJRUzCbXdaUTA9sfZoOZjuMTUR64ryIFMkLt5PjbJfH7rEKB4rE1IZGNFUca-Jqi5u8xcja7WW6FIRRW9WYxTq3Kx5IZWz9-edv_gESZyVkDl1J4veb--PlYTQ_-OdeozBqpApzh2eOes9v81D0G0Y-94kCeYzlOuY-3pAytumpQ5opooDJZTieN44oXS75Il0eBC-sljCuc76gttjT3M2wyzvwmkbP4eKS4IZajPORS79-Mw-M2yXZYYOgANLVx_Op622ip33CIqZqfGV4LAEzPWC1WiKw0D4db9bdre5sOM_gzGFqxUNbQ1T95y7jiJa_1Pcm1fWMAie91OR-KjRZ3c5njU57oETa9ScBq69bbuTCVju2-PLbRSeaqa4TFhuAokvTnQN7vxdQ1FcmlhylK3POlqj1z56FerCyigX6bUUAANV52M-c",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:3333/user/:id",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "user",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "3"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "read",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "localhost:3333/user/:id",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "user",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "id",
+                      "value": "3"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "718"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"2ce-1zOJ9A+oMxnhNPUz7IkqMMyve/M\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 20 Feb 2026 12:49:23 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": "{\n    \"id\": 3,\n    \"firstName\": \"José\",\n    \"lastName\": \"Silva\",\n    \"email\": \"josesoares@gmail.com\",\n    \"hash\": \"1aeb2d354f3c98ed8bf6f80b8aa7e5d2e5b541556876719c3ec11d0264f709488aad391874fc23217d5c7e1a8a6e34ef5470a6402dbeb0efda2601104dcfa060\",\n    \"salt\": \"61524bbbc2591d93ed1f5261d20c84ce82d0f652e2aa82c2378168651eb25852\",\n    \"gender\": null,\n    \"phoneNumber\": null,\n    \"dateBirth\": null,\n    \"totalOrders\": 0,\n    \"totalRating\": 0,\n    \"totalWishlist\": 0,\n    \"memberSince\": \"2026-02-20T12:45:16.664Z\",\n    \"emailNotification\": true,\n    \"smsNotification\": false,\n    \"marketingEmail\": true,\n    \"orderUpdate\": true,\n    \"newArrival\": false,\n    \"saleAlert\": false,\n    \"wishlist\": {\n        \"id\": 3,\n        \"quantity\": 0,\n        \"userId\": 3\n    },\n    \"cart\": {\n        \"id\": 3,\n        \"subtotal\": 0,\n        \"savings\": 0,\n        \"shipping\": 0,\n        \"tax\": 0,\n        \"promoCode\": null,\n        \"totalCost\": 0,\n        \"userId\": 3\n    },\n    \"orders\": []\n}"
+            }
+          ]
+        },
+        {
+          "name": "read all",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:3333/users",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "users"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "read all",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "localhost:3333/users",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "users"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "1464"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"5b8-NVItljWDq7WD3uKVsVjZCmeHCog\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 20 Feb 2026 12:51:00 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": "[\n    {\n        \"id\": 3,\n        \"firstName\": \"José\",\n        \"lastName\": \"Silva\",\n        \"email\": \"josesoares@gmail.com\",\n        \"hash\": \"1aeb2d354f3c98ed8bf6f80b8aa7e5d2e5b541556876719c3ec11d0264f709488aad391874fc23217d5c7e1a8a6e34ef5470a6402dbeb0efda2601104dcfa060\",\n        \"salt\": \"61524bbbc2591d93ed1f5261d20c84ce82d0f652e2aa82c2378168651eb25852\",\n        \"gender\": null,\n        \"phoneNumber\": null,\n        \"dateBirth\": null,\n        \"totalOrders\": 0,\n        \"totalRating\": 0,\n        \"totalWishlist\": 0,\n        \"memberSince\": \"2026-02-20T12:45:16.664Z\",\n        \"emailNotification\": true,\n        \"smsNotification\": false,\n        \"marketingEmail\": true,\n        \"orderUpdate\": true,\n        \"newArrival\": false,\n        \"saleAlert\": false,\n        \"wishlist\": {\n            \"id\": 3,\n            \"quantity\": 0,\n            \"userId\": 3,\n            \"product\": []\n        },\n        \"cart\": {\n            \"id\": 3,\n            \"subtotal\": 0,\n            \"savings\": 0,\n            \"shipping\": 0,\n            \"tax\": 0,\n            \"promoCode\": null,\n            \"totalCost\": 0,\n            \"userId\": 3\n        },\n        \"orders\": []\n    },\n    {\n        \"id\": 4,\n        \"firstName\": \"João\",\n        \"lastName\": \"Gomes\",\n        \"email\": \"joaogomes@gmail.com\",\n        \"hash\": \"b096b046d64acfca30baecb440fcfc9a4fc6395bec4a9cf442ceae24a4785d2c9061fe5d7b662f550a4fc2b09356d4e059840325bcaddf4ba1eef449906f2e63\",\n        \"salt\": \"1924a3170e651920c376b3b2e568be132c4688620d8ab8ce4b60d01fe4d026f0\",\n        \"gender\": null,\n        \"phoneNumber\": null,\n        \"dateBirth\": null,\n        \"totalOrders\": 0,\n        \"totalRating\": 0,\n        \"totalWishlist\": 0,\n        \"memberSince\": \"2026-02-20T12:50:22.069Z\",\n        \"emailNotification\": true,\n        \"smsNotification\": false,\n        \"marketingEmail\": true,\n        \"orderUpdate\": true,\n        \"newArrival\": false,\n        \"saleAlert\": false,\n        \"wishlist\": {\n            \"id\": 4,\n            \"quantity\": 0,\n            \"userId\": 4,\n            \"product\": []\n        },\n        \"cart\": {\n            \"id\": 4,\n            \"subtotal\": 0,\n            \"savings\": 0,\n            \"shipping\": 0,\n            \"tax\": 0,\n            \"promoCode\": null,\n            \"totalCost\": 0,\n            \"userId\": 4\n        },\n        \"orders\": []\n    }\n]"
+            }
+          ]
+        },
+        {
+          "name": "update",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOnsiaWQiOjN9LCJpYXQiOjE3NzE1OTE2NTMsImV4cCI6MTc3MjE5NjQ1M30.bK6BKGFE2xBPtRqEm-19gZk4x7EMGmZmND1kq8doOeEdlaPWlkfakNK0ia08XoZjZ8YhBM7TNIwp1OeUGjMdmP_KBis4ae5SOVzBYL_DwHibmftTQF0TCf_4wHX-4TOs-zt2zg4LmjI36124vkPsJm58EERzyl3thidKhufG9H-35mW-FgvMHEtk6mevfZtNQUaqAYtMMbxHsApgdDNfflZfVrHDfcIPVk7fVLJoO6svpzJBwLxZaJRUzCbXdaUTA9sfZoOZjuMTUR64ryIFMkLt5PjbJfH7rEKB4rE1IZGNFUca-Jqi5u8xcja7WW6FIRRW9WYxTq3Kx5IZWz9-edv_gESZyVkDl1J4veb--PlYTQ_-OdeozBqpApzh2eOes9v81D0G0Y-94kCeYzlOuY-3pAytumpQ5opooDJZTieN44oXS75Il0eBC-sljCuc76gttjT3M2wyzvwmkbP4eKS4IZajPORS79-Mw-M2yXZYYOgANLVx_Op622ip33CIqZqfGV4LAEzPWC1WiKw0D4db9bdre5sOM_gzGFqxUNbQ1T95y7jiJa_1Pcm1fWMAie91OR-KjRZ3c5njU57oETa9ScBq69bbuTCVju2-PLbRSeaqa4TFhuAokvTnQN7vxdQ1FcmlhylK3POlqj1z56FerCyigX6bUUAANV52M-c",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\r\n    \"phoneNumber\": \"21992380016\",\r\n    \"saleAlert\": false,\r\n    \"newArrival\": true,\r\n    \"lastName\": \"Silva\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:3333/user/:id",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "user",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "3"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "update",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n\r\n    \"phoneNumber\": \"21992380016\",\r\n    \"saleAlert\": false,\r\n    \"newArrival\": true,\r\n    \"lastName\": \"Silva\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "localhost:3333/user/:id",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "user",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "id",
+                      "value": "3"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "566"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"236-lOEQBfV3pK9gmt0chprOP6DOKdM\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 20 Feb 2026 12:51:54 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": "{\n    \"id\": 3,\n    \"firstName\": \"José\",\n    \"lastName\": \"Silva\",\n    \"email\": \"josesoares@gmail.com\",\n    \"hash\": \"1aeb2d354f3c98ed8bf6f80b8aa7e5d2e5b541556876719c3ec11d0264f709488aad391874fc23217d5c7e1a8a6e34ef5470a6402dbeb0efda2601104dcfa060\",\n    \"salt\": \"61524bbbc2591d93ed1f5261d20c84ce82d0f652e2aa82c2378168651eb25852\",\n    \"gender\": null,\n    \"phoneNumber\": \"21992380016\",\n    \"dateBirth\": null,\n    \"totalOrders\": 0,\n    \"totalRating\": 0,\n    \"totalWishlist\": 0,\n    \"memberSince\": \"2026-02-20T12:45:16.664Z\",\n    \"emailNotification\": true,\n    \"smsNotification\": false,\n    \"marketingEmail\": true,\n    \"orderUpdate\": true,\n    \"newArrival\": true,\n    \"saleAlert\": false\n}"
+            }
+          ]
+        },
+        {
+          "name": "delete",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOnsiaWQiOjR9LCJpYXQiOjE3NzE1OTE5NTcsImV4cCI6MTc3MjE5Njc1N30.X_210KjShau8VHDO5YjKUxtzm5_UDCOHGZvLe8m0LFldA7xIFxwffSDTxEt1LAIIQ76IG_8I8guhvTEE1n5dlCHRfPCO0uwzzPerovmSkrw-W_-5GfmXqsHrblVXh4RN_nfkggn-JzNSWISSpg3O5gCVYpb6CdKSRb8Fs3V5a6bLrxLYIKxOjw24rLvC6OFmsMjmNvkGpsz5BipYoivNBhOw0KXxx7MUiazHTy9yrwcqol5Uv-v9cy_bUkkZrdnaUARUcyAdu11qTq02FcEFABF4DNnvrTYUNGjmE23zXtOL5JEYD7304r8RX65pxQDbYXI3d6Aa44zu0J4m96vYWB9gygnoWuMkIro5R13y0K-MRsBueE6zWGu4A50yX1JqvwwsHBhLouHmVVKwhxOD827UCgspnn-xat_zPYI7naZQjVWLsqq0os8m2Ee9btAxkbpCiNv5Hl761soVQWvngugDAsVZHFyu4nmCYAY2FLcxrp2MmyPyOzpnH71-JFRJKBLfRyuNWK9HyNJSUHLeHKnxXZuAJ7laHww27ar4UmqUvHL0K2xz3_ujAipcXMu4Oh1Sa9MAamGRNnww3XzDcrKM4XmTxRzzdXjT8LHNMUEes4w59ey26GWWpTIThwdaMnN49etukhGlX-51BgaQt2zhQkqrJkR1iVm5PVqjj4E",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "localhost:3333/user/:id",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "user",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "4"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "delete",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "localhost:3333/user/:id",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "user",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "id",
+                      "value": "4"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "557"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"22d-m1BUExPsDh5EYY5vF7qbHZpr/GU\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 20 Feb 2026 12:52:50 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": "{\n    \"id\": 4,\n    \"firstName\": \"João\",\n    \"lastName\": \"Gomes\",\n    \"email\": \"joaogomes@gmail.com\",\n    \"hash\": \"b096b046d64acfca30baecb440fcfc9a4fc6395bec4a9cf442ceae24a4785d2c9061fe5d7b662f550a4fc2b09356d4e059840325bcaddf4ba1eef449906f2e63\",\n    \"salt\": \"1924a3170e651920c376b3b2e568be132c4688620d8ab8ce4b60d01fe4d026f0\",\n    \"gender\": null,\n    \"phoneNumber\": null,\n    \"dateBirth\": null,\n    \"totalOrders\": 0,\n    \"totalRating\": 0,\n    \"totalWishlist\": 0,\n    \"memberSince\": \"2026-02-20T12:50:22.069Z\",\n    \"emailNotification\": true,\n    \"smsNotification\": false,\n    \"marketingEmail\": true,\n    \"orderUpdate\": true,\n    \"newArrival\": false,\n    \"saleAlert\": false\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Product",
+      "item": [
+        {
+          "name": "create",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Camisa\",\r\n    \"rating\": 3.4,\r\n    \"price\": 60,\r\n    \"numOfReviews\": 100,\r\n    \"isOutOfStock\": false,\r\n    \"color\": \"blue\",\r\n    \"size\": \"G\", \r\n    \"stock\": 20,\r\n    \"description\": \"Camisa básica para uso diário\"\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3333/product",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "product"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "create",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"name\": \"Camisa\",\r\n    \"rating\": 3.4,\r\n    \"price\": 60,\r\n    \"numOfReviews\": 100,\r\n    \"isOutOfStock\": false,\r\n    \"color\": \"blue\",\r\n    \"size\": \"G\", \r\n    \"stock\": 20,\r\n    \"description\": \"Camisa básica para uso diário\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:3333/product",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "product"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "189"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"bd-P4VEYNAZp3xXrSgySF6Fq27y0Q8\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 20 Feb 2026 13:03:12 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": "{\n    \"name\": \"Camisa\",\n    \"rating\": 3.4,\n    \"price\": 60,\n    \"numOfReviews\": 100,\n    \"isOutOfStock\": false,\n    \"description\": \"Camisa básica para uso diário\",\n    \"variant\": {\n        \"create\": {\n            \"color\": \"blue\",\n            \"size\": \"G\",\n            \"stock\": 20\n        }\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "read all",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3333/products",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "products"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "read all",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "http://localhost:3333/products",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "products"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "853"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"355-j0f/P+Sj0dz4X7Kyu5bFYm8GHQo\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 20 Feb 2026 14:21:21 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": "[\n    {\n        \"id\": 1,\n        \"name\": \"Vestido\",\n        \"rating\": 2.4,\n        \"price\": 120,\n        \"SalePrice\": null,\n        \"numOfReviews\": 2,\n        \"isOutOfStock\": false,\n        \"photoUrl\": null,\n        \"saleId\": null,\n        \"collectionId\": 1,\n        \"description\": \"Vestido básico para uso diário\",\n        \"collection\": {\n            \"id\": 1,\n            \"type\": \"Limited time\"\n        },\n        \"categories\": [\n            {\n                \"category\": {\n                    \"id\": 1,\n                    \"type\": \"DRESSES\"\n                }\n            }\n        ]\n    },\n    {\n        \"id\": 3,\n        \"name\": \"Camisa\",\n        \"rating\": 4.5,\n        \"price\": 35,\n        \"SalePrice\": null,\n        \"numOfReviews\": 400,\n        \"isOutOfStock\": false,\n        \"photoUrl\": null,\n        \"saleId\": null,\n        \"collectionId\": 2,\n        \"description\": \"Camisa básica para uso diário\",\n        \"collection\": {\n            \"id\": 2,\n            \"type\": \"Best Seller\"\n        },\n        \"categories\": []\n    },\n    {\n        \"id\": 2,\n        \"name\": \"Calça\",\n        \"rating\": 5,\n        \"price\": 54,\n        \"SalePrice\": null,\n        \"numOfReviews\": 30,\n        \"isOutOfStock\": false,\n        \"photoUrl\": null,\n        \"saleId\": null,\n        \"collectionId\": 2,\n        \"description\": \"Calça básica para uso diário\",\n        \"collection\": {\n            \"id\": 2,\n            \"type\": \"Best Seller\"\n        },\n        \"categories\": [\n            {\n                \"category\": {\n                    \"id\": 2,\n                    \"type\": \"TOPS\"\n                }\n            }\n        ]\n    }\n]"
+            }
+          ]
+        },
+        {
+          "name": "read",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3333/product/:id",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "product",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "read",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"name\": \"ryan dias\",\r\n    \"rating\": 5,\r\n    \"price\": 22,\r\n    \"numOfReviews\": 10,\r\n    \"isOutOfStock\": false,\r\n    \"color\": \"red\",\r\n    \"size\": \"M\", \r\n    \"stock\": 10\r\n}"
+                },
+                "url": {
+                  "raw": "http://localhost:3333/product/:id",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "product",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "id",
+                      "value": "1"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "368"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"170-kDC42FFpmNqgf7PgK+8ULdKV7Mw\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 20 Feb 2026 14:21:55 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": "{\n    \"id\": 1,\n    \"name\": \"Vestido\",\n    \"rating\": 2.4,\n    \"price\": 120,\n    \"SalePrice\": null,\n    \"numOfReviews\": 2,\n    \"isOutOfStock\": false,\n    \"photoUrl\": null,\n    \"saleId\": null,\n    \"collectionId\": 1,\n    \"description\": \"Vestido básico para uso diário\",\n    \"variant\": [\n        {\n            \"id\": 1,\n            \"color\": \"red\",\n            \"size\": \"M\",\n            \"stock\": 3,\n            \"productId\": 1\n        }\n    ],\n    \"review\": [],\n    \"collection\": {\n        \"id\": 1,\n        \"type\": \"Limited time\"\n    },\n    \"categories\": [\n        {\n            \"id\": 1,\n            \"type\": \"DRESSES\"\n        }\n    ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "update",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"rating\": 2,\r\n    \"price\": 25,\r\n    \"numOfReviews\": 15,\r\n    \"isOutOfStock\": false\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3333/product/:id",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "product",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "update",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"rating\": 2,\r\n    \"price\": 25,\r\n    \"numOfReviews\": 15,\r\n    \"isOutOfStock\": false\r\n}"
+                },
+                "url": {
+                  "raw": "http://localhost:3333/product/:id",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "product",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "id",
+                      "value": "1"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "199"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"c7-jguNjAuYYeNeGHmIcIzEU7icv7U\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 20 Feb 2026 14:22:32 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"id\": 1,\n    \"name\": \"Vestido\",\n    \"rating\": 2,\n    \"price\": 25,\n    \"SalePrice\": null,\n    \"numOfReviews\": 15,\n    \"isOutOfStock\": false,\n    \"photoUrl\": null,\n    \"saleId\": null,\n    \"collectionId\": 1,\n    \"description\": \"Vestido básico para uso diário\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "delete",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3333/product/:id",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "product",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "2"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "delete",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "http://localhost:3333/product/:id",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "product",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "id",
+                      "value": "2"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "197"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"c5-+wJT9GMcvhA9bTIWQu7uEifgw0I\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 20 Feb 2026 14:22:50 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"id\": 2,\n    \"name\": \"Calça\",\n    \"rating\": 5,\n    \"price\": 54,\n    \"SalePrice\": null,\n    \"numOfReviews\": 30,\n    \"isOutOfStock\": false,\n    \"photoUrl\": null,\n    \"saleId\": null,\n    \"collectionId\": 2,\n    \"description\": \"Calça básica para uso diário\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "uploadphoto",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "photoUrl",
+                  "type": "file",
+                  "uuid": "d94e98e8-6044-48b7-9d44-781995ed56cc",
+                  "src": "/C:/Users/taylo/Downloads/camiseta-branca-sem-mangas-camiseta-vista-frontal-em-um-fundo-branco_508835-6731.png"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:3333/product/:id/uploadphoto",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "product",
+                ":id",
+                "uploadphoto"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "uploadphoto",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "photoUrl",
+                      "type": "file",
+                      "uuid": "d94e98e8-6044-48b7-9d44-781995ed56cc",
+                      "src": "/C:/Users/taylo/Downloads/camiseta-branca-sem-mangas-camiseta-vista-frontal-em-um-fundo-branco_508835-6731.png"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "http://localhost:3333/product/:id/uploadphoto",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "product",
+                    ":id",
+                    "uploadphoto"
+                  ],
+                  "variable": [
+                    {
+                      "key": "id",
+                      "value": "1"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "311"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"137-2k8/9BROozD9I94KQ1LZb6uWFWs\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 20 Feb 2026 14:24:44 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"id\": 1,\n    \"name\": \"Vestido\",\n    \"rating\": 2,\n    \"price\": 25,\n    \"SalePrice\": null,\n    \"numOfReviews\": 15,\n    \"isOutOfStock\": false,\n    \"photoUrl\": \"/uploads/photos/1771597484001_camiseta-branca-sem-mangas-camiseta-vista-frontal-em-um-fundo-branco_508835-6731.png\",\n    \"saleId\": null,\n    \"collectionId\": 1,\n    \"description\": \"Vestido básico para uso diário\"\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Variant",
+      "item": [
+        {
+          "name": "create",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"color\": \"Brown\",\r\n    \"size\": \"G\", \r\n    \"stock\": 20\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3333/variant/:productId",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "variant",
+                ":productId"
+              ],
+              "variable": [
+                {
+                  "key": "productId",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "create",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"color\": \"Brown\",\r\n    \"size\": \"G\", \r\n    \"stock\": 20\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:3333/variant/:productId",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "variant",
+                    ":productId"
+                  ],
+                  "variable": [
+                    {
+                      "key": "productId",
+                      "value": "1"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "274"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"112-aBrlvze6q34WFxn8Og2v/BWfcqM\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 20 Feb 2026 13:05:06 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": "{\n    \"id\": 3,\n    \"color\": \"Brown\",\n    \"size\": \"G\",\n    \"stock\": 20,\n    \"productId\": 1,\n    \"product\": {\n        \"id\": 1,\n        \"name\": \"Camisa\",\n        \"rating\": 3.4,\n        \"price\": 60,\n        \"SalePrice\": null,\n        \"numOfReviews\": 100,\n        \"isOutOfStock\": false,\n        \"photoUrl\": null,\n        \"saleId\": null,\n        \"collectionId\": null,\n        \"description\": \"Camisa básica para uso diário\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "read all",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3333/variants/:productId",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "variants",
+                ":productId"
+              ],
+              "variable": [
+                {
+                  "key": "productId",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "read all",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "http://localhost:3333/variants/:productId",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "variants",
+                    ":productId"
+                  ],
+                  "variable": [
+                    {
+                      "key": "productId",
+                      "value": "1"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "338"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"152-qz7mKzogHWW1pzsgP2otk0EcuWA\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 20 Feb 2026 13:05:27 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": "[\n    {\n        \"id\": 1,\n        \"name\": \"Camisa\",\n        \"rating\": 3.4,\n        \"price\": 60,\n        \"SalePrice\": null,\n        \"numOfReviews\": 100,\n        \"isOutOfStock\": false,\n        \"photoUrl\": null,\n        \"saleId\": null,\n        \"collectionId\": null,\n        \"description\": \"Camisa básica para uso diário\",\n        \"variant\": [\n            {\n                \"id\": 1,\n                \"color\": \"blue\",\n                \"size\": \"G\",\n                \"stock\": 20,\n                \"productId\": 1\n            },\n            {\n                \"id\": 3,\n                \"color\": \"Brown\",\n                \"size\": \"G\",\n                \"stock\": 20,\n                \"productId\": 1\n            }\n        ]\n    }\n]"
+            }
+          ]
+        },
+        {
+          "name": "read",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3333/variant/:id",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "variant",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "read",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "http://localhost:3333/variant/:id",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "variant",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "id",
+                      "value": "1"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "273"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"111-Xkudamuy2mnBhZRXes9gOXKeB5U\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 20 Feb 2026 13:05:44 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": "{\n    \"id\": 1,\n    \"color\": \"blue\",\n    \"size\": \"G\",\n    \"stock\": 20,\n    \"productId\": 1,\n    \"product\": {\n        \"id\": 1,\n        \"name\": \"Camisa\",\n        \"rating\": 3.4,\n        \"price\": 60,\n        \"SalePrice\": null,\n        \"numOfReviews\": 100,\n        \"isOutOfStock\": false,\n        \"photoUrl\": null,\n        \"saleId\": null,\n        \"collectionId\": null,\n        \"description\": \"Camisa básica para uso diário\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "update",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"color\": \"yellow\",\r\n    \"size\": \"P\", \r\n    \"stock\": 30\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3333/variant/:id",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "variant",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "update",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"color\": \"yellow\",\r\n    \"size\": \"P\", \r\n    \"stock\": 30\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:3333/variant/:id",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "variant",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "id",
+                      "value": "1"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "61"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"3d-VGvu6swLHfQoJzRZ45U2yY/Zwbw\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 20 Feb 2026 13:07:03 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": "{\n    \"id\": 1,\n    \"color\": \"yellow\",\n    \"size\": \"P\",\n    \"stock\": 30,\n    \"productId\": 1\n}"
+            }
+          ]
+        },
+        {
+          "name": "delete",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3333/variant/:id",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "variant",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "delete",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "http://localhost:3333/variant/:id",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "variant",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "id",
+                      "value": "1"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "61"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"3d-VGvu6swLHfQoJzRZ45U2yY/Zwbw\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 20 Feb 2026 13:07:23 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": "{\n    \"id\": 1,\n    \"color\": \"yellow\",\n    \"size\": \"P\",\n    \"stock\": 30,\n    \"productId\": 1\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Review",
+      "item": [
+        {
+          "name": "create",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"rating\": 2\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3333/review/:productId",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "review",
+                ":productId"
+              ],
+              "variable": [
+                {
+                  "key": "productId",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "create",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"rating\": 2\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:3333/review/:productId",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "review",
+                    ":productId"
+                  ],
+                  "variable": [
+                    {
+                      "key": "productId",
+                      "value": "1"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "33"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"21-wBh6ZM6r6mbuY3jJOY+dWtfefRE\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 20 Feb 2026 13:13:59 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": "{\n    \"id\": 1,\n    \"rating\": 2,\n    \"productId\": 1\n}"
+            }
+          ]
+        },
+        {
+          "name": "read all",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3333/reviews/:productId",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "reviews",
+                ":productId"
+              ],
+              "variable": [
+                {
+                  "key": "productId",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "read all",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "http://localhost:3333/reviews/:productId",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "reviews",
+                    ":productId"
+                  ],
+                  "variable": [
+                    {
+                      "key": "productId",
+                      "value": "1"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "318"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"13e-oLu/QHAau1J7g7ybovdCN34Xr/M\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 20 Feb 2026 13:14:29 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": "[\n    {\n        \"id\": 1,\n        \"name\": \"Camisa\",\n        \"rating\": 3.4,\n        \"price\": 60,\n        \"SalePrice\": null,\n        \"numOfReviews\": 100,\n        \"isOutOfStock\": false,\n        \"photoUrl\": null,\n        \"saleId\": null,\n        \"collectionId\": null,\n        \"description\": \"Camisa básica para uso diário\",\n        \"review\": [\n            {\n                \"id\": 1,\n                \"rating\": 2,\n                \"productId\": 1\n            },\n            {\n                \"id\": 2,\n                \"rating\": 3,\n                \"productId\": 1\n            },\n            {\n                \"id\": 3,\n                \"rating\": 1,\n                \"productId\": 1\n            }\n        ]\n    }\n]"
+            }
+          ]
+        },
+        {
+          "name": "read",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3333/review/:id",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "review",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "read",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "http://localhost:3333/review/:id",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "review",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "id",
+                      "value": "1"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "247"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"f7-WyD4Zxb9vse+dKSgU1gSyBeE03w\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 20 Feb 2026 13:14:45 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": "{\n    \"id\": 1,\n    \"rating\": 2,\n    \"productId\": 1,\n    \"product\": {\n        \"id\": 1,\n        \"name\": \"Camisa\",\n        \"rating\": 3.4,\n        \"price\": 60,\n        \"SalePrice\": null,\n        \"numOfReviews\": 100,\n        \"isOutOfStock\": false,\n        \"photoUrl\": null,\n        \"saleId\": null,\n        \"collectionId\": null,\n        \"description\": \"Camisa básica para uso diário\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "update",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"rating\": 5\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3333/review/:id",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "review",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "update",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"rating\": 5\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:3333/review/:id",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "review",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "id",
+                      "value": "1"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "33"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"21-A2+dFrWrC4fCf+7PcrJd45QZ/VQ\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 20 Feb 2026 13:15:27 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": "{\n    \"id\": 1,\n    \"rating\": 5,\n    \"productId\": 1\n}"
+            }
+          ]
+        },
+        {
+          "name": "delete",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3333/review/:id",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "review",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "delete",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "http://localhost:3333/review/:id",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "review",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "id",
+                      "value": "1"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "33"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"21-A2+dFrWrC4fCf+7PcrJd45QZ/VQ\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 20 Feb 2026 13:15:51 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": "{\n    \"id\": 1,\n    \"rating\": 5,\n    \"productId\": 1\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Collection",
+      "item": [
+        {
+          "name": "create",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"type\": \"Limited time\"\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3333/collection",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "collection"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "create",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"type\": \"Limited time\"\r\n}"
+                },
+                "url": {
+                  "raw": "http://localhost:3333/collection",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "collection"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "30"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"1e-zefjocUJNGS2+laVqOxlj+PgTZE\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 20 Feb 2026 14:13:19 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"id\": 1,\n    \"type\": \"Limited time\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "read all",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3333/collections",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "collections"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "read all",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "http://localhost:3333/collections",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "collections"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "92"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"5c-//RoUtVtxF6nTAHL6Tm83qjIsBo\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 20 Feb 2026 14:15:00 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "[\n    {\n        \"id\": 1,\n        \"type\": \"Limited time\"\n    },\n    {\n        \"id\": 2,\n        \"type\": \"Best Seller\"\n    },\n    {\n        \"id\": 3,\n        \"type\": \"Luxury Sale\"\n    }\n]"
+            }
+          ]
+        },
+        {
+          "name": "read",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3333/collection/:id",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "collection",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "read",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "http://localhost:3333/collection/:id",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "collection",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "id",
+                      "value": "1"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "245"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"f5-8ZnfLxflC5Lecu/irFZs70o0zNI\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 20 Feb 2026 14:18:43 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"id\": 1,\n    \"type\": \"Limited time\",\n    \"products\": [\n        {\n            \"id\": 1,\n            \"name\": \"Vestido\",\n            \"rating\": 2.4,\n            \"price\": 120,\n            \"SalePrice\": null,\n            \"numOfReviews\": 2,\n            \"isOutOfStock\": false,\n            \"photoUrl\": null,\n            \"saleId\": null,\n            \"collectionId\": 1,\n            \"description\": \"Vestido básico para uso diário\"\n        }\n    ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "add Product to Collection",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3333/collection/:collectionId/product/:productId",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "collection",
+                ":collectionId",
+                "product",
+                ":productId"
+              ],
+              "variable": [
+                {
+                  "key": "collectionId",
+                  "value": "1"
+                },
+                {
+                  "key": "productId",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "add Product to Collection",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:3333/collection/:collectionId/product/:productId",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "collection",
+                    ":collectionId",
+                    "product",
+                    ":productId"
+                  ],
+                  "variable": [
+                    {
+                      "key": "collectionId",
+                      "value": "1"
+                    },
+                    {
+                      "key": "productId",
+                      "value": "1"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "201"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"c9-sVc5JaKQ8cQy3G+wZ4G0CeAfs9I\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 20 Feb 2026 14:17:27 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"id\": 1,\n    \"name\": \"Vestido\",\n    \"rating\": 2.4,\n    \"price\": 120,\n    \"SalePrice\": null,\n    \"numOfReviews\": 2,\n    \"isOutOfStock\": false,\n    \"photoUrl\": null,\n    \"saleId\": null,\n    \"collectionId\": 1,\n    \"description\": \"Vestido básico para uso diário\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "delete Product from Collection",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3333/collection/:productId/del",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "collection",
+                ":productId",
+                "del"
+              ],
+              "variable": [
+                {
+                  "key": "productId",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "delete Product from Category",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:3333/collection/:productId/del",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "collection",
+                    ":productId",
+                    "del"
+                  ],
+                  "variable": [
+                    {
+                      "key": "productId",
+                      "value": "1"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "204"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"cc-wmCS6ANZW7gBByJCpuEvG3W9QDc\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 20 Feb 2026 14:19:34 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"id\": 1,\n    \"name\": \"Vestido\",\n    \"rating\": 2.4,\n    \"price\": 120,\n    \"SalePrice\": null,\n    \"numOfReviews\": 2,\n    \"isOutOfStock\": false,\n    \"photoUrl\": null,\n    \"saleId\": null,\n    \"collectionId\": null,\n    \"description\": \"Vestido básico para uso diário\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "update",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"type\": \"Sales\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3333/collection/:id",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "collection",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "3"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "update",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"type\": \"Sales\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:3333/collection/:id",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "collection",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "id",
+                      "value": "3"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "23"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"17-J+yKRHV9e7YvZDRmOrgJm2jEvHM\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 20 Feb 2026 14:20:23 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"id\": 3,\n    \"type\": \"Sales\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "delete",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "http://localhost:3333/collection/:id",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "collection",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "3"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "delete",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": {
+                  "raw": "http://localhost:3333/collection/:id",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "collection",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "id",
+                      "value": "3"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "23"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"17-J+yKRHV9e7YvZDRmOrgJm2jEvHM\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 20 Feb 2026 14:20:43 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"id\": 3,\n    \"type\": \"Sales\"\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Category",
+      "item": [
+        {
+          "name": "create",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"type\": \"DRESSES\"\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:3333/category",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "category"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "create",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"type\": \"DRESSES\"\r\n}"
+                },
+                "url": {
+                  "raw": "http://localhost:3333/category",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "category"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "25"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"19-9FVHwR0d8mbRNbEfYt63UJTzRyc\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 20 Feb 2026 13:49:32 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"id\": 1,\n    \"type\": \"DRESSES\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "add Product to Category",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3333/category/:categoryId/product/:productId",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "category",
+                ":categoryId",
+                "product",
+                ":productId"
+              ],
+              "variable": [
+                {
+                  "key": "categoryId",
+                  "value": "1"
+                },
+                {
+                  "key": "productId",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "add Product to Category",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:3333/category/:categoryId/product/:productId",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "category",
+                    ":categoryId",
+                    "product",
+                    ":productId"
+                  ],
+                  "variable": [
+                    {
+                      "key": "categoryId",
+                      "value": "1"
+                    },
+                    {
+                      "key": "productId",
+                      "value": "1"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "30"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"1e-ckE++kiln451bMFkOxMV9f85y3w\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 20 Feb 2026 13:52:08 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"productId\": 1,\n    \"categoryId\": 1\n}"
+            }
+          ]
+        },
+        {
+          "name": "read all",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3333/categories",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "categories"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "read all",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "http://localhost:3333/categories",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "categories"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "76"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"4c-yR07Zrqd3uQCq2ABcOl/ErZReUc\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 20 Feb 2026 13:53:03 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "[\n    {\n        \"id\": 1,\n        \"type\": \"DRESSES\"\n    },\n    {\n        \"id\": 2,\n        \"type\": \"TOPS\"\n    },\n    {\n        \"id\": 3,\n        \"type\": \"BOTTOMS\"\n    }\n]"
+            }
+          ]
+        },
+        {
+          "name": "read",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3333/category/:id",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "category",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "read",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "http://localhost:3333/category/:id",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "category",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "id",
+                      "value": "1"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "255"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"ff-8PGx0pKsclO083z1wOBtlItwp6I\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 20 Feb 2026 13:55:09 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"id\": 1,\n    \"type\": \"DRESSES\",\n    \"products\": [\n        {\n            \"product\": {\n                \"id\": 1,\n                \"name\": \"Vestido\",\n                \"rating\": 2.4,\n                \"price\": 120,\n                \"SalePrice\": null,\n                \"numOfReviews\": 2,\n                \"isOutOfStock\": false,\n                \"photoUrl\": null,\n                \"saleId\": null,\n                \"collectionId\": null,\n                \"description\": \"Vestido básico para uso diário\"\n            }\n        }\n    ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "update",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"type\": \"SHOES\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3333/category/:id",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "category",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "update",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"type\": \"SHOES\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:3333/category/:id",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "category",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "id",
+                      "value": "1"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "23"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"17-Tkscj0yjmoUxe/dzpkAjhqeP67Y\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 20 Feb 2026 13:57:44 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"id\": 1,\n    \"type\": \"SHOES\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "delete",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "http://localhost:3333/category/:id",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "category",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "3"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "delete",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": ""
+                },
+                "url": {
+                  "raw": "http://localhost:3333/category/:id",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "category",
+                    ":id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "id",
+                      "value": "3"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "25"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"19-8zE299P8+kVQqgM9NR9c3Xrnsus\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 20 Feb 2026 14:01:29 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"id\": 3,\n    \"type\": \"BOTTOMS\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "delete Product from Category",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOnsiaWQiOjF9LCJpYXQiOjE3NzE1OTc1NzAsImV4cCI6MTc3MjIwMjM3MH0.WQAUvO847tz7pjpgNI8-KG_GbVUcODuSriYaIjfYX6QJaOHlSIWzIBbJeo312n6bNnsuOxRiALWFfZg7DvobOua4bILZvZn61qjHfrR_X7syhLDQpOaanrSsGqYLX_fTPHhrVijQQgxgQDtkPErmPUeptUWNesU3T-GOOnvhYmTOaF6EQ9Q7bDL7Xye5ThwVUwecsePlF65pmOW0wDhWWs-hHdX_geLxExF-uHg2ZHRp65rS3Sm51Li0INVK2QyPFQ3yZOAfAstYWXbxXdF7WnxaGJCkmYBk_9BD3zLHpIMCSu_rpOYzXpjPuHT1KWjyhCdnGxHRvcVKQkWUCA8nLgSS4PJOZXuZRkcgTEU_bntv5q0Oy9zvRWwwWv-VhRdPlr8-DCtMy8rVboPwOmTeZ-lPeHZ2CW_SZH6fs06Aho1W4-sRLOFKktYyLbnueeTPJ86_UpWxhWNSjb6_5Wr30zIZWhs5WFnCX_IVIy5EitormH0Y5gFczm7-wImF5zMbZguQIbKrCMicJ4gAIvsJhi0r5segcoiWcBbBGqZy9HXJ5_MTfJK-AJLsJqIGul1qqQ6kE9sNMc_Hd3WL_vhlXFs4NQLfHka5nLpP0yqXcs9NM0pSKpZYGR78hMw5kk2kYbuTjSV9ZIk1Nt_fwfIBxL2y2ybHHND9hIbOcr_pBfQ",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "localhost:3333/category/:categoryId/product/:productId",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "category",
+                ":categoryId",
+                "product",
+                ":productId"
+              ],
+              "variable": [
+                {
+                  "key": "categoryId",
+                  "value": "1"
+                },
+                {
+                  "key": "productId",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "delete Product from Category",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "localhost:3333/category/:categoryId/product/:productId",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "category",
+                    ":categoryId",
+                    "product",
+                    ":productId"
+                  ],
+                  "variable": [
+                    {
+                      "key": "categoryId",
+                      "value": "1"
+                    },
+                    {
+                      "key": "productId",
+                      "value": "1"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "30"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"1e-ckE++kiln451bMFkOxMV9f85y3w\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 20 Feb 2026 14:29:39 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"productId\": 1,\n    \"categoryId\": 1\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "order",
+      "item": [
+        {
+          "name": "CreateOrder",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOnsiaWQiOjF9LCJpYXQiOjE3NzE1OTc1NzAsImV4cCI6MTc3MjIwMjM3MH0.WQAUvO847tz7pjpgNI8-KG_GbVUcODuSriYaIjfYX6QJaOHlSIWzIBbJeo312n6bNnsuOxRiALWFfZg7DvobOua4bILZvZn61qjHfrR_X7syhLDQpOaanrSsGqYLX_fTPHhrVijQQgxgQDtkPErmPUeptUWNesU3T-GOOnvhYmTOaF6EQ9Q7bDL7Xye5ThwVUwecsePlF65pmOW0wDhWWs-hHdX_geLxExF-uHg2ZHRp65rS3Sm51Li0INVK2QyPFQ3yZOAfAstYWXbxXdF7WnxaGJCkmYBk_9BD3zLHpIMCSu_rpOYzXpjPuHT1KWjyhCdnGxHRvcVKQkWUCA8nLgSS4PJOZXuZRkcgTEU_bntv5q0Oy9zvRWwwWv-VhRdPlr8-DCtMy8rVboPwOmTeZ-lPeHZ2CW_SZH6fs06Aho1W4-sRLOFKktYyLbnueeTPJ86_UpWxhWNSjb6_5Wr30zIZWhs5WFnCX_IVIy5EitormH0Y5gFczm7-wImF5zMbZguQIbKrCMicJ4gAIvsJhi0r5segcoiWcBbBGqZy9HXJ5_MTfJK-AJLsJqIGul1qqQ6kE9sNMc_Hd3WL_vhlXFs4NQLfHka5nLpP0yqXcs9NM0pSKpZYGR78hMw5kk2kYbuTjSV9ZIk1Nt_fwfIBxL2y2ybHHND9hIbOcr_pBfQ",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"address\": \"Rua Ronaldo Murth, 53, casa 23\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:3333/order/:userId",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "order",
+                ":userId"
+              ],
+              "variable": [
+                {
+                  "key": "userId",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "CreateOrder",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"address\": \"Rua Ronaldo Murth, 53, casa 23\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "localhost:3333/order/:userId",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "order",
+                    ":userId"
+                  ],
+                  "variable": [
+                    {
+                      "key": "userId",
+                      "value": "1"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "287"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"11f-qJB/4hby5PCwr5Xx+oOXUswDgyI\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 20 Feb 2026 14:27:09 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": "{\n    \"id\": 1,\n    \"time\": \"2026-02-20T14:27:09.185Z\",\n    \"address\": \"Rua Ronaldo Murth, 53, casa 23\",\n    \"rastreio\": \"1347804533\",\n    \"situation\": \"PROCESSING\",\n    \"totalPrice\": 195,\n    \"userId\": 1,\n    \"variants\": [\n        {\n            \"orderId\": 1,\n            \"variantId\": 1,\n            \"quantity\": 5,\n            \"unitPrice\": 25\n        },\n        {\n            \"orderId\": 1,\n            \"variantId\": 3,\n            \"quantity\": 2,\n            \"unitPrice\": 35\n        }\n    ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Read",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOnsiaWQiOjF9LCJpYXQiOjE3NzE1OTc1NzAsImV4cCI6MTc3MjIwMjM3MH0.WQAUvO847tz7pjpgNI8-KG_GbVUcODuSriYaIjfYX6QJaOHlSIWzIBbJeo312n6bNnsuOxRiALWFfZg7DvobOua4bILZvZn61qjHfrR_X7syhLDQpOaanrSsGqYLX_fTPHhrVijQQgxgQDtkPErmPUeptUWNesU3T-GOOnvhYmTOaF6EQ9Q7bDL7Xye5ThwVUwecsePlF65pmOW0wDhWWs-hHdX_geLxExF-uHg2ZHRp65rS3Sm51Li0INVK2QyPFQ3yZOAfAstYWXbxXdF7WnxaGJCkmYBk_9BD3zLHpIMCSu_rpOYzXpjPuHT1KWjyhCdnGxHRvcVKQkWUCA8nLgSS4PJOZXuZRkcgTEU_bntv5q0Oy9zvRWwwWv-VhRdPlr8-DCtMy8rVboPwOmTeZ-lPeHZ2CW_SZH6fs06Aho1W4-sRLOFKktYyLbnueeTPJ86_UpWxhWNSjb6_5Wr30zIZWhs5WFnCX_IVIy5EitormH0Y5gFczm7-wImF5zMbZguQIbKrCMicJ4gAIvsJhi0r5segcoiWcBbBGqZy9HXJ5_MTfJK-AJLsJqIGul1qqQ6kE9sNMc_Hd3WL_vhlXFs4NQLfHka5nLpP0yqXcs9NM0pSKpZYGR78hMw5kk2kYbuTjSV9ZIk1Nt_fwfIBxL2y2ybHHND9hIbOcr_pBfQ",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:3333/order/:userId",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "order",
+                ":userId"
+              ],
+              "variable": [
+                {
+                  "key": "userId",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Read",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "localhost:3333/order/:userId",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "order",
+                    ":userId"
+                  ],
+                  "variable": [
+                    {
+                      "key": "userId",
+                      "value": "1"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "961"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"3c1-gNC8Oq7HuYXPNkmhIzkmmowDR60\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 20 Feb 2026 14:28:02 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": "[\n    {\n        \"id\": 1,\n        \"time\": \"2026-02-20T14:27:09.185Z\",\n        \"address\": \"Rua Ronaldo Murth, 53, casa 23\",\n        \"rastreio\": \"1347804533\",\n        \"situation\": \"PROCESSING\",\n        \"totalPrice\": 195,\n        \"userId\": 1,\n        \"variants\": [\n            {\n                \"orderId\": 1,\n                \"variantId\": 1,\n                \"quantity\": 5,\n                \"unitPrice\": 25,\n                \"variant\": {\n                    \"id\": 1,\n                    \"color\": \"red\",\n                    \"size\": \"M\",\n                    \"stock\": -4,\n                    \"productId\": 1,\n                    \"product\": {\n                        \"id\": 1,\n                        \"name\": \"Vestido\",\n                        \"rating\": 2,\n                        \"price\": 25,\n                        \"SalePrice\": null,\n                        \"numOfReviews\": 15,\n                        \"isOutOfStock\": false,\n                        \"photoUrl\": \"/uploads/photos/1771597484001_camiseta-branca-sem-mangas-camiseta-vista-frontal-em-um-fundo-branco_508835-6731.png\",\n                        \"saleId\": null,\n                        \"collectionId\": 1,\n                        \"description\": \"Vestido básico para uso diário\"\n                    }\n                }\n            },\n            {\n                \"orderId\": 1,\n                \"variantId\": 3,\n                \"quantity\": 2,\n                \"unitPrice\": 35,\n                \"variant\": {\n                    \"id\": 3,\n                    \"color\": \"blue\",\n                    \"size\": \"M\",\n                    \"stock\": 23,\n                    \"productId\": 3,\n                    \"product\": {\n                        \"id\": 3,\n                        \"name\": \"Camisa\",\n                        \"rating\": 4.5,\n                        \"price\": 35,\n                        \"SalePrice\": null,\n                        \"numOfReviews\": 400,\n                        \"isOutOfStock\": false,\n                        \"photoUrl\": null,\n                        \"saleId\": null,\n                        \"collectionId\": 2,\n                        \"description\": \"Camisa básica para uso diário\"\n                    }\n                }\n            }\n        ]\n    }\n]"
+            }
+          ]
+        },
+        {
+          "name": "Update situation",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOnsiaWQiOjF9LCJpYXQiOjE3NzE1MTMyMzQsImV4cCI6MTc3MjExODAzNH0.gEKSiuUOEiCwjxCeUX4IWXtrswbTqzjEqi2-SKDiGTRR9tzapM8JIO-41qfUWqJD9YxxNdnOLdsbdmfGf4D6a9hBuiHAv67llQRjVpj-FNKhw3chR_wwIzxtDVmHd9x6zAZg-PMVbOS1WiEH7DD6fFgVUgYdb1sm5Vz1R3s6uD7vEy1MximGkrNuO6-RP-6-z-CAXEtORDnszhuS3Q8ex75n3w25J-TdJlhJO104M2QiRHWn1zq51x6JL7fpZ2NEfzJ6TwDBNPhRDwpSXbdU5sw56ExBJl5O0fHy4gR-5n-Qd8jKOCP9m79WQsBFxDYAG9CyVqluNdUOsmWu33hB1BedQvqrISqjNSgOsfGve37uxbtrjSLtYJdEfMq_fNmrZIb3zk9RPUSrT7Mjnzr2tMWgvvJ8-nBgl458C5o8YPMOh1SPLjquQ_3TtcKOzK6XmDDypb4SB2VfCIH5BQUDnKd537ofTJdVa9PJUFOemVP6ksRgZhPrdJ6fzkUuCiN-VVEXbHjOOxmIz_bLFReVXd46mWelgM5gefavLb2IOViwKiiv8quNMqc-WdOFdRsWUcvYgnZL60wUpMayfAmnXkD-kz45eVpZbss7kpwIRKFQxGhjrlmPvFrD9y_uD3ULEjJZrg9pmfvK8Pm262G25z1GBCBdxjOXsyzuQPMJEws",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"situation\": \"SHIPPED\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:3333/order/:userId",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "order",
+                ":userId"
+              ],
+              "variable": [
+                {
+                  "key": "userId",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Update situation",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"situation\": \"SHIPPED\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "localhost:3333/order/:userId",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "order",
+                    ":userId"
+                  ],
+                  "variable": [
+                    {
+                      "key": "userId",
+                      "value": "1"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "159"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"9f-621vO31NDS6V7kr31ZRFIKsb5KQ\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 20 Feb 2026 14:28:28 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": "{\n    \"id\": 1,\n    \"time\": \"2026-02-20T14:27:09.185Z\",\n    \"address\": \"Rua Ronaldo Murth, 53, casa 23\",\n    \"rastreio\": \"1347804533\",\n    \"situation\": \"SHIPPED\",\n    \"totalPrice\": 195,\n    \"userId\": 1\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "cart",
+      "item": [
+        {
+          "name": "add variant to cart",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOnsiaWQiOjJ9LCJpYXQiOjE3NzEzNzQ1MjYsImV4cCI6MTc3MTk3OTMyNn0.d5Ycyb8HCFg4Aq3XKfW7wRWhbhWJ1BvkYwdFROOyl3hcjTOLvNbP2UYPzUxER4WuVvVNcAJvfPugM5F9WgZ54tbRJx6TeNbpvTzwxNJdAzq2iIYvbrjhdQA-LpByT--QIDziO8OK8UK_9bE_0HjefVEdPq2n2x6nZ0IMlsIpo_tPsjoExzNHuQ9AN3zba517CO506wQWy3aDxQCvRS75gIRZVne1lyvvs-3dqlYS4cCr8F5fMM37ZFFXP4Pjv-uGaT4bSBfOffNs9muSgLPYOpYvIfBPZn3w5PpJQfjcvWA7Z1Y5geoY535DziJCnujvxUjhSmWXY69QkLBOE0fe5wINvNhiEEEhctOl3ewSIuFBW1t3G78D34JosuYGV2DY_iO7km_364Gv-jzQTwx55_gJVSzbpRgr4bP_1hO9lHsuKs6N0pTy9WHvA5SjHCNQwu4W48h3VwHR47dj33-k4bxnALBqbkk6j2Qd3-MiBRYQ-392yBuXRCIh_64WLkkc_o1ZbZmsG84kEHEb2NV5fc0Ea4Q0VSl50fzqXMY85XkPE6H8U6IsZqmoz5azGZNxHebNNDjdfUDqmg5P6O6H6X3jHrrperunlRpdQd1KdAO7vFMHlLU0y1rhlbRiJUYFmm3i_41bbTX6O-0wthY2CwjXN_korMahtgm2_f8e_to",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"variantId\": 1\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:3333/cart/:userId",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "cart",
+                ":userId"
+              ],
+              "variable": [
+                {
+                  "key": "userId",
+                  "value": "2"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "add variant to cart",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"variantId\": 2\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "localhost:3333/cart/:userId",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "cart",
+                    ":userId"
+                  ],
+                  "variable": [
+                    {
+                      "key": "userId",
+                      "value": "1"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "439"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"1b7-Jly+KIDMPU7/MVCeREUqtB/h58U\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 20 Feb 2026 13:17:22 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": "{\n    \"id\": 1,\n    \"subtotal\": 200,\n    \"savings\": 0,\n    \"shipping\": 0,\n    \"tax\": 0,\n    \"promoCode\": null,\n    \"totalCost\": 200,\n    \"userId\": 1,\n    \"cartVariants\": [\n        {\n            \"cartId\": 1,\n            \"variantId\": 2,\n            \"quantity\": 2,\n            \"variant\": {\n                \"id\": 2,\n                \"color\": \"red\",\n                \"size\": \"M\",\n                \"stock\": 3,\n                \"productId\": 2,\n                \"product\": {\n                    \"id\": 2,\n                    \"name\": \"Vestido\",\n                    \"rating\": 5,\n                    \"price\": 100,\n                    \"SalePrice\": null,\n                    \"numOfReviews\": 10,\n                    \"isOutOfStock\": false,\n                    \"photoUrl\": null,\n                    \"saleId\": null,\n                    \"collectionId\": null,\n                    \"description\": \"Vestido básico para uso diário\"\n                }\n            }\n        }\n    ]\n}"
+            },
+            {
+              "name": "add variant to cart",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"variantId\": 2\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "localhost:3333/cart/:userId",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "cart",
+                    ":userId"
+                  ],
+                  "variable": [
+                    {
+                      "key": "userId",
+                      "value": "1"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "439"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"1b7-AeIyONegNVsgZ89AbZanXtwNjI8\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 20 Feb 2026 13:17:40 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": "{\n    \"id\": 1,\n    \"subtotal\": 300,\n    \"savings\": 0,\n    \"shipping\": 0,\n    \"tax\": 0,\n    \"promoCode\": null,\n    \"totalCost\": 300,\n    \"userId\": 1,\n    \"cartVariants\": [\n        {\n            \"cartId\": 1,\n            \"variantId\": 2,\n            \"quantity\": 3,\n            \"variant\": {\n                \"id\": 2,\n                \"color\": \"red\",\n                \"size\": \"M\",\n                \"stock\": 3,\n                \"productId\": 2,\n                \"product\": {\n                    \"id\": 2,\n                    \"name\": \"Vestido\",\n                    \"rating\": 5,\n                    \"price\": 100,\n                    \"SalePrice\": null,\n                    \"numOfReviews\": 10,\n                    \"isOutOfStock\": false,\n                    \"photoUrl\": null,\n                    \"saleId\": null,\n                    \"collectionId\": null,\n                    \"description\": \"Vestido básico para uso diário\"\n                }\n            }\n        }\n    ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "remove variant from cart",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOnsiaWQiOjF9LCJpYXQiOjE3NzE1OTM0MTQsImV4cCI6MTc3MjE5ODIxNH0.RMtJkm0jSPsQaB-Iqt4QZHjGDzsD8J_WEI8TPaX6EeDIPWP1mO9-ymg_Zz_EaGg4Xukh9TQsklNA61EFLaXIudZNJ74njNWwPY1TKT3wpTteXlc0nc3wFPBRUajt_5r1cqHT5BsD8DXtwQ980pHBWFLz4nrON6r2_FMcRXzIL1qfuFUF7wYEFeF1XG1NHb3ghGZNNyvUhEx3akAHKL5wtkMpFUIpUmAnyZjt_BjAbafp58Tdo5CVerQedY5eT5D7teEyLgMwxcnt119hEx3RHQbQYgvkKt3Zu5bE28XqUmsRudLc9TiF_Rt9pXZfzbT0KzeOcoi62iz2o--WjjIA1v4gQdNiLp97_TkWfP0gpQPWtPtMj_jKCG7ceE2uLK_IgynDdUYq8nPiVNEGQIVxOB8spz13WqefJj42ji0VKuRi-NBWldEu8DOsHbD2h0CSWXgP0s3mZ8sNla3v3MoJ7jrjGpIAhM2uAaK3YlMTKwm4rNEAugwdz68cERyewQ7EpNCsX3isgzceWr3R0Zg15jjrYkibiXpSWfE994JxI_Yz467G5M4OuMIhN7Pz3RNSr8i7Wb1VcJ2uRcjyp6iF7egQXVCuY0G3WRhnfGlEAZuxMl8hraBE7pSD9t9m7LxfvNwxag7s2aOAd812bavR5vAufeqlcOizAParPpW7k8c",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"variantId\": 2\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:3333/cart/:userId",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "cart",
+                ":userId"
+              ],
+              "variable": [
+                {
+                  "key": "userId",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "remove variant from cart",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"variantId\": 2\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "localhost:3333/cart/:userId",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "cart",
+                    ":userId"
+                  ],
+                  "variable": [
+                    {
+                      "key": "userId",
+                      "value": "1"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "114"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"72-H9fCxWf6iBHCWOXwuapyxnpNohw\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 20 Feb 2026 13:18:11 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": "{\n    \"id\": 1,\n    \"subtotal\": 0,\n    \"savings\": 0,\n    \"shipping\": 0,\n    \"tax\": 0,\n    \"promoCode\": null,\n    \"totalCost\": 0,\n    \"userId\": 1,\n    \"cartVariants\": []\n}"
+            }
+          ]
+        },
+        {
+          "name": "get cart",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOnsiaWQiOjF9LCJpYXQiOjE3NzE1OTM0MTQsImV4cCI6MTc3MjE5ODIxNH0.RMtJkm0jSPsQaB-Iqt4QZHjGDzsD8J_WEI8TPaX6EeDIPWP1mO9-ymg_Zz_EaGg4Xukh9TQsklNA61EFLaXIudZNJ74njNWwPY1TKT3wpTteXlc0nc3wFPBRUajt_5r1cqHT5BsD8DXtwQ980pHBWFLz4nrON6r2_FMcRXzIL1qfuFUF7wYEFeF1XG1NHb3ghGZNNyvUhEx3akAHKL5wtkMpFUIpUmAnyZjt_BjAbafp58Tdo5CVerQedY5eT5D7teEyLgMwxcnt119hEx3RHQbQYgvkKt3Zu5bE28XqUmsRudLc9TiF_Rt9pXZfzbT0KzeOcoi62iz2o--WjjIA1v4gQdNiLp97_TkWfP0gpQPWtPtMj_jKCG7ceE2uLK_IgynDdUYq8nPiVNEGQIVxOB8spz13WqefJj42ji0VKuRi-NBWldEu8DOsHbD2h0CSWXgP0s3mZ8sNla3v3MoJ7jrjGpIAhM2uAaK3YlMTKwm4rNEAugwdz68cERyewQ7EpNCsX3isgzceWr3R0Zg15jjrYkibiXpSWfE994JxI_Yz467G5M4OuMIhN7Pz3RNSr8i7Wb1VcJ2uRcjyp6iF7egQXVCuY0G3WRhnfGlEAZuxMl8hraBE7pSD9t9m7LxfvNwxag7s2aOAd812bavR5vAufeqlcOizAParPpW7k8c",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:3333/cart/:userId",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "cart",
+                ":userId"
+              ],
+              "variable": [
+                {
+                  "key": "userId",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "get cart",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "localhost:3333/cart/:userId",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "cart",
+                    ":userId"
+                  ],
+                  "variable": [
+                    {
+                      "key": "userId",
+                      "value": "1"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "114"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"72-H9fCxWf6iBHCWOXwuapyxnpNohw\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 20 Feb 2026 13:18:37 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": "{\n    \"id\": 1,\n    \"subtotal\": 0,\n    \"savings\": 0,\n    \"shipping\": 0,\n    \"tax\": 0,\n    \"promoCode\": null,\n    \"totalCost\": 0,\n    \"userId\": 1,\n    \"cartVariants\": []\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Wishlist",
+      "item": [
+        {
+          "name": "add Product",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOnsiaWQiOjF9LCJpYXQiOjE3NzE1OTM0MTQsImV4cCI6MTc3MjE5ODIxNH0.RMtJkm0jSPsQaB-Iqt4QZHjGDzsD8J_WEI8TPaX6EeDIPWP1mO9-ymg_Zz_EaGg4Xukh9TQsklNA61EFLaXIudZNJ74njNWwPY1TKT3wpTteXlc0nc3wFPBRUajt_5r1cqHT5BsD8DXtwQ980pHBWFLz4nrON6r2_FMcRXzIL1qfuFUF7wYEFeF1XG1NHb3ghGZNNyvUhEx3akAHKL5wtkMpFUIpUmAnyZjt_BjAbafp58Tdo5CVerQedY5eT5D7teEyLgMwxcnt119hEx3RHQbQYgvkKt3Zu5bE28XqUmsRudLc9TiF_Rt9pXZfzbT0KzeOcoi62iz2o--WjjIA1v4gQdNiLp97_TkWfP0gpQPWtPtMj_jKCG7ceE2uLK_IgynDdUYq8nPiVNEGQIVxOB8spz13WqefJj42ji0VKuRi-NBWldEu8DOsHbD2h0CSWXgP0s3mZ8sNla3v3MoJ7jrjGpIAhM2uAaK3YlMTKwm4rNEAugwdz68cERyewQ7EpNCsX3isgzceWr3R0Zg15jjrYkibiXpSWfE994JxI_Yz467G5M4OuMIhN7Pz3RNSr8i7Wb1VcJ2uRcjyp6iF7egQXVCuY0G3WRhnfGlEAZuxMl8hraBE7pSD9t9m7LxfvNwxag7s2aOAd812bavR5vAufeqlcOizAParPpW7k8c",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"productId\": 2\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:3333/user/:id/wishlist/add",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "user",
+                ":id",
+                "wishlist",
+                "add"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "add Product",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"productId\": 2\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "localhost:3333/user/:id/wishlist/add",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "user",
+                    ":id",
+                    "wishlist",
+                    "add"
+                  ],
+                  "variable": [
+                    {
+                      "key": "id",
+                      "value": "1"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "289"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"121-ri6stFxlZRVkpQSiVNWFbsMLHBE\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 20 Feb 2026 13:19:42 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": "{\n    \"id\": 1,\n    \"quantity\": 1,\n    \"userId\": 1,\n    \"product\": [\n        {\n            \"wishlistId\": 1,\n            \"productId\": 2,\n            \"product\": {\n                \"id\": 2,\n                \"name\": \"Vestido\",\n                \"rating\": 5,\n                \"price\": 100,\n                \"SalePrice\": null,\n                \"numOfReviews\": 10,\n                \"isOutOfStock\": false,\n                \"photoUrl\": null,\n                \"saleId\": null,\n                \"collectionId\": null,\n                \"description\": \"Vestido básico para uso diário\"\n            }\n        }\n    ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "del Product",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOnsiaWQiOjF9LCJpYXQiOjE3NzE1OTM0MTQsImV4cCI6MTc3MjE5ODIxNH0.RMtJkm0jSPsQaB-Iqt4QZHjGDzsD8J_WEI8TPaX6EeDIPWP1mO9-ymg_Zz_EaGg4Xukh9TQsklNA61EFLaXIudZNJ74njNWwPY1TKT3wpTteXlc0nc3wFPBRUajt_5r1cqHT5BsD8DXtwQ980pHBWFLz4nrON6r2_FMcRXzIL1qfuFUF7wYEFeF1XG1NHb3ghGZNNyvUhEx3akAHKL5wtkMpFUIpUmAnyZjt_BjAbafp58Tdo5CVerQedY5eT5D7teEyLgMwxcnt119hEx3RHQbQYgvkKt3Zu5bE28XqUmsRudLc9TiF_Rt9pXZfzbT0KzeOcoi62iz2o--WjjIA1v4gQdNiLp97_TkWfP0gpQPWtPtMj_jKCG7ceE2uLK_IgynDdUYq8nPiVNEGQIVxOB8spz13WqefJj42ji0VKuRi-NBWldEu8DOsHbD2h0CSWXgP0s3mZ8sNla3v3MoJ7jrjGpIAhM2uAaK3YlMTKwm4rNEAugwdz68cERyewQ7EpNCsX3isgzceWr3R0Zg15jjrYkibiXpSWfE994JxI_Yz467G5M4OuMIhN7Pz3RNSr8i7Wb1VcJ2uRcjyp6iF7egQXVCuY0G3WRhnfGlEAZuxMl8hraBE7pSD9t9m7LxfvNwxag7s2aOAd812bavR5vAufeqlcOizAParPpW7k8c",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"productId\": 2\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:3333/user/:id/wishlist/del",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "user",
+                ":id",
+                "wishlist",
+                "del"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "del Product",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"productId\": 2\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "localhost:3333/user/:id/wishlist/del",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "user",
+                    ":id",
+                    "wishlist",
+                    "del"
+                  ],
+                  "variable": [
+                    {
+                      "key": "id",
+                      "value": "1"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "299"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"12b-FPSntVtQtGMHVSDPqJ0Cp7Q3gbA\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 20 Feb 2026 13:21:48 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": "{\n    \"result\": {\n        \"id\": 1,\n        \"quantity\": 1,\n        \"userId\": 1,\n        \"product\": [\n            {\n                \"wishlistId\": 1,\n                \"productId\": 3,\n                \"product\": {\n                    \"id\": 3,\n                    \"name\": \"Calça\",\n                    \"rating\": 2.4,\n                    \"price\": 120,\n                    \"SalePrice\": null,\n                    \"numOfReviews\": 2,\n                    \"isOutOfStock\": false,\n                    \"photoUrl\": null,\n                    \"saleId\": null,\n                    \"collectionId\": null,\n                    \"description\": \"Calça básico para uso diário\"\n                }\n            }\n        ]\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "read",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOnsiaWQiOjF9LCJpYXQiOjE3NzE1OTM0MTQsImV4cCI6MTc3MjE5ODIxNH0.RMtJkm0jSPsQaB-Iqt4QZHjGDzsD8J_WEI8TPaX6EeDIPWP1mO9-ymg_Zz_EaGg4Xukh9TQsklNA61EFLaXIudZNJ74njNWwPY1TKT3wpTteXlc0nc3wFPBRUajt_5r1cqHT5BsD8DXtwQ980pHBWFLz4nrON6r2_FMcRXzIL1qfuFUF7wYEFeF1XG1NHb3ghGZNNyvUhEx3akAHKL5wtkMpFUIpUmAnyZjt_BjAbafp58Tdo5CVerQedY5eT5D7teEyLgMwxcnt119hEx3RHQbQYgvkKt3Zu5bE28XqUmsRudLc9TiF_Rt9pXZfzbT0KzeOcoi62iz2o--WjjIA1v4gQdNiLp97_TkWfP0gpQPWtPtMj_jKCG7ceE2uLK_IgynDdUYq8nPiVNEGQIVxOB8spz13WqefJj42ji0VKuRi-NBWldEu8DOsHbD2h0CSWXgP0s3mZ8sNla3v3MoJ7jrjGpIAhM2uAaK3YlMTKwm4rNEAugwdz68cERyewQ7EpNCsX3isgzceWr3R0Zg15jjrYkibiXpSWfE994JxI_Yz467G5M4OuMIhN7Pz3RNSr8i7Wb1VcJ2uRcjyp6iF7egQXVCuY0G3WRhnfGlEAZuxMl8hraBE7pSD9t9m7LxfvNwxag7s2aOAd812bavR5vAufeqlcOizAParPpW7k8c",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "localhost:3333/user/:id/wishlist",
+              "host": [
+                "localhost"
+              ],
+              "port": "3333",
+              "path": [
+                "user",
+                ":id",
+                "wishlist"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "read",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "localhost:3333/user/:id/wishlist",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3333",
+                  "path": [
+                    "user",
+                    ":id",
+                    "wishlist"
+                  ],
+                  "variable": [
+                    {
+                      "key": "id",
+                      "value": "1"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "288"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"120-PW6rJqG8simeHKDS1gEzfI9loOw\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 20 Feb 2026 13:22:32 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": "{\n    \"id\": 1,\n    \"quantity\": 1,\n    \"userId\": 1,\n    \"product\": [\n        {\n            \"wishlistId\": 1,\n            \"productId\": 3,\n            \"product\": {\n                \"id\": 3,\n                \"name\": \"Calça\",\n                \"rating\": 2.4,\n                \"price\": 120,\n                \"SalePrice\": null,\n                \"numOfReviews\": 2,\n                \"isOutOfStock\": false,\n                \"photoUrl\": null,\n                \"saleId\": null,\n                \"collectionId\": null,\n                \"description\": \"Calça básico para uso diário\"\n            }\n        }\n    ]\n}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
