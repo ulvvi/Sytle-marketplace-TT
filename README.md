@@ -58,7 +58,3 @@ cd ..
 cd front
 npm run dev
 ```
-
-
-## Arquitetura
-- [Figma](https://www.figma.com/design/JIYx2W0f7qp0Y0sfNTtu36/Trabalho-final---TT-2025.2?node-id=0-1&p=f&t=UpddBrdwlc9SgPvH-0)
