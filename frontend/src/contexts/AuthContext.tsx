@@ -68,6 +68,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
             const dadosReais = userResponse.data;
             setUser(dadosReais);
             localStorage.setItem('styleUserData', JSON.stringify(dadosReais));
+            localStorage.setItem('styleUserId', dadosReais.id)
 
         } catch (erroGet: any) {
             console.error("Erro obtido: ", erroGet.response?.data);
